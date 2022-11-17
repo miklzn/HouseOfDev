@@ -1,5 +1,5 @@
 {
-  "name": "proyecto-integrador-back",
+  "name": "houseofdev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miklzn/Proyecto-Integrador-BACK.git"
+    "url": "git+https://github.com/miklzn/HouseOfDev.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/miklzn/Proyecto-Integrador-BACK/issues"
+    "url": "https://github.com/miklzn/HouseOfDev/issues"
   },
-  "homepage": "https://github.com/miklzn/Proyecto-Integrador-BACK#readme",
+  "homepage": "https://github.com/miklzn/HouseOfDev#readme",
   "dependencies": {
     "express": "^4.18.2",
     "morgan": "^1.10.0",
