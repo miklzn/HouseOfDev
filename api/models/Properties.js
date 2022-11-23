@@ -1,9 +1,9 @@
 const S = require("sequelize");
 const db = require("../config/db");
 
-class Property extends S.Model {}
+class Properties extends S.Model {}
 
-Property.init(
+Properties.init(
   {
     title: {
       type: S.STRING,
@@ -69,4 +69,4 @@ Property.init(
   }
 );
 
-module.exports = Property;
+module.exports = Properties;

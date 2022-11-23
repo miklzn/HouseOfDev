@@ -5,9 +5,11 @@ const volleyball = require("volleyball");
 const db = require("./config/db");
 const models = require("./models");
 const routes = require("./routes");
+const cors = require("cors");
 
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cors());
 app.use("/api", routes);
 
 db.sync({ force: false })
