@@ -41,9 +41,6 @@ Properties.init(
     bathrooms: {
       type: S.INTEGER,
     },
-    squaremeters: {
-      type: S.INTEGER,
-    },
     environments: {
       type: S.INTEGER,
     },

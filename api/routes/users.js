@@ -1,5 +1,6 @@
 const express = require("express");
 const { generateToken } = require("../config/token");
+const { validateAuth } = require("../middlewares/auth");
 const router = express.Router();
 const Users = require("../models/Users");
 
@@ -25,9 +26,11 @@ router.post("/login", (req, res) => {
       if (!isValid) return res.sendStatus(401);
 
       const payload = {
+        id: user.id,
         email: user.email,
         name: user.name,
         lastName: user.lastName,
+        admin: user.admin,
       };
 
       const token = generateToken(payload);
@@ -37,6 +40,12 @@ router.post("/login", (req, res) => {
       res.send(payload);
     });
   });
+});
+
+//http://localhost:3001/api/users/me
+
+router.get("/me", validateAuth, (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;

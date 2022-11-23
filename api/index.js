@@ -6,9 +6,11 @@ const db = require("./config/db");
 const models = require("./models");
 const routes = require("./routes");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
 app.use("/api", routes);
 

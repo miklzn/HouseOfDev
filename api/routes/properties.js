@@ -14,9 +14,20 @@ router.post("/create", validateAdmin, (req, res) => {
 //http://localhost:3001/api/properties/change/:id
 
 router.put("/change/:id", validateAdmin, (req, res) => {
-  Properties.findOne(req.body.id).then((property) => {
-    res.status(201).send(property);
-  });
+  const id = req.params.id;
+  Properties.findByPk(id)
+    .then((property) => property.update(req.body))
+    .then((propertyUpdated) => res.status(201).send(propertyUpdated))
+    .catch((err) => res.status(400).send(err));
+});
+
+//http://localhost:3001/api/properties/:id
+
+router.delete("/:id", validateAdmin, (req, res) => {
+  const id = req.params.id;
+  Properties.destroy({ where: { id } })
+    .then(() => res.status(204).send("Propiedad eliminada"))
+    .catch((err) => res.status(400).send(err));
 });
 
 module.exports = router;
