@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,12 +12,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/api/users/login", {
-        email: email,
-        password: password,
-      })
+      .post(
+        "http://localhost:3001/api/users/login",
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true }
+      )
       .then((res) => console.log(res.data))
-      //alert("ok")
+
       .then(() => navigate("/home"))
       .catch((error) => console.log(error));
   };
@@ -31,16 +36,25 @@ const Login = () => {
 
   return (
     <div className="layout m-5">
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input email={email} onChange={handleChangeEmail} />
-        <br />
-        <label>Password:</label>
+      <form className="centerForm" onSubmit={handleSubmit}>
+        <label></label>
         <input
+          className="inputStyle"
+          placeholder="Email"
+          email={email}
+          onChange={handleChangeEmail}
+        />
+        <br />
+        <br />
+        <label></label>
+        <input
+          className="inputStyle"
+          placeholder="Password"
           password={password}
           onChange={handleChangePassword}
           type="password"
         />
+        <br />
         <br />
         <button>LogIn</button>
       </form>

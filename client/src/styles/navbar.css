@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
+
+.navbarColor {
+  background-color: #fe4236;
+}
+.buttons {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #f7f3ee;
+}
+.buttons:hover {
+  color: #ede6db;
+}

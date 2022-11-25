@@ -1,0 +1,12 @@
+.centerForm {
+  background-color: rgb(227, 222, 222);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.inputStyle {
+  border-radius: 10px;
+  margin: 0 auto;
+}

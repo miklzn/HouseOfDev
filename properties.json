@@ -1,0 +1,36 @@
+[
+  {
+    "title": "",
+    "addres": "",
+    "city": "",
+    "country": "",
+    "state": "",
+    "description": "",
+    "available": true,
+    "garage": true,
+    "rooms": 0,
+    "bathrooms": 0,
+    "environments": 0,
+    "category": "",
+    "operation": "",
+    "price": "",
+    "image": ""
+  },
+  {
+    "title": "",
+    "addres": "",
+    "city": "",
+    "country": "",
+    "state": "",
+    "description": "",
+    "available": true,
+    "garage": true,
+    "rooms": 0,
+    "bathrooms": 0,
+    "environments": 0,
+    "category": "",
+    "operation": "",
+    "price": "",
+    "image": ""
+  }
+]
