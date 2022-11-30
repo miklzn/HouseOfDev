@@ -56,7 +56,7 @@ const Login = () => {
         />
         <br />
         <br />
-        <button>LogIn</button>
+        <button>Login</button>
       </form>
     </div>
   );

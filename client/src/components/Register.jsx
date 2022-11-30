@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -67,34 +68,71 @@ const Register = () => {
 
   return (
     <div className="layout m-5">
-      <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input name={name} onChange={handleChangeName} />
-        <br />
-        <label>Last Name:</label>
-        <input lastName={lastName} onChange={handleChangeLastName} />
-        <br />
-        <label>Email:</label>
-        <input email={email} onChange={handleChangeEmail} />
-        <br />
-        <label>Password:</label>
+      <form className="centerForm" onSubmit={handleSubmit}>
+        <label></label>
         <input
+          className="inputStyle"
+          name={name}
+          onChange={handleChangeName}
+          placeholder="Name"
+        />
+        <br />
+        <label></label>
+        <input
+          className="inputStyle"
+          lastName={lastName}
+          onChange={handleChangeLastName}
+          placeholder="Last Name"
+        />
+        <br />
+        <label></label>
+        <input
+          className="inputStyle"
+          email={email}
+          onChange={handleChangeEmail}
+          placeholder="Email"
+        />
+        <br />
+        <label></label>
+        <input
+          className="inputStyle"
           password={password}
           onChange={handleChangePassword}
           type="password"
+          placeholder="Password"
         />
         <br />
-        <label>City:</label>
-        <input city={city} onChange={handleChangeCity} />
+        <label></label>
+        <input
+          className="inputStyle"
+          city={city}
+          onChange={handleChangeCity}
+          placeholder="City"
+        />
         <br />
-        <label>Country:</label>
-        <input country={country} onChange={handleChangeCountry} />
+        <label></label>
+        <input
+          className="inputStyle"
+          country={country}
+          onChange={handleChangeCountry}
+          placeholder="Country"
+        />
         <br />
-        <label>State:</label>
-        <input state={state} onChange={handleChangeState} />
+        <label></label>
+        <input
+          className="inputStyle"
+          state={state}
+          onChange={handleChangeState}
+          placeholder="State"
+        />
         <br />
-        <label>Phone:</label>
-        <input phone={phone} onChange={handleChangePhone} />
+        <label></label>
+        <input
+          className="inputStyle"
+          phone={phone}
+          onChange={handleChangePhone}
+          placeholder="Phone"
+        />
         <br />
         <button>SingUp</button>
       </form>

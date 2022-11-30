@@ -30,4 +30,21 @@ router.delete("/:id", validateAdmin, (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
+//http://localhost:3001/api/properties/all
+
+router.get("/all", (req, res) => {
+  Properties.findAll().then((property) => {
+    res.status(200).send(property);
+  });
+});
+
+//http://localhost:3001/api/properties/:id
+
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  Properties.findOne({ where: { id } }).then((property) => {
+    res.status(200).send(property);
+  });
+});
+
 module.exports = router;
