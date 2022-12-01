@@ -26,8 +26,10 @@ const Property = () => {
           <h1> {property.title}</h1>
           <img src={property.image} alt="Imagen" />
 
+          <button>
+            <Link to={`/properties/change/${id}`}>Editar Propiedad</Link>
+          </button>
           <button>Agregar Propiedad</button>
-          <button>Editar Propiedad</button>
         </div>
       ) : (
         <div>

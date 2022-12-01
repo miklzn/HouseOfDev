@@ -1,3 +1,8 @@
+import React from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userLogout } from "../store/user";
+import { Navigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,6 +12,21 @@ import Button from "react-bootstrap/esm/Button";
 import "../styles/navbar.css";
 
 function NavbarView() {
+  const dispatch = useDispatch();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:3001/api/users/logout",
+        {},
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(userLogout(res.data)));
+
+    return <Navigate to="/" />;
+  };
+
   return (
     <Navbar className="color-nav" expand="lg">
       <Container>
@@ -30,6 +50,9 @@ function NavbarView() {
             </NavDropdown>
             <Button href="/login" variant="outline-light ">
               Iniciar Sesion
+            </Button>
+            <Button onClick={handleLogout} href="/all" variant="outline-light ">
+              Cerrar Sesion
             </Button>
           </Nav>
         </Navbar.Collapse>

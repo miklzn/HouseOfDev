@@ -71,67 +71,82 @@ const Register = () => {
       <form className="centerForm" onSubmit={handleSubmit}>
         <label></label>
         <input
+          required
           className="inputStyle"
           name={name}
           onChange={handleChangeName}
           placeholder="Name"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           lastName={lastName}
           onChange={handleChangeLastName}
           placeholder="Last Name"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          requiered
           className="inputStyle"
           email={email}
           onChange={handleChangeEmail}
           placeholder="Email"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           password={password}
           onChange={handleChangePassword}
-          type="password"
           placeholder="Password"
+          type="password"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           city={city}
           onChange={handleChangeCity}
           placeholder="City"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           country={country}
           onChange={handleChangeCountry}
           placeholder="Country"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           state={state}
           onChange={handleChangeState}
           placeholder="State"
+          type="text"
         />
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
           phone={phone}
           onChange={handleChangePhone}
           placeholder="Phone"
+          type="tel"
         />
         <br />
         <button>SingUp</button>
