@@ -7,9 +7,11 @@ import NavbarView from "./components/Navbar";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
-import All from "./components/All";
+import Home from "./components/Home";
 import Property from "./components/Property";
 import UpdateProperty from "./components/UpdateProperty";
+import DeleteProperty from "./components/DeleteProperty";
+import PanelAdmin from "./components/PanelAdmin";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,12 +27,14 @@ const App = () => {
     <>
       <NavbarView />
       <Routes>
-        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/properties/create" element={<NewProperty />} />
-        <Route path="/properties/all" element={<All />} />
         <Route path="/properties/:id" element={<Property />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
+        <Route path="/properties/delete/:id" element={<DeleteProperty />} />
+        <Route path="/panelAdmin" element={<PanelAdmin />} />
       </Routes>
     </>
   );

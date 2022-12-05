@@ -84,14 +84,14 @@ const Login = () => {
         <input
           required
           className="inputStyle"
-          placeholder="Password"
+          placeholder="Contraseña"
           password={password}
           onChange={handleChangePassword}
           type="password"
         />
         <br />
         <br />
-        <button>Login</button>
+        <button>Iniciar Sesion</button>
       </form>
     </div>
   );

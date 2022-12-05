@@ -116,8 +116,10 @@ const NewProperty = () => {
       <form className="centerForm" onSubmit={handleSubmit}>
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Title"
+          placeholder="Titulo"
           title={title}
           onChange={handleChangeTitle}
         />
@@ -125,8 +127,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Adress"
+          placeholder="Direccion"
           adress={adress}
           onChange={handleChangeAdress}
         />
@@ -134,8 +138,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="City"
+          placeholder="Ciudad"
           city={city}
           onChange={handleChangeCity}
         />
@@ -143,8 +149,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Country"
+          placeholder="Pais"
           country={country}
           onChange={handleChangeCountry}
         />
@@ -152,8 +160,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="State"
+          placeholder="Provincia"
           state={state}
           onChange={handleChangeState}
         />
@@ -161,8 +171,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Description"
+          placeholder="Descripcion"
           description={description}
           onChange={handleChangeDescription}
         />
@@ -170,8 +182,9 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
-          placeholder="Available"
+          placeholder="Disponible"
           available={available}
           onChange={handleChangeAvailable}
         />
@@ -179,8 +192,9 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
-          placeholder="Garage"
+          placeholder="Cochera"
           garage={garage}
           onChange={handleChangeGarage}
         />
@@ -188,8 +202,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="number"
           className="inputStyle"
-          placeholder="Rooms"
+          placeholder="Habitaciones"
           rooms={rooms}
           onChange={handleChangeRooms}
         />
@@ -197,8 +213,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="number"
           className="inputStyle"
-          placeholder="Bathrooms"
+          placeholder="Baños"
           bathrooms={bathrooms}
           onChange={handleChangeBathrooms}
         />
@@ -206,8 +224,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="number"
           className="inputStyle"
-          placeholder="Environments"
+          placeholder="Ambientes"
           environments={environments}
           onChange={handleChangeEnvironments}
         />
@@ -215,8 +235,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Category"
+          placeholder="Categoria"
           category={category}
           onChange={handleChangeCategory}
         />
@@ -224,8 +246,10 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
+          type="text"
           className="inputStyle"
-          placeholder="Operation"
+          placeholder="Operacion"
           operation={operation}
           onChange={handleChangeOperation}
         />
@@ -233,8 +257,9 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
-          placeholder="Price"
+          placeholder="Precio"
           price={price}
           onChange={handleChangePrice}
         />
@@ -242,14 +267,15 @@ const NewProperty = () => {
         <br />
         <label></label>
         <input
+          required
           className="inputStyle"
-          placeholder="Image"
+          placeholder="Imagen"
           image={image}
           onChange={handleChangeImage}
         />
         <br />
         <br />
-        <button>Create</button>
+        <button>Crear</button>
       </form>
     </div>
   );

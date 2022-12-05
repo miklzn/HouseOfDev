@@ -75,7 +75,7 @@ const Register = () => {
           className="inputStyle"
           name={name}
           onChange={handleChangeName}
-          placeholder="Name"
+          placeholder="Nombre"
           type="text"
         />
         <br />
@@ -85,7 +85,7 @@ const Register = () => {
           className="inputStyle"
           lastName={lastName}
           onChange={handleChangeLastName}
-          placeholder="Last Name"
+          placeholder="Apellido"
           type="text"
         />
         <br />
@@ -105,7 +105,7 @@ const Register = () => {
           className="inputStyle"
           password={password}
           onChange={handleChangePassword}
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
         />
         <br />
@@ -115,7 +115,7 @@ const Register = () => {
           className="inputStyle"
           city={city}
           onChange={handleChangeCity}
-          placeholder="City"
+          placeholder="Ciudad"
           type="text"
         />
         <br />
@@ -125,7 +125,7 @@ const Register = () => {
           className="inputStyle"
           country={country}
           onChange={handleChangeCountry}
-          placeholder="Country"
+          placeholder="Pais"
           type="text"
         />
         <br />
@@ -135,7 +135,7 @@ const Register = () => {
           className="inputStyle"
           state={state}
           onChange={handleChangeState}
-          placeholder="State"
+          placeholder="Provincia"
           type="text"
         />
         <br />
@@ -145,11 +145,11 @@ const Register = () => {
           className="inputStyle"
           phone={phone}
           onChange={handleChangePhone}
-          placeholder="Phone"
+          placeholder="Telefono"
           type="tel"
         />
         <br />
-        <button>SingUp</button>
+        <button>Registrar</button>
       </form>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { userLogout } from "../store/user";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -13,6 +13,7 @@ import "../styles/navbar.css";
 
 function NavbarView() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -22,15 +23,16 @@ function NavbarView() {
         {},
         { withCredentials: true }
       )
-      .then((res) => dispatch(userLogout(res.data)));
-
-    return <Navigate to="/" />;
+      .then((res) => dispatch(userLogout(res.data)))
+      .then(() => navigate("/login"));
   };
 
   return (
     <Navbar className="color-nav" expand="lg">
       <Container>
-        <Navbar.Brand img={logo} alt="HouseOfDev"></Navbar.Brand>
+        <Navbar.Brand>
+          <img src={logo} href="/home" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -48,62 +50,28 @@ function NavbarView() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Contacto</NavDropdown.Item>
             </NavDropdown>
-            <Button href="/login" variant="outline-light ">
-              Iniciar Sesion
-            </Button>
-            <Button onClick={handleLogout} href="/all" variant="outline-light ">
-              Cerrar Sesion
-            </Button>
           </Nav>
         </Navbar.Collapse>
+
+        <Button
+          className="button-position"
+          onClick={handleLogout}
+          href="/all"
+          variant="outline-light "
+        >
+          Cerrar Sesion
+        </Button>
+
+        <Button
+          className="button-position"
+          href="/login"
+          variant="outline-light "
+        >
+          Iniciar Sesion
+        </Button>
       </Container>
     </Navbar>
   );
 }
 
 export default NavbarView;
-
-// import React from "react";
-// import logo from "../utils/logo_hod.png";
-// import "../styles/navbar.css";
-
-// const Navbar = () => {
-//   return (
-//     <div className="flex-container">
-//       <nav className="navbar bg-light- navbarColor">
-//         <div className="container">
-//           <a className="navbar-brand">
-//             <img src={logo} alt="HouseOfDev" />
-//           </a>
-//           <ul className="nav justify-content-end">
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Venta</a>
-//             </li>
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Alquiler</a>
-//             </li>
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Agendar Visita</a>
-//             </li>
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Nuestros Servicios</a>
-//             </li>
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Mi Perfil</a>
-//             </li>
-//             <li className="nav-item">
-//               <a className="nav-link buttons">Nosotros</a>
-//             </li>
-//             <li>
-//               <a className="nav-link active buttons" aria-current="page">
-//                 Contacto
-//               </a>
-//             </li>
-//           </ul>
-//         </div>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default Navbar;

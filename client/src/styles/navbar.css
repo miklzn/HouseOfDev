@@ -3,3 +3,7 @@
 .color-nav {
   background-color: #fe4236;
 }
+
+.button-position {
+  justify-content: flex-end;
+}

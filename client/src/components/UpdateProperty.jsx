@@ -19,9 +19,8 @@ const UpdateProperty = () => {
   const [operation, setOperation] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-
   const navigate = useNavigate();
-  const id = useParams();
+  const { id } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +47,7 @@ const UpdateProperty = () => {
         { withCredentials: true }
       )
       .then((res) => res.data)
-      .then(() => navigate(`/property/${id}`))
+      .then(() => navigate(`/properties/${id}`))
       .catch((error) => console.log(error));
   };
 
@@ -146,7 +145,7 @@ const UpdateProperty = () => {
         <input
           className="inputStyle"
           placeholder="Country"
-          //country={country}
+          country={country}
           onChange={handleChangeCountry}
         />
 

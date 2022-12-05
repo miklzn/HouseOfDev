@@ -17,7 +17,7 @@ const Property = () => {
       .then((res) => setProperty(res.data))
       .then((res) => dispatch(setUser(res.data)))
       .catch((error) => console.log(error));
-  }, []);
+  });
 
   return (
     <div>
@@ -29,7 +29,9 @@ const Property = () => {
           <button>
             <Link to={`/properties/change/${id}`}>Editar Propiedad</Link>
           </button>
-          <button>Agregar Propiedad</button>
+          <button>
+            <Link to={`/properties/delete/${id}`}>Eliminar Propiedad</Link>
+          </button>
         </div>
       ) : (
         <div>
