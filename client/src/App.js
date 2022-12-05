@@ -12,6 +12,7 @@ import Property from "./components/Property";
 import UpdateProperty from "./components/UpdateProperty";
 import DeleteProperty from "./components/DeleteProperty";
 import PanelAdmin from "./components/PanelAdmin";
+import Profile from "./components/Profile";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/properties/create" element={<NewProperty />} />
         <Route path="/properties/:id" element={<Property />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />

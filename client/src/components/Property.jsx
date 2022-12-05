@@ -17,7 +17,7 @@ const Property = () => {
       .then((res) => setProperty(res.data))
       .then((res) => dispatch(setUser(res.data)))
       .catch((error) => console.log(error));
-  });
+  }, []);
 
   return (
     <div>

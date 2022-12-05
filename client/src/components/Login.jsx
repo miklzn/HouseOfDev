@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/user";
 //import { Form } from "react-router-dom";
 //import Button from "react-bootstrap/esm/Button";
 import "../styles/login.css";
@@ -10,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const Login = () => {
         },
         { withCredentials: true }
       )
-      .then((res) => console.log(res.data))
+      .then((res) => dispatch(setUser(res.data)))
 
       .then(() => navigate("/home"))
       .catch((error) => console.log(error));

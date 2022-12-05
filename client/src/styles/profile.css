@@ -1,0 +1,13 @@
+.centerList {
+  background-color: rgb(227, 222, 222);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.centerItem {
+  margin: 0 auto;
+  padding: 20px;
+  width: 50%;
+}

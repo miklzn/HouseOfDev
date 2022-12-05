@@ -9,11 +9,14 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../utils/logo_hod.png";
 import Button from "react-bootstrap/esm/Button";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
 function NavbarView() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -31,7 +34,9 @@ function NavbarView() {
     <Navbar className="color-nav" expand="lg">
       <Container>
         <Navbar.Brand>
-          <img src={logo} href="/home" />
+          <Link to="/home">
+            <img src={logo} />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -52,23 +57,24 @@ function NavbarView() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-
-        <Button
-          className="button-position"
-          onClick={handleLogout}
-          href="/all"
-          variant="outline-light "
-        >
-          Cerrar Sesion
-        </Button>
-
-        <Button
-          className="button-position"
-          href="/login"
-          variant="outline-light "
-        >
-          Iniciar Sesion
-        </Button>
+        {user?.name ? (
+          <Button
+            className="button-position"
+            onClick={handleLogout}
+            href="/all"
+            variant="outline-light "
+          >
+            Cerrar Sesion
+          </Button>
+        ) : (
+          <Button
+            className="button-position"
+            href="/login"
+            variant="outline-light "
+          >
+            Iniciar Sesion
+          </Button>
+        )}
       </Container>
     </Navbar>
   );
