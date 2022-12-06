@@ -6,6 +6,7 @@ import { setUser } from "../store/user";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
+import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 const Login = () => {
@@ -41,31 +42,37 @@ const Login = () => {
 
   return (
     <Container className="centerForm">
+      <h1>Bienvenido a House Of Dev</h1>
+      <br />
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
+            required
             type="email"
-            placeholder="Enter email"
+            placeholder="Email"
             onChange={handleChangeEmail}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Control
+            required
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             onChange={handleChangePassword}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+        <br />
         <Button variant="primary" type="submit">
-          Submit
+          Iniciar Sesion
         </Button>
+        <br />
+        <br />
+        <Form.Text className="text-muted">¿No tenés una cuenta?</Form.Text>
+        <br />
+        <Link to="/register">
+          <Form.Text className="text-muted">Regístrate acá</Form.Text>{" "}
+        </Link>
       </Form>
     </Container>
   );

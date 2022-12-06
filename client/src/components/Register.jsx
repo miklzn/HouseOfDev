@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/login.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/esm/Container";
+import "../styles/register.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -29,7 +32,6 @@ const Register = () => {
         phone: phone,
       })
       .then((res) => res.data)
-      //alert("ok")
       .then(() => navigate("/login"))
       .catch((error) => console.log(error));
   };
@@ -67,91 +69,82 @@ const Register = () => {
   };
 
   return (
-    <div className="layout m-5">
-      <form className="centerForm" onSubmit={handleSubmit}>
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          name={name}
-          onChange={handleChangeName}
-          placeholder="Nombre"
-          type="text"
-        />
+    <Container className="centerForm">
+      <h1>Crear Cuenta</h1>
+      <br />
+
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Nombre"
+            onChange={handleChangeName}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Apellido"
+            onChange={handleChangeLastName}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="email"
+            placeholder="Email"
+            onChange={handleChangeEmail}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Control
+            required
+            type="password"
+            placeholder="Contraseña"
+            onChange={handleChangePassword}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Ciudad"
+            onChange={handleChangeCity}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Pais"
+            onChange={handleChangeCountry}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Provincia"
+            onChange={handleChangeState}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="tel"
+            placeholder="Telefono"
+            onChange={handleChangePhone}
+          />
+        </Form.Group>
         <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          lastName={lastName}
-          onChange={handleChangeLastName}
-          placeholder="Apellido"
-          type="text"
-        />
+        <Button variant="primary" type="submit">
+          Registrar
+        </Button>
         <br />
-        <label></label>
-        <input
-          requiered
-          className="inputStyle"
-          email={email}
-          onChange={handleChangeEmail}
-          placeholder="Email"
-          type="text"
-        />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          password={password}
-          onChange={handleChangePassword}
-          placeholder="Contraseña"
-          type="password"
-        />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          city={city}
-          onChange={handleChangeCity}
-          placeholder="Ciudad"
-          type="text"
-        />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          country={country}
-          onChange={handleChangeCountry}
-          placeholder="Pais"
-          type="text"
-        />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          state={state}
-          onChange={handleChangeState}
-          placeholder="Provincia"
-          type="text"
-        />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          phone={phone}
-          onChange={handleChangePhone}
-          placeholder="Telefono"
-          type="tel"
-        />
-        <br />
-        <button>Registrar</button>
-      </form>
-    </div>
+      </Form>
+    </Container>
   );
 };
 
