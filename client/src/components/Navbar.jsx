@@ -3,14 +3,16 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { userLogout } from "../store/user";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../utils/logo_hod.png";
 import Button from "react-bootstrap/esm/Button";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import "../styles/navbar.css";
 
 function NavbarView() {
@@ -35,7 +37,7 @@ function NavbarView() {
       <Container>
         <Navbar.Brand>
           <Link to="/home">
-            <img src={logo} />
+            <img src={logo} alt="HouseOfDev" />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -57,11 +59,22 @@ function NavbarView() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        {user?.admin ? (
+          <DropdownButton variant="outline-light " title="Admin">
+            <Dropdown.Item href="/properties/create">
+              Nueva Propiedad
+            </Dropdown.Item>
+            <Dropdown.Item href="/panelAdmin">
+              Usuarios Registrados
+            </Dropdown.Item>
+            {/* <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
+          </DropdownButton>
+        ) : null}
         {user?.name ? (
           <Button
             className="button-position"
             onClick={handleLogout}
-            href="/all"
+            href="/home"
             variant="outline-light "
           >
             Cerrar Sesion

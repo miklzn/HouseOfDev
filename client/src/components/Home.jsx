@@ -4,7 +4,8 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-import "../styles/all.css";
+import { Link } from "react-router-dom";
+import "../styles/home.css";
 
 const Home = () => {
   const [properties, setProperties] = useState([]);
@@ -42,13 +43,15 @@ const Home = () => {
       <Row xs={1} md={4} className="g-4">
         {properties.map((property, i) => (
           <Col>
-            <Card className="size">
-              <Card.Img className="img" variant="top" src={property.image} />
-              <Card.Body>
-                <Card.Title>{property.title}</Card.Title>
-                <Card.Text>{property.description}</Card.Text>
-              </Card.Body>
-            </Card>
+            <Link to={`/properties/${property.id}`}>
+              <Card className="size">
+                <Card.Img className="img" variant="top" src={property.image} />
+                <Card.Body>
+                  <Card.Title>{property.title}</Card.Title>
+                  <Card.Text>{property.description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
