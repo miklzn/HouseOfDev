@@ -15,7 +15,7 @@ const DeleteProperty = () => {
     .then((res) => dispatch(deleteProperty(res.data)))
     .catch((error) => console.log(error));
 
-  return <Navigate to={"/properties/all"} />;
+  return <Navigate to={"/home"} />;
 };
 
 export default DeleteProperty;

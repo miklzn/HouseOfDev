@@ -4,8 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../store/user";
-import Figure from "react-bootstrap/Figure";
-import Container from "react-bootstrap/esm/Container";
 import "../styles/property.css";
 
 const Property = () => {
@@ -28,6 +26,7 @@ const Property = () => {
         <div>
           <h1> {property.title}</h1>
           <img src={property.image} alt="Imagen" />
+          <p>{property.description}</p>
 
           <button>
             <Link to={`/properties/change/${id}`}>Editar Propiedad</Link>
@@ -40,6 +39,7 @@ const Property = () => {
         <div>
           <h2> {property.title} </h2>
           <img src={property.image} alt="Imagen" />
+          <p>{property.description}</p>
         </div>
       )}
     </div>

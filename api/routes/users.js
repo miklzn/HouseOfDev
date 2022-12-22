@@ -3,6 +3,7 @@ const { generateToken } = require("../config/token");
 const { validateAuth, validateAdmin } = require("../middlewares/auth");
 const router = express.Router();
 const Users = require("../models/Users");
+const Properties = require("../models/Properties");
 
 //http://localhost:3001/api/users/register
 
@@ -45,7 +46,9 @@ router.post("/login", (req, res) => {
 //http://localhost:3001/api/users/me
 
 router.get("/me", validateAuth, (req, res) => {
-  res.send(req.user);
+  Users.findByPk(req.user.id, { include: Properties }).then((user) => {
+    res.send(user);
+  });
 });
 
 //http://localhost:3001/api/users/logout
@@ -71,4 +74,5 @@ router.delete("/delete/:id", validateAdmin, (req, res) => {
     .then(() => res.status(204).send("Deleted User"))
     .catch((err) => res.status(400).send(err));
 });
+
 module.exports = router;

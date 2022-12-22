@@ -47,7 +47,7 @@ const NewProperty = () => {
         { withCredentials: true }
       )
       .then((res) => res.data)
-      .then(() => navigate("/"))
+      .then(() => navigate("/home"))
       .catch((error) => console.log(error));
   };
 

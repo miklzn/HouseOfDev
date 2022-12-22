@@ -1,5 +1,7 @@
 //Aca iran las relaciones de las tablas.
 
-const User = require("./Users");
+const Users = require("./Users");
 const Properties = require("./Properties");
-const Appointment = require("./Appointments");
+
+Properties.belongsToMany(Users, { through: "favorites" });
+Users.belongsToMany(Properties, { through: "favorites" });

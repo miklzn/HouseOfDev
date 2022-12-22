@@ -52,7 +52,7 @@ function NavbarView() {
               <NavDropdown.Item href="#action/3.2">
                 Nuestros Servicios
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Mi Perfil</NavDropdown.Item>
+              <NavDropdown.Item href="/profile">Mi Perfil</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Nosotros</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Contacto</NavDropdown.Item>
