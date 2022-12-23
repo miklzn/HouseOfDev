@@ -13,6 +13,7 @@ import UpdateProperty from "./components/UpdateProperty";
 import DeleteProperty from "./components/DeleteProperty";
 import PanelAdmin from "./components/PanelAdmin";
 import Profile from "./components/Profile";
+import DeleteUser from "./components/DeleteUser";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const App = () => {
     <>
       <NavbarView />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
@@ -36,6 +37,8 @@ const App = () => {
         <Route path="/properties/:id" element={<Property />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
+        <Route path="/properties/delete/:id" element={<DeleteProperty />} />
+        <Route path="/users/delete/:id" element={<DeleteUser />} />
         <Route path="/panelAdmin" element={<PanelAdmin />} />
       </Routes>
     </>

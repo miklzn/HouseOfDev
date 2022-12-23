@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFavorite } from "../store/user";
@@ -14,7 +14,6 @@ import "../styles/profile.css";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);
-  const [properties, setProperties] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -56,7 +55,7 @@ const Profile = () => {
           {user.phone}
         </ListGroup.Item>
       </ListGroup>
-      <h1 className="centerItem">Mis Favoritos ({user.properties.length})</h1>
+      <h2 className="centerItem">Mis Favoritos ({user.properties.length})</h2>
       <Row xs={1} md={4} className="g-4">
         {user.properties.map((property, i) => (
           <Col>

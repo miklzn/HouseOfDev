@@ -1,14 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/login.css";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/esm/Container";
+import Button from "react-bootstrap/Button";
+import "../styles/newProperty.css";
 
 const NewProperty = () => {
   const [title, setTitle] = useState("");
   const [adress, setAdress] = useState("");
   const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
   const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
   const [description, setDescription] = useState("");
   const [available, setAvailable] = useState("");
   const [garage, setGarage] = useState("");
@@ -31,8 +34,8 @@ const NewProperty = () => {
           title: title,
           adress: adress,
           city: city,
-          country: country,
           state: state,
+          country: country,
           description: description,
           available: available,
           garage: garage,
@@ -47,7 +50,7 @@ const NewProperty = () => {
         { withCredentials: true }
       )
       .then((res) => res.data)
-      .then(() => navigate("/home"))
+      .then(() => navigate("/"))
       .catch((error) => console.log(error));
   };
 
@@ -112,172 +115,138 @@ const NewProperty = () => {
   };
 
   return (
-    <div className="layout m-5">
-      <form className="centerForm" onSubmit={handleSubmit}>
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Titulo"
-          title={title}
-          onChange={handleChangeTitle}
-        />
+    <Container className="centerItem">
+      <h1>Nueva Propiedad</h1>
+      <br />
+
+      <Form className="centerForm" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Titulo"
+            onChange={handleChangeTitle}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Direccion"
+            onChange={handleChangeAdress}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Ciudad"
+            onChange={handleChangeCity}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Provincia"
+            onChange={handleChangeState}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Pais"
+            onChange={handleChangeCountry}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Description"
+            onChange={handleChangeDescription}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Disponible"
+            onChange={handleChangeAvailable}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Cochera"
+            onChange={handleChangeGarage}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Habitaciones"
+            onChange={handleChangeRooms}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Baños"
+            onChange={handleChangeBathrooms}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Ambientes"
+            onChange={handleChangeEnvironments}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Categoria"
+            onChange={handleChangeCategory}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Operacion"
+            onChange={handleChangeOperation}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Precio"
+            onChange={handleChangePrice}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            required
+            type="file"
+            placeholder="Imagen"
+            onChange={handleChangeImage}
+          />
+        </Form.Group>
         <br />
+        <Button variant="primary" type="submit">
+          Crear
+        </Button>
         <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Direccion"
-          adress={adress}
-          onChange={handleChangeAdress}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Ciudad"
-          city={city}
-          onChange={handleChangeCity}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Pais"
-          country={country}
-          onChange={handleChangeCountry}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Provincia"
-          state={state}
-          onChange={handleChangeState}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Descripcion"
-          description={description}
-          onChange={handleChangeDescription}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          placeholder="Disponible"
-          available={available}
-          onChange={handleChangeAvailable}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          placeholder="Cochera"
-          garage={garage}
-          onChange={handleChangeGarage}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="number"
-          className="inputStyle"
-          placeholder="Habitaciones"
-          rooms={rooms}
-          onChange={handleChangeRooms}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="number"
-          className="inputStyle"
-          placeholder="Baños"
-          bathrooms={bathrooms}
-          onChange={handleChangeBathrooms}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="number"
-          className="inputStyle"
-          placeholder="Ambientes"
-          environments={environments}
-          onChange={handleChangeEnvironments}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Categoria"
-          category={category}
-          onChange={handleChangeCategory}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          type="text"
-          className="inputStyle"
-          placeholder="Operacion"
-          operation={operation}
-          onChange={handleChangeOperation}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          placeholder="Precio"
-          price={price}
-          onChange={handleChangePrice}
-        />
-        <br />
-        <br />
-        <label></label>
-        <input
-          required
-          className="inputStyle"
-          placeholder="Imagen"
-          image={image}
-          onChange={handleChangeImage}
-        />
-        <br />
-        <br />
-        <button>Crear</button>
-      </form>
-    </div>
+      </Form>
+    </Container>
   );
 };
 

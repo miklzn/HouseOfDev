@@ -36,7 +36,7 @@ function NavbarView() {
     <Navbar className="color-nav" expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to="/home">
+          <Link to="/">
             <img src={logo} alt="HouseOfDev" />
           </Link>
         </Navbar.Brand>

@@ -1,9 +1,5 @@
-.button-color {
-  color: black;
-}
-
-.button-position {
-  justify-content: flex-end;
+.button-delete {
+  margin-top: 5px;
 }
 
 .centerList {

@@ -4,6 +4,12 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../store/user";
+import { BsDoorOpen } from "react-icons/bs";
+import { BiBed, BiBath, BiCar } from "react-icons/bi";
+import ListGroup from "react-bootstrap/ListGroup";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/esm/Button";
 import "../styles/property.css";
 
 const Property = () => {
@@ -21,28 +27,49 @@ const Property = () => {
   }, []);
 
   return (
-    <div>
-      {user.admin ? (
-        <div>
-          <h1> {property.title}</h1>
-          <img src={property.image} alt="Imagen" />
-          <p>{property.description}</p>
-
-          <button>
-            <Link to={`/properties/change/${id}`}>Editar Propiedad</Link>
-          </button>
-          <button>
-            <Link to={`/properties/delete/${id}`}>Eliminar Propiedad</Link>
-          </button>
-        </div>
-      ) : (
-        <div>
-          <h2> {property.title} </h2>
-          <img src={property.image} alt="Imagen" />
-          <p>{property.description}</p>
-        </div>
-      )}
-    </div>
+    <Card className="centerContainer" style={{ width: "60rem" }}>
+      <Card.Img className="propertyImage" variant="top" src={property.image} />
+      <Card.Body>
+        <Card.Title className="centerItem">{property.title}</Card.Title>
+        <Card.Text>{property.description}</Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>
+          <Form.Text className="text-muted">
+            {property.category} en {property.operation}
+          </Form.Text>
+          <br /> USD {property.price}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <BsDoorOpen /> {property.environments} Ambientes |
+          <BiBed /> {property.rooms} Habitaciones |
+          <BiBath /> {property.bathrooms} Baños |
+          <BiCar /> {property.garage} Cochera
+        </ListGroup.Item>
+        <ListGroup.Item>
+          {property.adress}, {property.city}, {property.state}
+        </ListGroup.Item>
+      </ListGroup>
+      <Card.Body>
+        {user.admin ? (
+          <>
+            <Link to={"/"}>
+              <Button className="buttonStyle">Agendar Visita</Button>
+            </Link>
+            <Link to={`/properties/change/${id}`}>
+              <Button className="buttonStyle">Editar Propiedad</Button>
+            </Link>
+            <Link to={`/properties/delete/${id}`}>
+              <Button className="buttonStyle">Eliminar Propiedad</Button>
+            </Link>
+          </>
+        ) : (
+          <Link to={"/"}>
+            <Button className="buttonStyle">Agendar Visita</Button>
+          </Link>
+        )}
+      </Card.Body>
+    </Card>
   );
 };
 

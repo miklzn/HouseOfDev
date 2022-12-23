@@ -28,7 +28,7 @@ const Login = () => {
         { withCredentials: true }
       )
       .then((res) => dispatch(setUser(res.data)))
-      .then(() => navigate("/home"))
+      .then(() => navigate("/"))
       .catch((error) => console.log(error));
   };
 
@@ -41,10 +41,10 @@ const Login = () => {
   };
 
   return (
-    <Container className="centerForm">
+    <Container className="centerItem">
       <h1>Bienvenido a House Of Dev</h1>
       <br />
-      <Form onSubmit={handleSubmit}>
+      <Form className="centerForm" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             required

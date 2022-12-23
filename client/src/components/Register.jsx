@@ -69,11 +69,11 @@ const Register = () => {
   };
 
   return (
-    <Container className="centerForm">
+    <Container className="centerItem">
       <h1>Crear Cuenta</h1>
       <br />
 
-      <Form onSubmit={handleSubmit}>
+      <Form className="centerForm" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             required
