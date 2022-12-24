@@ -22,6 +22,7 @@ const PanelAdmin = () => {
 
   return (
     <Container className="centerList">
+      <h2 className="centerItem">Usuarios Registrados ({users.length})</h2>
       <ListGroup as="ol" numbered>
         {users.map((user, i) => (
           <ListGroup.Item

@@ -67,7 +67,7 @@ router.get("/search/:title", (req, res) => {
 //FILTRO POR AMBIENTES
 //http://localhost:3001/api/properties/filter/:environments
 
-router.get("/filter/:environments", (req, res) => {
+router.get("/environments/:environments", (req, res) => {
   const { environments } = req.params;
   Properties.findAll({ where: { environments: environments } })
     .then((filter) => {
@@ -79,9 +79,9 @@ router.get("/filter/:environments", (req, res) => {
 //FILTRO POR PRECIO
 //http://localhost:3001/api/properties/filter
 
-router.post("/filter", (req, res) => {
-  const { min, max } = req.body;
-  Properties.findAll({ where: { price: { [Op.between]: [min, max] } } })
+router.post("/price", (req, res) => {
+  const { minimo, maximo } = req.body;
+  Properties.findAll({ where: { price: { [Op.between]: [minimo, maximo] } } })
     .then((filter) => {
       console.log(filter);
       res.send(filter);

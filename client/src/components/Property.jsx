@@ -27,7 +27,7 @@ const Property = () => {
   }, []);
 
   return (
-    <Card className="centerContainer" style={{ width: "60rem" }}>
+    <Card className="centerContainer">
       <Card.Img className="propertyImage" variant="top" src={property.image} />
       <Card.Body>
         <Card.Title className="centerItem">{property.title}</Card.Title>

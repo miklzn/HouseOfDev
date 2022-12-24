@@ -10,6 +10,8 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { BsDoorOpen } from "react-icons/bs";
+import { BiBed, BiBath } from "react-icons/bi";
 import "../styles/profile.css";
 
 const Profile = () => {
@@ -62,10 +64,29 @@ const Profile = () => {
             <Card className="size">
               <Card.Img className="img" variant="top" src={property.image} />
               <Card.Body>
+                <Card.Title>{property.title}</Card.Title>
+                {/* <Card.Text>{property.description}</Card.Text> */}
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>
+                  <Form.Text className="text-muted">
+                    {property.category} en {property.operation}
+                  </Form.Text>
+                  <br /> USD {property.price}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <BsDoorOpen /> {property.environments} Ambientes |
+                  <BiBed /> {property.rooms} Habitaciones |
+                  <BiBath /> {property.bathrooms} Baños
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {property.city}, {property.state}
+                </ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
                 <Link to={`/properties/${property.id}`}>
-                  <Card.Title>{property.title}</Card.Title>
+                  <Button className="buttonStyle">Ver Mas</Button>
                 </Link>
-                <Card.Text>{property.description}</Card.Text>
                 <Button
                   onClick={() => handleRemoveFavorite(property.id)}
                   variant="primary"

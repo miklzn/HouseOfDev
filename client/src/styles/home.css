@@ -9,3 +9,13 @@
 .size {
   padding: 10px;
 }
+
+.buttonStyle {
+  margin: 2px;
+}
+
+.searchStyle {
+  width: 70%;
+  margin: 2% auto;
+  padding: 10px;
+}

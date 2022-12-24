@@ -7,18 +7,24 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Accordion from "react-bootstrap/Accordion";
 import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
+import { BsDoorOpen } from "react-icons/bs";
+import { BiBed, BiBath } from "react-icons/bi";
 import "../styles/home.css";
 
 const Home = () => {
   const [properties, setProperties] = useState([]);
   const [search, setSearch] = useState("");
+  const [environments, setEnvironments] = useState("");
+  const [minimo, setMinimo] = useState("");
+  const [maximo, setMaximo] = useState("");
+
+  console.log(minimo);
+  console.log(maximo);
 
   const dispatch = useDispatch();
-
-  const searcher = (e) => {
-    setSearch(e.target.value);
-  };
 
   useEffect(() => {
     if (search === "") {
@@ -45,30 +51,135 @@ const Home = () => {
       .catch((error) => console.log(error));
   };
 
+  const handleGetEnvironments = (e) => {
+    e.preventDefault();
+    axios
+      .get(
+        `http://localhost:3001/api/properties/environments/${environments}`,
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => setProperties(res.data))
+      .catch((error) => console.log(error));
+  };
+
+  const handleGetPrice = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:3001/api/properties/price",
+        { minimo: minimo, maximo: maximo },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => setProperties(res.data))
+      .catch((error) => console.log(error));
+  };
+
+  const getSearcher = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const getEnvironments = (e) => {
+    setEnvironments(e.target.value);
+  };
+
+  const getMinimo = (e) => {
+    setMinimo(e.target.value);
+  };
+
+  const getMaximo = (e) => {
+    setMaximo(e.target.value);
+  };
+
   return (
-    <div>
-      <Form>
+    <>
+      <Form className="searchStyle">
         <Form.Group className="mb-3">
-          <Form.Label></Form.Label>
           <Form.Control
             value={search}
-            onChange={searcher}
+            onChange={getSearcher}
             type="text"
             placeholder="Buscar"
           />
         </Form.Group>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Filtros</Accordion.Header>
+            <Accordion.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Ambientes</Form.Label>
+                  <Form.Control
+                    onChange={getEnvironments}
+                    value={environments}
+                    type="text"
+                    placeholder="Ambientes"
+                  />
+                </Form.Group>
+                <Button variant="primary" onClick={handleGetEnvironments}>
+                  Filtrar
+                </Button>
+              </Form>
+              <br />
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Precio</Form.Label>
+                  <Form.Control
+                    onChange={getMinimo}
+                    value={minimo}
+                    type="text"
+                    placeholder="Minimo"
+                  />
+                  <Form.Control
+                    onChange={getMaximo}
+                    value={maximo}
+                    type="text"
+                    placeholder="Maximo"
+                  />
+                </Form.Group>
+                <Button variant="primary" onClick={handleGetPrice}>
+                  Filtrar
+                </Button>
+              </Form>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Form>
+
       <Row xs={1} md={4} className="g-4">
         {properties.map((property, i) => (
           <Col>
             <Card className="size">
               <Card.Img className="img" variant="top" src={property.image} />
               <Card.Body>
+                <Card.Title>{property.title}</Card.Title>
+                {/* <Card.Text>{property.description}</Card.Text> */}
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>
+                  <Form.Text className="text-muted">
+                    {property.category} en {property.operation}
+                  </Form.Text>
+                  <br /> USD {property.price}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <BsDoorOpen /> {property.environments} Ambientes |
+                  <BiBed /> {property.rooms} Habitaciones |
+                  <BiBath /> {property.bathrooms} Baños
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {property.city}, {property.state}
+                </ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
                 <Link to={`/properties/${property.id}`}>
-                  <Card.Title>{property.title}</Card.Title>
+                  <Button className="buttonStyle">Ver Mas</Button>
                 </Link>
-                <Card.Text>{property.description}</Card.Text>
                 <Button
+                  className="buttonStyle"
                   onClick={() => handleAddFavorites(property.id)}
                   variant="primary"
                 >
@@ -79,7 +190,7 @@ const Home = () => {
           </Col>
         ))}
       </Row>
-    </div>
+    </>
   );
 };
 

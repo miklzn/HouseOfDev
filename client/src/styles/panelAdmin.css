@@ -9,3 +9,9 @@
   border-radius: 5px;
   padding: 20px;
 }
+
+.centerItem {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
