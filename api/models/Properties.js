@@ -33,7 +33,7 @@ Properties.init(
       type: S.BOOLEAN,
     },
     garage: {
-      type: S.BOOLEAN,
+      type: S.INTEGER,
     },
     rooms: {
       type: S.INTEGER,
