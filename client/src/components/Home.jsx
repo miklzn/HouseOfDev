@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { removeFavorite } from "../store/user";
 import { addFavorites } from "../store/user";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -12,6 +14,7 @@ import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import { BsDoorOpen } from "react-icons/bs";
 import { BiBed, BiBath } from "react-icons/bi";
+
 import "../styles/home.css";
 
 const Home = () => {
@@ -21,9 +24,7 @@ const Home = () => {
   const [minimo, setMinimo] = useState("");
   const [maximo, setMaximo] = useState("");
 
-  console.log(minimo);
-  console.log(maximo);
-
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,6 +49,23 @@ const Home = () => {
         { withCredentials: true }
       )
       .then((res) => dispatch(addFavorites(res.data)))
+      .catch((error) => console.log(error));
+  };
+
+  const handleRemoveFavorite = (id) => {
+    axios
+      .post(
+        `http://localhost:3001/api/properties/deleteFavorites/${id}`,
+        {
+          id: id,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+      .then((res) => dispatch(removeFavorite(res.data)))
+      .then(() => window.location.reload(false))
       .catch((error) => console.log(error));
   };
 
@@ -178,13 +196,19 @@ const Home = () => {
                 <Link to={`/properties/${property.id}`}>
                   <Button className="buttonStyle">Ver Mas</Button>
                 </Link>
-                <Button
-                  className="buttonStyle"
-                  onClick={() => handleAddFavorites(property.id)}
-                  variant="primary"
-                >
-                  Agregar Favoritos
-                </Button>
+                {user.id ? (
+                  <Button
+                    className="buttonStyle"
+                    onClick={() => handleAddFavorites(property.id)}
+                    variant="primary"
+                  >
+                    Agregar Favoritos
+                  </Button>
+                ) : (
+                  <Link to={`/login`}>
+                    <Button className="buttonStyle">Agregar Favoritos</Button>
+                  </Link>
+                )}
               </Card.Body>
             </Card>
           </Col>

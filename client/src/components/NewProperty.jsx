@@ -235,7 +235,7 @@ const NewProperty = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             required
-            type="file"
+            type="text"
             placeholder="Imagen"
             onChange={handleChangeImage}
           />

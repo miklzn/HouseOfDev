@@ -115,17 +115,4 @@ router.post("/deleteFavorites/:id", validateAuth, (req, res) => {
     .catch((error) => console.log(error));
 });
 
-// //EXTRA
-// //TODAS LAS PROPIEDADES EN VENTA
-
-// //http://localhost:3001/api/properties/operation
-
-// router.get("/operation", (req, res) => {
-//   Properties.findAll({ where: { operation: "Venta" } })
-//     .then((properties) => {
-//       res.send(properties);
-//     })
-//     .catch((error) => console.log(error));
-// });
-
 module.exports = router;

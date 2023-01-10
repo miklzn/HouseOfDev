@@ -46,13 +46,15 @@ function NavbarView() {
             <Nav.Link href="#home">Venta</Nav.Link>
             <Nav.Link href="#link">Alquiler</Nav.Link>
             <NavDropdown title="Mas" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                Agendar Visita
+              <NavDropdown.Item href={user.id ? "/profile" : "/login"}>
+                Visitas Agendadas
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Nuestros Servicios
               </NavDropdown.Item>
-              <NavDropdown.Item href="/profile">Mi Perfil</NavDropdown.Item>
+              <NavDropdown.Item href={user.id ? "/profile" : "/login"}>
+                Mi Perfil
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Nosotros</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Contacto</NavDropdown.Item>
