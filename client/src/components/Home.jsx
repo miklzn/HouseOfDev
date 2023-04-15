@@ -16,103 +16,123 @@
 // import { BiBed, BiBath } from "react-icons/bi";
 
 // import "../styles/home.css";
+import HOD_Home from "../utils/HOD-Home.svg";
 
-// const Home = () => {
-//   const [properties, setProperties] = useState([]);
-//   const [search, setSearch] = useState("");
-//   const [environments, setEnvironments] = useState("");
-//   const [minimo, setMinimo] = useState("");
-//   const [maximo, setMaximo] = useState("");
+const Home = () => {
+  //   const [properties, setProperties] = useState([]);
+  //   const [search, setSearch] = useState("");
+  //   const [environments, setEnvironments] = useState("");
+  //   const [minimo, setMinimo] = useState("");
+  //   const [maximo, setMaximo] = useState("");
 
-//   const user = useSelector((state) => state.user);
-//   const dispatch = useDispatch();
+  //   const user = useSelector((state) => state.user);
+  //   const dispatch = useDispatch();
 
-//   useEffect(() => {
-//     if (search === "") {
-//       axios
-//         .get(`http://localhost:3001/api/properties/all`)
-//         .then((res) => setProperties(res.data));
-//     } else {
-//       axios
-//         .get(`http://localhost:3001/api/properties/search/${search}`)
-//         .then((res) => setProperties(res.data));
-//     }
-//   }, [search]);
+  //   useEffect(() => {
+  //     if (search === "") {
+  //       axios
+  //         .get(`http://localhost:3001/api/properties/all`)
+  //         .then((res) => setProperties(res.data));
+  //     } else {
+  //       axios
+  //         .get(`http://localhost:3001/api/properties/search/${search}`)
+  //         .then((res) => setProperties(res.data));
+  //     }
+  //   }, [search]);
 
-//   const handleAddFavorites = (id) => {
-//     axios
-//       .post(
-//         "http://localhost:3001/api/properties/addFavorites",
-//         {
-//           id: id,
-//         },
-//         { withCredentials: true }
-//       )
-//       .then((res) => dispatch(addFavorites(res.data)))
-//       .catch((error) => console.log(error));
-//   };
+  //   const handleAddFavorites = (id) => {
+  //     axios
+  //       .post(
+  //         "http://localhost:3001/api/properties/addFavorites",
+  //         {
+  //           id: id,
+  //         },
+  //         { withCredentials: true }
+  //       )
+  //       .then((res) => dispatch(addFavorites(res.data)))
+  //       .catch((error) => console.log(error));
+  //   };
 
-//   const handleRemoveFavorite = (id) => {
-//     axios
-//       .post(
-//         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
-//         {
-//           id: id,
-//         },
-//         {
-//           headers: { "Content-Type": "application/json" },
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => dispatch(removeFavorite(res.data)))
-//       .then(() => window.location.reload(false))
-//       .catch((error) => console.log(error));
-//   };
+  //   const handleRemoveFavorite = (id) => {
+  //     axios
+  //       .post(
+  //         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
+  //         {
+  //           id: id,
+  //         },
+  //         {
+  //           headers: { "Content-Type": "application/json" },
+  //           withCredentials: true,
+  //         }
+  //       )
+  //       .then((res) => dispatch(removeFavorite(res.data)))
+  //       .then(() => window.location.reload(false))
+  //       .catch((error) => console.log(error));
+  //   };
 
-//   const handleGetEnvironments = (e) => {
-//     e.preventDefault();
-//     axios
-//       .get(
-//         `http://localhost:3001/api/properties/environments/${environments}`,
-//         {
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => setProperties(res.data))
-//       .catch((error) => console.log(error));
-//   };
+  //   const handleGetEnvironments = (e) => {
+  //     e.preventDefault();
+  //     axios
+  //       .get(
+  //         `http://localhost:3001/api/properties/environments/${environments}`,
+  //         {
+  //           withCredentials: true,
+  //         }
+  //       )
+  //       .then((res) => setProperties(res.data))
+  //       .catch((error) => console.log(error));
+  //   };
 
-//   const handleGetPrice = (e) => {
-//     e.preventDefault();
-//     axios
-//       .post(
-//         "http://localhost:3001/api/properties/price",
-//         { minimo: minimo, maximo: maximo },
-//         {
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => setProperties(res.data))
-//       .catch((error) => console.log(error));
-//   };
+  //   const handleGetPrice = (e) => {
+  //     e.preventDefault();
+  //     axios
+  //       .post(
+  //         "http://localhost:3001/api/properties/price",
+  //         { minimo: minimo, maximo: maximo },
+  //         {
+  //           withCredentials: true,
+  //         }
+  //       )
+  //       .then((res) => setProperties(res.data))
+  //       .catch((error) => console.log(error));
+  //   };
 
-//   const getSearcher = (e) => {
-//     setSearch(e.target.value);
-//   };
+  //   const getSearcher = (e) => {
+  //     setSearch(e.target.value);
+  //   };
 
-//   const getEnvironments = (e) => {
-//     setEnvironments(e.target.value);
-//   };
+  //   const getEnvironments = (e) => {
+  //     setEnvironments(e.target.value);
+  //   };
 
-//   const getMinimo = (e) => {
-//     setMinimo(e.target.value);
-//   };
+  //   const getMinimo = (e) => {
+  //     setMinimo(e.target.value);
+  //   };
 
-//   const getMaximo = (e) => {
-//     setMaximo(e.target.value);
-//   };
+  //   const getMaximo = (e) => {
+  //     setMaximo(e.target.value);
+  //   };
 
-//   return (
+  return (
+    <section className="h-full w-full ">
+      <div
+        className="h-screen w-screen bg-cover bg-center bg-fixed sm:h-screen "
+        style={{
+          backgroundImage: `url(https://wallpapercave.com/wp/wp1853406.jpg)`,
+        }}
+      >
+        <div className="h-screen flex items-center border-4 mx-[2.5vw] md:h-screen ">
+          <div className="flex w-full justify-center ">
+            <img src={HOD_Home} alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Home;
+
 //     <>
 //       <Form className="searchStyle">
 //         <Form.Group className="mb-3">
@@ -215,7 +235,3 @@
 //         ))}
 //       </Row>
 //     </>
-//   );
-// };
-
-// export default Home;
