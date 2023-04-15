@@ -2,7 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FF3F3F",
+      },
+      boxShadow: {
+        dropdown: "0px 2px 5px rgba(0, 0, 0, 0.12)",
+        nav: "0px 2px 5px rgba(0, 0, 0, 0.08)",
+      },
+    },
   },
+
   plugins: [],
 };

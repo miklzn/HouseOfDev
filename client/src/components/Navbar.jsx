@@ -5,6 +5,7 @@ import { userLogout } from "../store/user";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import HOD from "../utils/HOD.svg";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -24,18 +25,11 @@ function Navbar() {
   };
 
   return (
-    <nav class="w-full bg-emerald-900 px-[3vw] py-[1.4vw] border-b-4 border-emerald-900 sm:px-[3vw] sm:py-[4.4vw] md:px-[2.4vw] md:py-[1vw] lg:px-[3.5vw] xl:px-[10vw]">
-      <div class="container flex flex-wrap items-center justify-between mx-auto sm:px-3 md:px-5">
-        <a href="https://flowbite.com/" class="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            class="h-8 mr-3 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
-          </span>
-        </a>
+    <nav class="w-full mt-3 px-[3vw] py-[1.4vw] sm:px-[3vw] sm:py-[4.4vw] md:px-[2.4vw] md:py-[1vw] lg:px-[3.5vw] xl:px-[10vw]">
+      <div class="container shadow-nav bg-white flex w-11/12 rounded-full flex-wrap items-center py-3 px-6 justify-between mx-auto md:w-full md:pl-9 md:pr-1">
+        <Link to="/">
+          <img src={HOD} alt="HouseOfDev" />
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -45,10 +39,10 @@ function Navbar() {
         >
           <span class="sr-only">Open main menu</span>
           <svg
-            className="w-8"
+            className="w-10 h-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 10 10"
-            stroke="#eee"
+            stroke="#111827"
             stroke-width=".6"
             fill="rgba(0,0,0,0)"
             stroke-linecap="round"
@@ -98,48 +92,52 @@ function Navbar() {
           </svg>
         </button>
         <div class=" hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul class="absolute z-40 flex flex-col bg-emerald-900 bg-opacity-[0.005] backdrop-blur-xl p-4 mt-2 w-full -left-[0.02rem] text-[5vw] text-gray-300 sm:w-full sm:mt-7 sm:text-[2.125rem] sm:space-y-8 md:w-full md:static md:flex-row md:space-x-8 md:space-y-0 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-emerald-900 md:text-gray-400 lg:text-lg">
-            <li>
-              <a
-                href="#"
-                class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 "
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
-              >
-                Contact
-              </a>
-            </li>
+          <ul class=" absolute z-40 flex flex-col bg-transparent p-[5vw] mt-3 w-full -left-[0.02rem] text-base text-gray-900 md:p-0 md:px-0 md:w-full md:static md:flex-row md:space-x-8 md:space-y-0 md:mt-0 md:text-sm md:font-normal md:border-0 md:bg-transparent md:text-gray-900 lg:text-lg">
+            <div className="bg-white shadow-dropdown rounded-3xl py-3 px-2 mx-[2vw] md:shadow-none md:items-center md:py-0 md:flex md:flex-row md:rounded-none md:space-x-8">
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 "
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li className="my-2 flex justify-center sm:my-4 md:my-0">
+                <button
+                  className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white font-semibold md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                  onClick={handleLogout}
+                  href="/home"
+                  variant="outline-light "
+                >
+                  Login
+                </button>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
