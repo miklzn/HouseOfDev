@@ -25,8 +25,8 @@ function Navbar() {
   };
 
   return (
-    <nav class="w-full mt-3 px-[3vw] py-[1.4vw] sm:px-[3vw] sm:py-[4.4vw] md:px-[2.4vw] md:py-[1vw] lg:px-[3.5vw] xl:px-[10vw]">
-      <div class="container shadow-nav bg-white flex w-11/12 rounded-full flex-wrap items-center py-3 px-6 justify-between mx-auto md:w-full md:pl-9 md:pr-1">
+    <nav class="absolute w-full mt-3 px-[3vw] py-[1.4vw] sm:px-[3vw] sm:py-[4.4vw] md:px-[2.4vw] md:py-[1vw] lg:px-[3.5vw] xl:px-[10vw]">
+      <div class="container shadow-nav bg-white flex w-11/12 rounded-full flex-wrap items-center py-3 px-6 justify-between mx-auto md:w-full md:pl-9 md:pr-0 md:mx-0">
         <Link to="/">
           <img src={HOD} alt="HouseOfDev" />
         </Link>
@@ -93,7 +93,7 @@ function Navbar() {
         </button>
         <div class=" hidden w-full md:block md:w-auto" id="navbar-default">
           <ul class=" absolute z-40 flex flex-col bg-transparent p-[5vw] mt-3 w-full -left-[0.02rem] text-base text-gray-900 md:p-0 md:px-0 md:w-full md:static md:flex-row md:space-x-8 md:space-y-0 md:mt-0 md:text-sm md:font-normal md:border-0 md:bg-transparent md:text-gray-900 lg:text-lg">
-            <div className="bg-white shadow-dropdown rounded-3xl py-3 px-2 mx-[2vw] md:shadow-none md:items-center md:py-0 md:flex md:flex-row md:rounded-none md:space-x-8">
+            <div className="bg-white shadow-dropdown rounded-3xl py-3 px-2 mx-[2vw] sm:py-5 md:shadow-none md:items-center md:py-0 md:px-0 md:flex md:flex-row md:rounded-none md:space-x-8 md:mx-4">
               <li>
                 <a
                   href="#"
