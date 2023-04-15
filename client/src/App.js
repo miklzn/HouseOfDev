@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/user";
 import axios from "axios";
-import NavbarView from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
@@ -27,9 +27,9 @@ const App = () => {
 
   return (
     <>
-      <NavbarView />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
@@ -39,7 +39,7 @@ const App = () => {
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
         <Route path="/users/delete/:id" element={<DeleteUser />} />
-        <Route path="/panelAdmin" element={<PanelAdmin />} />
+        <Route path="/panelAdmin" element={<PanelAdmin />} /> */}
       </Routes>
     </>
   );
