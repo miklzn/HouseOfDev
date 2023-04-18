@@ -163,9 +163,9 @@ const Home = () => {
           </button>
         </div>
         <div className="h-full mx-[5vw]">
-          <div className="w-full h-auto border rounded-3xl">
+          <div className="w-full h-auto border rounded-3xl shadow-card min-[480px]:w-[24.375rem]">
             <img
-              className="w-full h-[10.7rem] rounded-t-3xl"
+              className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
               src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
               alt=""
             />
@@ -175,18 +175,27 @@ const Home = () => {
                 Lorem ipsum dolor sit amet consectetur.
               </div>
               <div className="flex flex-wrap my-5">
-                <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-5 text-sm">
+                <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
                   <img className="mr-2" src={Environment} alt="" /> Environments
                 </div>
-                <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-5 text-sm">
+                <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
                   <img className="mr-2" src={Room} alt="" /> Rooms
                 </div>
               </div>
-              <hr className="border-t border-gray-300 my-2" />
-              <div>
-                <div className="flex items-center">
+              <hr className="border-t border-gray-300 mb-6 mt-8" />
+              <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                <div className="flex items-center mb-4 min-[480px]:mb-0">
                   <div className="text-xl font-semibold">$299</div>
                   <div className="text-sm text-gray-400 ml-1">/month</div>
+                </div>
+                <div className="w-full min-[480px]:w-auto">
+                  <button
+                    className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                    href="/home"
+                    variant="outline-light "
+                  >
+                    See more
+                  </button>
                 </div>
               </div>
             </div>
