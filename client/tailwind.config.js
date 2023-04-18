@@ -11,6 +11,7 @@ module.exports = {
         dropdown: "0px 2px 5px rgba(0, 0, 0, 0.12)",
         nav: "0px 2px 5px rgba(0, 0, 0, 0.08)",
         button: "0 4px 10px 0 rgba(20, 20, 43, 0.04)",
+        card: "0 2px 12px 0 rgba(20, 20, 43, 0.08)",
       },
       fontFamily: {
         dmSans: ["DM Sans", "sans-serif"],
