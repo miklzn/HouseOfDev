@@ -19,6 +19,8 @@
 import HOD_Home from "../utils/HOD-Home.svg";
 import Environment from "../utils/Environments.svg";
 import Room from "../utils/Room.svg";
+import Top_Card from "../utils/TopCard.svg";
+import Bottom_Card from "../utils/BottomCard.svg";
 
 const Home = () => {
   //   const [properties, setProperties] = useState([]);
@@ -150,7 +152,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen">
+      <section className="h-auto mb-[1vh]">
         <div className="pt-24 mx-[5vw] mb-[4vh] space-y-8 md:flex md:flex-wrap md:items-center md:space-y-0 md:justify-between lg:mx-[10.5vw]">
           <p className="text-2xl font-dmSans font-semibold md:text-3xl lg:text-4xl">
             Explore our properties
@@ -197,6 +199,208 @@ const Home = () => {
                     See more
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className=" h-auto">
+        <div className="pt-24 mx-[5vw] font-dmSans text-center">
+          <h2 className="text-2xl font-semibold mb-3 sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
+            Come and enjoy a one of a kind experience
+          </h2>
+          <p className="text-gray-600 mb-10 sm:px-[10vw]md:text-lg md:px-[10vw] lg:text-lg lg:px-[22vw]">
+            Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
+            convallis mauris ultricies dolor viverra.
+          </p>
+          <div className="grid grid-cols gap-x-7 gap-y-14 mb-5 md:grid-cols-2 md:mb-12 lg:grid-cols-3 lg:mb-16 xl:px-[4.5vw]">
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="h-[6.5rem] mr-6"
+                src="https://assets.website-files.com/61f981dc0f719d75a5d78239/6202c7c4c9c163d2b432aa8d_lake-paddling-illustration-rental-webflow-ecommerce-template.png"
+                alt=""
+              />
+              <div className="text-start">
+                <h3 className="font-semibold mb-1 text-xl lg:text-2xl">
+                  Title
+                </h3>
+                <p className="text-gray-600 lg:text-lg">
+                  Sagittis, facilisis mauris sed vitae habitant dolor sit.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col justify-center px-3 py-6 space-y-4 min-[480px]:flex-row min-[480px]:space-y-0 min-[480px]:space-x-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+            <button
+              className="block bg-primary z-10 w-full py-[1.0315rem] rounded-full text-base font-semibold font-dmSans text-white hover:bg-primaryHover sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
+              href="/"
+            >
+              Explore properties
+            </button>
+            <button
+              className="block shadow-button bg-white z-10 border border-gray-200 w-full py-[1.0315rem] rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
+              href="/"
+            >
+              About us
+            </button>
+          </div>
+        </div>
+      </section>
+      <section className="h-auto">
+        <div className="py-16 mx-[5vw] lg:py-44">
+          <div className="relative h-auto bg-primary rounded-3xl xl:mx-[4.5vw]">
+            <img
+              className="w-[15rem] absolute -top-28 -left-28 md:w-[18rem]"
+              src={Top_Card}
+              alt=""
+            />
+            <img
+              className="w-[10rem] absolute -bottom-24 -right-24 min-[480px]:-bottom-16 min-[480px]:-right-16 sm:w-[40vw] sm:-bottom-14 sm:-right-14"
+              src={Bottom_Card}
+              alt=""
+            />
+            <div className="py-14 px-8 font-dmSans md:py-[4.5rem] md:px-[3.375rem] lg:py-[5.875rem] lg:px-[5.375rem]">
+              <h2 className="text-2xl font-semibold text-white mb-3 min-[480px]:text-[1.625rem] md:text-3xl md:w-[36.5rem] lg:text-[2.75rem] lg:leading-tight">
+                Recharge your energies in one of our forest cabins
+              </h2>
+              <p className="text-base text-white md:text-lg md:w-[36.5rem]">
+                Non consectetur a erat nam at lectus urna duis convallis
+                molestie nunc non blandit massa ut etiam sit amet nisl purus in
+                mollis.
+              </p>
+              <div className="w-full flex flex-col justify-center pt-6 space-y-4 min-[480px]:flex-row min-[480px]:space-y-0 min-[480px]:space-x-3 min-[480px]:justify-start sm:pt-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                <button
+                  className="block bg-white w-full py-[1.0315rem] rounded-full text-base font-dmSans text-primary font-semibold hover:text-black min-[480px]:w-auto min-[480px]:px-6 sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
+                  href="/"
+                >
+                  Explore properties
+                </button>
+                <button
+                  className="block shadow-button bg-primary border border-white w-full py-[1.0315rem] rounded-full text-base font-dmSans text-white hover:bg-white hover:text-black min-[480px]:w-auto min-[480px]:px-6 sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
+                  href="/"
+                >
+                  About us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="h-screen">
+        <div className="mx-[5vw]">
+          <h2 className="text-2xl font-dmSans font-semibold">
+            Explore by city
+          </h2>
+          <div className="py-10 grid grid-cols-1 gap-6">
+            <div className="relative h-[24.375rem]">
+              <img
+                className="absolute rounded-3xl h-full w-full object-cover"
+                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
+                alt=""
+              />
+              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
+                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
+                  Buenos Aires
+                </h3>
+              </div>
+            </div>
+            <div className="relative h-[24.375rem]">
+              <img
+                className="absolute rounded-3xl h-full w-full object-cover"
+                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
+                alt=""
+              />
+              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
+                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
+                  Buenos Aires
+                </h3>
+              </div>
+            </div>
+            <div className="relative h-[24.375rem]">
+              <img
+                className="absolute rounded-3xl h-full w-full object-cover"
+                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
+                alt=""
+              />
+              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
+                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
+                  Buenos Aires
+                </h3>
               </div>
             </div>
           </div>
