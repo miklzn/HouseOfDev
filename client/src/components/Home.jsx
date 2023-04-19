@@ -209,7 +209,7 @@ const Home = () => {
           <h2 className="text-2xl font-semibold mb-3 sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
             Come and enjoy a one of a kind experience
           </h2>
-          <p className="text-gray-600 mb-10 sm:px-[10vw]md:text-lg md:px-[10vw] lg:text-lg lg:px-[22vw]">
+          <p className="text-gray-600 mb-10 sm:px-[10vw]md:text-lg md:px-[10vw] md:text-lg lg:text-lg lg:px-[22vw]">
             Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
             convallis mauris ultricies dolor viverra.
           </p>
@@ -361,48 +361,62 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen">
-        <div className="mx-[5vw]">
-          <h2 className="text-2xl font-dmSans font-semibold">
+      <section className="h-auto">
+        <div className="mx-[5vw] text-center ">
+          <h2 className="text-2xl font-semibold font-dmSans mb-3 sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
             Explore by city
           </h2>
-          <div className="py-10 grid grid-cols-1 gap-6">
-            <div className="relative h-[24.375rem]">
-              <img
-                className="absolute rounded-3xl h-full w-full object-cover"
-                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
-                alt=""
-              />
-              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
-                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
-                  Buenos Aires
-                </h3>
+          <p className="text-gray-600 font-dmSans sm:px-[10vw]md:text-lg md:px-[10vw] md:text-lg lg:text-lg lg:px-[22vw]">
+            Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
+            convallis mauris ultricies dolor viverra.
+          </p>
+          <div className="xl:mx-[4.5vw]">
+            <div className="w-full py-10 grid grid-cols-1 gap-6 md:grid-cols-3 md:py-12 ">
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+                <img
+                  className="absolute rounded-3xl h-full w-full object-cover"
+                  src="https://i.pinimg.com/736x/d8/44/ab/d844abb719712aa085ac03a0ad023f15.jpg"
+                  alt=""
+                />
+                <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
+                  <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
+                    Buenos Aires
+                  </h3>
+                </div>
+              </div>
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+                <img
+                  className="absolute rounded-3xl h-full w-full object-cover"
+                  src="https://www.infobae.com/new-resizer/sPViUj1DlSMCqxgNRRAXlZeR5-c=/1440x810/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/01/01183927/Verano-2019-Mar-del-Plata-Atardecer-y-amanecer-con-drone-3.jpg"
+                  alt=""
+                />
+                <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
+                  <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
+                    Mar del Plata
+                  </h3>
+                </div>
+              </div>
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+                <img
+                  className="absolute rounded-3xl h-full w-full object-cover"
+                  src="https://www.carlospazvivo.com/wp-content/uploads//2018/07/capuchinos3.jpg"
+                  alt=""
+                />
+                <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
+                  <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
+                    Cordoba
+                  </h3>
+                </div>
               </div>
             </div>
-            <div className="relative h-[24.375rem]">
-              <img
-                className="absolute rounded-3xl h-full w-full object-cover"
-                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
-                alt=""
-              />
-              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
-                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
-                  Buenos Aires
-                </h3>
-              </div>
-            </div>
-            <div className="relative h-[24.375rem]">
-              <img
-                className="absolute rounded-3xl h-full w-full object-cover"
-                src="https://coolwallpapers.me/picsup/3111988-argentina_bruno-scramgnon_buenos-aires_floralis-generica.jpg"
-                alt=""
-              />
-              <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black h-full rounded-3xl">
-                <h3 className="h-full absolute flex px-8 text-white items-end py-20 text-[1.375rem] font-semibold">
-                  Buenos Aires
-                </h3>
-              </div>
-            </div>
+          </div>
+          <div className="w-full flex justify-center mb-16">
+            <button
+              className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-auto sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+              href="/"
+            >
+              Browse all
+            </button>
           </div>
         </div>
       </section>
