@@ -420,6 +420,41 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="h-auto">
+        <div className="mx-[5vw] pt-16 pb-8 lg:pb-40">
+          <h2 className="text-2xl font-semibold font-dmSans mb-3 text-center sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
+            What our past clients say
+          </h2>
+          <p
+            className="text-gray-600 font-dmSans mb-10
+           text-center sm:px-[10vw]md:text-lg md:px-[10vw] md:text-lg lg:text-lg lg:px-[22vw]"
+          >
+            Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
+            convallis mauris ultricies dolor viverra.
+          </p>
+          <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[51.875rem]">
+            <img
+              className="rounded-full mb-6 sm:w-[17.625rem] md:mb-0 md:w-[14.63rem] lg:w-[17.6rem]"
+              src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad57ce8f5cdee867ce48b_sophie-moore-testimonial-image-rental-webflow-ecommerce-template.jpg"
+              alt=""
+            />
+            <div className="font-dmSans">
+              <h3 className="text-xl font-semibold md:text-[1.375rem]">
+                “The best experience we ever had”
+              </h3>
+              <p className="text-gray-600 py-4 md:text-lg">
+                Lorem ipsum dolor sit amet conse ctetur adipiscing lectus a nunc
+                mauris scelerisque sed egestas dolor sit amet pharetraol quis
+                pharetra arcu pharetra blandit.
+              </p>
+              <div>
+                <div className="font-semibold">Sophie Moore</div>
+                <div className="text-gray-600">Buenos Aires, CF</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
