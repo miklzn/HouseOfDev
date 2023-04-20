@@ -97,7 +97,7 @@ function Navbar() {
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 "
+                  class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0 "
                   aria-current="page"
                 >
                   Home
@@ -106,7 +106,7 @@ function Navbar() {
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                  class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
                   About
                 </a>
@@ -114,7 +114,7 @@ function Navbar() {
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                  class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
                   Services
                 </a>
@@ -122,7 +122,7 @@ function Navbar() {
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0"
+                  class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
                   Pricing
                 </a>
