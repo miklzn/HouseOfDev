@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { setUser } from "./store/user";
 import axios from "axios";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
-import Home from "./components/Home";
 import Property from "./components/Property";
 import UpdateProperty from "./components/UpdateProperty";
 import DeleteProperty from "./components/DeleteProperty";
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/users/delete/:id" element={<DeleteUser />} />
         <Route path="/panelAdmin" element={<PanelAdmin />} /> */}
       </Routes>
+      <Footer />
     </>
   );
 };
