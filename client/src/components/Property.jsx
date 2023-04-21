@@ -41,18 +41,18 @@ const Property = () => {
   return (
     <section className="h-auto">
       <div>
-        <div className="relative h-[73vh] md:h-screen xl:h-[60vh]">
+        <div className="relative h-[73vh] md:h-screen lg:h-[76vh]">
           <img
             className="absolute rounded-b-3xl h-full w-full object-cover"
             src="https://fondosmil.com/fondo/60032.jpg"
             alt=""
           />
           <div className="absolute flex w-full h-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/90 h-full rounded-b-3xl items-end">
-            <div className="mx-[5vw] text-white font-dmSans my-10">
+            <div className="mx-[5vw] text-white font-dmSans my-10 xl:px-[5vw]">
               <h3 className="text-[2rem] font-semibold mb-4 leading-10 min-[480px]:text-[2.375rem] md:text-5xl">
                 Duplex Rustic Cabin
               </h3>
-              <p className="text-gray-100 md:text-lg">
+              <p className="text-gray-100 md:text-lg lg:w-[57vw] xl:w-[40vw]">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
                 cras tellus sit tempor amet, nascetur quam ornare proin platea
                 diam amet
@@ -60,185 +60,204 @@ const Property = () => {
             </div>
           </div>
         </div>
-        <div className="mx-[5vw] space-y-4 py-16 min-[480px]:grid min-[480px]:grid-cols-2 min-[480px]:space-y-0 min-[480px]:gap-6 md:grid-cols-none md:flex md:gap-4">
-          <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
-            <img
-              className="w-5 mr-2 md:w-[1.375rem]"
-              src={Environment}
-              alt=""
-            />{" "}
-            Environments
-          </div>
-          <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
-            <img className="w-5 mr-2 md:w-[1.375rem]" src={Room} alt="" /> Rooms
-          </div>
-          <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
-            <img className="w-5 mr-2 md:w-[1.375rem]" src={Bathroom} alt="" />{" "}
-            Bathrooms
-          </div>
-          <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
-            <img className="w-5 mr-2 md:w-[1.375rem]" src={Garage} alt="" />{" "}
-            Garage
-          </div>
-        </div>
-        <div className="mx-[5vw] font-dmSans">
-          <h2 className="text-2xl font-semibold mt-2 mb-4 min-[480px]:text-[1.625rem] md:text-[1.875rem] md:mb-8">
-            About the house
-          </h2>
-          <p className="text-gray-600 mb-6 md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit etiam cras
-            tellus sit tempor amet, nascetur quam ornare proin platea diam amet
-            sed fringilla.
-          </p>
-          <ul className="pl-7 text-gray-600 space-y-2 mb-6 md:text-lg">
-            <li type="disc">
-              Faucibus pulvinar elementum integer enim neque volutpat ac
-              tincidunt vitae.
-            </li>
-            <li type="disc">
-              Faucibus pulvinar elementum integer enim neque volutpat ac
-              tincidunt vitae.
-            </li>
-            <li type="disc">
-              Faucibus pulvinar elementum integer enim neque volutpat ac
-              tincidunt vitae.
-            </li>
-            <li type="disc">
-              Faucibus pulvinar elementum integer enim neque volutpat ac
-              tincidunt vitae.
-            </li>
-          </ul>
-          <p className="text-gray-600 mb-6 md:text-lg">
-            Pulvinar mattis nunc sed blandit libero cursus turpis massa
-            tincidunt dui ut tellus molestie nunc non blandit massa enim nec dui
-            nunc netus et malesuada fames aliquam vestibulum morbi blandit
-            cursus risus at ultrices mi tempus scelerisque purus semper eget
-            duis at tellus in mollis nunc sed id semper risus.
-          </p>
-          <p className="text-gray-600 mb-6 md:text-lg">
-            Tempus quam pellentesque nec nam aliquam sem et tortor duis
-            convallis convallis tellus id interdum sit amet nisl purus in mollis
-            nulla facilisi morbi tempus iaculis urna id volutpat tincidunt vitae
-            semper quis lectus nulla.
-          </p>
-          <hr className="border-t my-2" />
-          <h2 className="text-2xl font-semibold my-8 md:text-[1.875rem] md:my-12">
-            Services
-          </h2>
-          <div className="grid grid-cols-2 gap-y-10 gap-x-4 mb-10 min-[480px]:grid-cols-3 md:gap-y-12 md:mb-16">
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-            <div className="flex items-center">
-              <img className="mr-2" src={Lamp} alt="" />
-              <p>Service</p>
-            </div>
-          </div>
-          <div className="mb-10">
-            <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-[51.875rem]">
-              <h2 className="text-[1.375rem] font-semibold mb-2">
-                Schedule a visit
-              </h2>
-              <p className="text-gray-600 mb-5 md:text-lg">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
-                cras tellus sit.
-              </p>
-              <hr className="border-t mt-8 mb-10 " />
-              <div className="min-[480px]:flex min-[480px]:space-x-2">
-                <div className="min-[480px]:w-full">
-                  <h3 className="font-semibold mb-3">Date</h3>
-                  <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+        <div className="mx-[5vw] font-dmSans lg:mx-[3vw] xl:px-[7vw]">
+          <div className="lg:flex lg:space-x-5">
+            <div className="lg:w-9/12">
+              <div className="space-y-4 py-16 min-[480px]:grid min-[480px]:grid-cols-2 min-[480px]:space-y-0 min-[480px]:gap-6 md:grid-cols-none md:flex md:gap-4">
+                <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
+                  <img
+                    className="w-5 mr-2 md:w-[1.375rem]"
+                    src={Environment}
+                    alt=""
+                  />{" "}
+                  Environments
                 </div>
-                <div className="min-[480px]:w-full">
-                  <h3 className="font-semibold mb-3">Time</h3>
-                  <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+                <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
+                  <img className="w-5 mr-2 md:w-[1.375rem]" src={Room} alt="" />{" "}
+                  Rooms
+                </div>
+                <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
+                  <img
+                    className="w-5 mr-2 md:w-[1.375rem]"
+                    src={Bathroom}
+                    alt=""
+                  />{" "}
+                  Bathrooms
+                </div>
+                <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
+                  <img
+                    className="w-5 mr-2 md:w-[1.375rem]"
+                    src={Garage}
+                    alt=""
+                  />{" "}
+                  Garage
                 </div>
               </div>
-              <button
-                className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                href="/"
-              >
-                Book
-              </button>
-              <div className="flex w-full items-center justify-center my-5">
-                <hr className="border border-gray-300 w-1/2" />
-                <div className="mx-5">OR</div>
-                <hr className="border border-gray-300 w-1/2" />
+              <div>
+                <h2 className="text-2xl font-semibold mt-2 mb-4 min-[480px]:text-[1.625rem] md:text-[1.875rem] md:mb-8">
+                  About the house
+                </h2>
+                <p className="text-gray-600 mb-6 md:text-lg">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
+                  cras tellus sit tempor amet, nascetur quam ornare proin platea
+                  diam amet sed fringilla.
+                </p>
+                <ul className="pl-7 text-gray-600 space-y-2 mb-6 md:text-lg">
+                  <li type="disc">
+                    Faucibus pulvinar elementum integer enim neque volutpat ac
+                    tincidunt vitae.
+                  </li>
+                  <li type="disc">
+                    Faucibus pulvinar elementum integer enim neque volutpat ac
+                    tincidunt vitae.
+                  </li>
+                  <li type="disc">
+                    Faucibus pulvinar elementum integer enim neque volutpat ac
+                    tincidunt vitae.
+                  </li>
+                  <li type="disc">
+                    Faucibus pulvinar elementum integer enim neque volutpat ac
+                    tincidunt vitae.
+                  </li>
+                </ul>
+                <p className="text-gray-600 mb-6 md:text-lg">
+                  Pulvinar mattis nunc sed blandit libero cursus turpis massa
+                  tincidunt dui ut tellus molestie nunc non blandit massa enim
+                  nec dui nunc netus et malesuada fames aliquam vestibulum morbi
+                  blandit cursus risus at ultrices mi tempus scelerisque purus
+                  semper eget duis at tellus in mollis nunc sed id semper risus.
+                </p>
+                <p className="text-gray-600 mb-6 md:text-lg">
+                  Tempus quam pellentesque nec nam aliquam sem et tortor duis
+                  convallis convallis tellus id interdum sit amet nisl purus in
+                  mollis nulla facilisi morbi tempus iaculis urna id volutpat
+                  tincidunt vitae semper quis lectus nulla.
+                </p>
               </div>
-              <button
-                className="block shadow-button bg-black border border-gray-900 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                href="/"
-              >
-                Contact
-              </button>
+              <hr className="border-t my-2" />
+              <div>
+                <h2 className="text-2xl font-semibold my-8 md:text-[1.875rem] md:my-12">
+                  Services
+                </h2>
+                <div className="grid grid-cols-2 gap-y-10 gap-x-4 mb-10 min-[480px]:grid-cols-3 md:gap-y-12 md:mb-16">
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img className="mr-2" src={Lamp} alt="" />
+                    <p>Service</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div className="pt-20">
-                <div className="min-[480px]:flex min-[480px]:items-center min-[480px]:justify-between">
-                  <h2 className="text-2xl font-semibold mb-8 md:text-[1.875rem]">
-                    Gallery
+            <div className="lg:w-5/12">
+              <div className="mb-10 lg:sticky lg:top-5 ">
+                <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl bg-white min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-auto lg:-mt-[21.5625rem]">
+                  <h2 className="text-[1.375rem] font-semibold mb-2">
+                    Schedule a visit
                   </h2>
+                  <p className="text-gray-600 mb-5 md:text-lg">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
+                    cras tellus sit.
+                  </p>
+                  <hr className="border-t mt-8 mb-10 " />
+                  <div className="min-[480px]:flex min-[480px]:space-x-2">
+                    <div className="min-[480px]:w-full">
+                      <h3 className="font-semibold mb-3">Date</h3>
+                      <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+                    </div>
+                    <div className="min-[480px]:w-full">
+                      <h3 className="font-semibold mb-3">Time</h3>
+                      <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+                    </div>
+                  </div>
                   <button
-                    className="block shadow-button bg-primary border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white mb-8 hover:bg-white hover:text-gray-900 min-[480px]:w-auto sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                    className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
                     href="/"
                   >
-                    Browse all
+                    Book
+                  </button>
+                  <div className="flex w-full items-center justify-center my-5">
+                    <hr className="border border-gray-300 w-1/2" />
+                    <div className="mx-5">OR</div>
+                    <hr className="border border-gray-300 w-1/2" />
+                  </div>
+                  <button
+                    className="block shadow-button bg-black w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                    href="/"
+                  >
+                    Contact
                   </button>
                 </div>
-                <div className="grid drid-cols gap-5 min-[480px]:grid-cols-2">
-                  <div className="rounded-3xl">
-                    <img
-                      className="rounded-3xl"
-                      src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="rounded-3xl">
-                    <img
-                      className="rounded-3xl"
-                      src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="rounded-3xl">
-                    <img
-                      className="rounded-3xl"
-                      src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="rounded-3xl">
-                    <img
-                      className="rounded-3xl"
-                      src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
-                      alt=""
-                    />
-                  </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="pt-20">
+              <div className="min-[480px]:flex min-[480px]:items-center min-[480px]:justify-between">
+                <h2 className="text-2xl font-semibold mb-8 md:text-[1.875rem] lg:mb-10">
+                  Gallery
+                </h2>
+                <button
+                  className="block shadow-button bg-primary border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white mb-8 hover:bg-white hover:text-gray-900 min-[480px]:w-auto sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9 lg:mb-10"
+                  href="/"
+                >
+                  Browse all
+                </button>
+              </div>
+              <div className="grid drid-cols gap-5 mb-20 min-[480px]:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-3xl">
+                  <img
+                    className="rounded-3xl"
+                    src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="rounded-3xl">
+                  <img
+                    className="rounded-3xl"
+                    src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="rounded-3xl">
+                  <img
+                    className="rounded-3xl"
+                    src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="rounded-3xl">
+                  <img
+                    className="rounded-3xl"
+                    src="https://i.pinimg.com/originals/46/f3/3f/46f33ff5d80c2b59d4c4c6d6d6ed38e8.jpg"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
