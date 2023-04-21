@@ -6,10 +6,10 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Property from "./components/Property";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
-import Property from "./components/Property";
 import UpdateProperty from "./components/UpdateProperty";
 import DeleteProperty from "./components/DeleteProperty";
 import PanelAdmin from "./components/PanelAdmin";
@@ -31,11 +31,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/properties/:id" element={<Property />} />
         {/*<Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/properties/create" element={<NewProperty />} />
-        <Route path="/properties/:id" element={<Property />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
