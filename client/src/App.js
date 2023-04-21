@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Property from "./components/Property";
+import Sale from "./components/Sale";
+import Rent from "./components/Rent";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
@@ -32,6 +34,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/properties/:id" element={<Property />} />
+        <Route path="/sale" element={<Sale />} />
+        <Route path="/rent" element={<Rent />} />
         {/*<Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
