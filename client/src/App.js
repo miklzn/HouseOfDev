@@ -36,8 +36,8 @@ const App = () => {
         <Route path="/properties/:id" element={<Property />} />
         <Route path="/sale" element={<Sale />} />
         <Route path="/rent" element={<Rent />} />
-        {/*<Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/*<Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/properties/create" element={<NewProperty />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
