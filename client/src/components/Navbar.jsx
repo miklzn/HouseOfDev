@@ -96,111 +96,55 @@ function Navbar() {
             <div className="bg-white shadow-dropdown rounded-3xl py-3 px-2 mx-[2vw] sm:py-5 md:shadow-none md:items-center md:py-0 md:px-0 md:flex md:flex-row md:rounded-none md:space-x-8 md:mx-4">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0 "
-                  aria-current="page"
                 >
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/sale"
                   class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
-                  About
+                  Sale
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/rent"
                   class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
-                  Services
+                  Rent
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href={user.id ? "/profile" : "/login"}
                   class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
-                  Pricing
+                  Profile
                 </a>
               </li>
               <li className="my-2 flex justify-center sm:my-4 md:my-0">
-                <button
-                  className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
-                  // onClick={handleLogout}
-                  href="/home"
-                  variant="outline-light "
-                >
-                  Login
-                </button>
+                {user.id ? (
+                  <button
+                    className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                    onClick={handleLogout}
+                  >
+                    Log out
+                  </button>
+                ) : (
+                  <button className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
+                    Log in
+                  </button>
+                )}
               </li>
             </div>
           </ul>
         </div>
       </div>
     </nav>
-    // <Navbar className="color-nav" expand="lg">
-    //   <Container>
-    //     <Navbar.Brand>
-    //       <Link to="/">
-    //         <img src={logo} alt="HouseOfDev" />
-    //       </Link>
-    //     </Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //       <Nav className="me-auto">
-    //         <Nav.Link href="#home">Venta</Nav.Link>
-    //         <Nav.Link href="#link">Alquiler</Nav.Link>
-    //         <NavDropdown title="Mas" id="basic-nav-dropdown">
-    //           <NavDropdown.Item href={user.id ? "/profile" : "/login"}>
-    //             Visitas Agendadas
-    //           </NavDropdown.Item>
-    //           <NavDropdown.Item href="#action/3.2">
-    //             Nuestros Servicios
-    //           </NavDropdown.Item>
-    //           <NavDropdown.Item href={user.id ? "/profile" : "/login"}>
-    //             Mi Perfil
-    //           </NavDropdown.Item>
-    //           <NavDropdown.Item href="#action/3.3">Nosotros</NavDropdown.Item>
-    //           <NavDropdown.Divider />
-    //           <NavDropdown.Item href="#action/3.4">Contacto</NavDropdown.Item>
-    //         </NavDropdown>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //     {user?.admin ? (
-    //       <DropdownButton variant="outline-light " title="Admin">
-    //         <Dropdown.Item href="/properties/create">
-    //           Nueva Propiedad
-    //         </Dropdown.Item>
-    //         <Dropdown.Item href="/panelAdmin">
-    //           Usuarios Registrados
-    //         </Dropdown.Item>
-    //         {/* <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
-    //       </DropdownButton>
-    //     ) : null}
-    //     {user?.name ? (
-    //       <Button
-    //         className="button-position"
-    //         onClick={handleLogout}
-    //         href="/home"
-    //         variant="outline-light "
-    //       >
-    //         Cerrar Sesion
-    //       </Button>
-    //     ) : (
-    //       <Button
-    //         className="button-position"
-    //         href="/login"
-    //         variant="outline-light "
-    //       >
-    //         Iniciar Sesion
-    //       </Button>
-    //     )}
-    //   </Container>
-    // </Navbar>
   );
 }
 

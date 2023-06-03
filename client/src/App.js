@@ -37,14 +37,13 @@ const App = () => {
         <Route path="/sale" element={<Sale />} />
         <Route path="/rent" element={<Rent />} />
         <Route path="/register" element={<Register />} />
-        {/*<Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/properties/create" element={<NewProperty />} />
+        <Route path="/panelAdmin" element={<PanelAdmin />} />
+        {/*<Route path="/properties/create" element={<NewProperty />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
-        <Route path="/properties/delete/:id" element={<DeleteProperty />} />
-        <Route path="/users/delete/:id" element={<DeleteUser />} />
-        <Route path="/panelAdmin" element={<PanelAdmin />} /> */}
+        <Route path="/users/delete/:id" element={<DeleteUser />} /> */}
       </Routes>
       <Footer />
     </>

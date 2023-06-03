@@ -1,43 +1,84 @@
-// import React from "react";
-// import axios from "axios";
-// import { useSelector, useDispatch } from "react-redux";
-// import { removeFavorite } from "../store/user";
-// import ListGroup from "react-bootstrap/ListGroup";
-// import Container from "react-bootstrap/esm/Container";
-// import Card from "react-bootstrap/Card";
-// import Col from "react-bootstrap/Col";
-// import Row from "react-bootstrap/Row";
-// import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-// import { Link } from "react-router-dom";
-// import { BsDoorOpen } from "react-icons/bs";
-// import { BiBed, BiBath } from "react-icons/bi";
-// import "../styles/profile.css";
+import React from "react";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFavorite } from "../store/user";
 
-// const Profile = () => {
-//   const user = useSelector((state) => state.user);
+const Profile = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-//   const dispatch = useDispatch();
+  //   const handleRemoveFavorite = (id) => {
+  //     axios
+  //       .post(
+  //         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
+  //         {
+  //           id: id,
+  //         },
+  //         {
+  //           headers: { "Content-Type": "application/json" },
+  //           withCredentials: true,
+  //         }
+  //       )
+  //       .then((res) => dispatch(removeFavorite(res.data)))
+  //       .then(() => window.location.reload(false))
+  //       .catch((error) => console.log(error));
+  //   };
 
-//   const handleRemoveFavorite = (id) => {
-//     axios
-//       .post(
-//         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
-//         {
-//           id: id,
-//         },
-//         {
-//           headers: { "Content-Type": "application/json" },
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => dispatch(removeFavorite(res.data)))
-//       .then(() => window.location.reload(false))
-//       .catch((error) => console.log(error));
-//   };
+  return (
+    <div>
+      <div className="h-screen pt-32 mx-[7vw] md:mx-[4vw] lg:mx-[6vw] xl:mx-[12vw]">
+        <div className="md:flex md:space-x-2">
+          <div className="h-auto shadow-card flex-col justify-center text-center rounded-3xl p-2 font-dmSans md:w-1/3">
+            <img
+              className="w-20 h-20 rounded-full mx-auto"
+              src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+              alt=""
+            />
+            <p className="mt-2 mb-4">{`${user.name} ${user.lastName}`}</p>
+            <p className="flex text-center justify-center my-2">
+              <img
+                className="w-5 mr-1"
+                src="https://www.svgrepo.com/show/283449/maps-and-flags-pin.svg"
+                alt=""
+              />
+              {`${user.city}, ${user.country}`}
+            </p>
+            <p className="flex text-center justify-center my-2">
+              <img
+                className="w-5 mr-1"
+                src="https://www.svgrepo.com/show/488920/email.svg"
+                alt=""
+              />
+              {user.email}
+            </p>
+            <p className="flex text-center justify-center my-2">
+              <img
+                className="w-5 mr-1"
+                src="https://www.svgrepo.com/show/489146/smartphone-01.svg"
+                alt=""
+              />
+              {user.phone}
+            </p>
+          </div>
+          <div className="h-auto shadow-card rounded-3xl p-2 mt-5 font-dmSans md:w-2/3 md:mt-0">
+            <div className="flex justify-center space-x-1">
+              <button className="px-2 py-2 bg-primary rounded-full text-white">
+                Favorites
+              </button>
+              <button className="px-2 py-2 bg-primary rounded-full text-white">
+                Bookings
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-//   return (
-//     <Container>
+export default Profile;
+
+//<Container>
 //       <h1 className="centerItem">Mi Perfil</h1>
 //       <ListGroup className="centerList">
 //         <ListGroup.Item>
@@ -99,7 +140,3 @@
 //         ))}
 //       </Row>
 //     </Container>
-//   );
-// };
-
-// export default Profile;
