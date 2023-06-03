@@ -44,10 +44,6 @@ User.init(
       type: S.STRING,
       allowNull: false,
     },
-    state: {
-      type: S.STRING,
-      allowNull: false,
-    },
     phone: {
       type: S.INTEGER,
       allowNull: false,
