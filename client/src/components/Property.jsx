@@ -1,28 +1,22 @@
-// import React from "react";
-// import axios from "axios";
-// import { useParams, Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { setUser } from "../store/user";
-// import { BsDoorOpen } from "react-icons/bs";
-// import { BiBed, BiBath, BiCar } from "react-icons/bi";
-// import ListGroup from "react-bootstrap/ListGroup";
-// import Card from "react-bootstrap/Card";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/esm/Button";
-// import Appointment from "./Appointment";
-// import "../styles/property.css";
+import React from "react";
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../store/user";
 import Environment from "../utils/Environments.svg";
 import Room from "../utils/Room.svg";
 import Bathroom from "../utils/Bathroom.svg";
 import Garage from "../utils/Garage.svg";
 import Lamp from "../utils/Lamp.svg";
 
+// import Appointment from "./Appointment";
+
 const Property = () => {
   //   const dispatch = useDispatch();
   //   const user = useSelector((state) => state.user);
-  //   const { id } = useParams();
-  //   const [property, setProperty] = useState({});
+  const { id } = useParams();
+  const [property, setProperty] = useState({});
 
   //   //-------->Estados para mostrar Modal<----------
   //   const [show, setShow] = useState(false);
@@ -30,13 +24,15 @@ const Property = () => {
   //   const handleShow = () => setShow(true);
   //   //----------------------------------------------
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(`http://localhost:3001/api/properties/${id}`)
-  //       .then((res) => setProperty(res.data))
-  //       .then((res) => dispatch(setUser(res.data)))
-  //       .catch((error) => console.log(error));
-  //   }, []);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/api/properties/${id}`)
+      .then((res) => setProperty(res.data))
+      //.then((res) => dispatch(setUser(res.data)))
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(property);
 
   return (
     <section className="h-auto">
@@ -44,13 +40,13 @@ const Property = () => {
         <div className="relative h-[73vh] md:h-screen lg:h-[76vh]">
           <img
             className="absolute rounded-b-3xl h-full w-full object-cover"
-            src="https://fondosmil.com/fondo/60032.jpg"
+            src={property.image}
             alt=""
           />
           <div className="absolute flex w-full h-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/90 h-full rounded-b-3xl items-end">
             <div className="mx-[5vw] text-white font-dmSans my-10 xl:px-[5vw]">
               <h3 className="text-[2rem] font-semibold mb-4 leading-10 min-[480px]:text-[2.375rem] md:text-5xl">
-                Duplex Rustic Cabin
+                {property.title}
               </h3>
               <p className="text-gray-100 md:text-lg lg:w-[57vw] xl:w-[40vw]">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
@@ -69,28 +65,28 @@ const Property = () => {
                     className="w-5 mr-2 md:w-[1.375rem]"
                     src={Environment}
                     alt=""
-                  />{" "}
-                  Environments
+                  />
+                  {property.environments} Environments
                 </div>
                 <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
-                  <img className="w-5 mr-2 md:w-[1.375rem]" src={Room} alt="" />{" "}
-                  Rooms
+                  <img className="w-5 mr-2 md:w-[1.375rem]" src={Room} alt="" />
+                  {property.rooms} Rooms
                 </div>
                 <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
                   <img
                     className="w-5 mr-2 md:w-[1.375rem]"
                     src={Bathroom}
                     alt=""
-                  />{" "}
-                  Bathrooms
+                  />
+                  {property.bathrooms} Bathrooms
                 </div>
                 <div className="w-auto flex justify-center items-center border rounded-full p-[0.875rem] font-dmSans text-md mr-3 min-[480px]:mr-0 md:text-lg">
                   <img
                     className="w-5 mr-2 md:w-[1.375rem]"
                     src={Garage}
                     alt=""
-                  />{" "}
-                  Garage
+                  />
+                  {property.garage} Garage
                 </div>
               </div>
               <div>

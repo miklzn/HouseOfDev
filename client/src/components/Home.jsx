@@ -4,18 +4,8 @@
 // import { addFavorites } from "../store/user";
 // import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
-// import Card from "react-bootstrap/Card";
-// import Col from "react-bootstrap/Col";
-// import Row from "react-bootstrap/Row";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-// import Accordion from "react-bootstrap/Accordion";
 // import { Link } from "react-router-dom";
-// import ListGroup from "react-bootstrap/ListGroup";
-// import { BsDoorOpen } from "react-icons/bs";
-// import { BiBed, BiBath } from "react-icons/bi";
 
-// import "../styles/home.css";
 import HOD_Home from "../utils/HOD-Home.svg";
 import Environment from "../utils/Environments.svg";
 import Room from "../utils/Room.svg";
