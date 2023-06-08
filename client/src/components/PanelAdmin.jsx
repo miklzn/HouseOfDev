@@ -6,6 +6,7 @@ import { useState } from "react";
 const PanelAdmin = () => {
   const [users, setUsers] = useState([]);
   const [properties, setProperties] = useState([]);
+  const [appointments, setAppointments] = useState([]);
   const [info, setInfo] = useState(0);
 
   useEffect(() => {
@@ -25,6 +26,17 @@ const PanelAdmin = () => {
       .then((res) => setProperties(res.data))
       .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/appointments/all", {
+        withCredentials: true,
+      })
+      .then((res) => setAppointments(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(appointments);
 
   return (
     <div>
@@ -69,43 +81,54 @@ const PanelAdmin = () => {
                   setInfo(2);
                 }}
               >
-                Bookings (0)
+                Bookings ({appointments.length})
               </button>
             </div>
           </div>
         </div>
         <div className="mt-5 mb-14">
-          {info === 0 ? (
-            users.map((user, i) => (
-              <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
-                <img
-                  className="w-20 h-20 rounded-full"
-                  src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                  alt=""
-                />
-                <div className="flex flex-col">
-                  <h3 className=" text-gray-500">Name:</h3>
-                  <p className="">{`${user.name} ${user.lastName}`}</p>
+          {info === 0
+            ? users.map((user, i) => (
+                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+                    alt=""
+                  />
+                  <div className="flex flex-col">
+                    <h3 className=" text-gray-500">Name:</h3>
+                    <p className="">{`${user.name} ${user.lastName}`}</p>
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : info === 1 ? (
-            properties.map((property, i) => (
-              <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
-                <img
-                  className="w-20 h-20 rounded-full"
-                  src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                  alt=""
-                />
-                <div className="flex flex-col">
-                  <h3 className=" text-gray-500">Title:</h3>
-                  <p className="">{property.title}</p>
+              ))
+            : info === 1
+            ? properties.map((property, i) => (
+                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+                    alt=""
+                  />
+                  <div className="flex flex-col">
+                    <h3 className=" text-gray-500">Title:</h3>
+                    <p className="">{property.title}</p>
+                  </div>
+                  <button className="bg-primary rounded-full"> D</button>
                 </div>
-              </div>
-            ))
-          ) : (
-            <div>Bookings here</div>
-          )}
+              ))
+            : appointments.map((appointment, i) => (
+                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+                    alt=""
+                  />
+                  <div className="flex flex-col">
+                    <h3 className=" text-gray-500">Date:</h3>
+                    <p className="">{appointment.date}</p>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </div>
