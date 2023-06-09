@@ -183,13 +183,41 @@ const Property = () => {
                   </p>
                   <hr className="border-t mt-8 mb-10 " />
                   <div className="min-[480px]:flex min-[480px]:space-x-2">
-                    <div className="min-[480px]:w-full">
-                      <h3 className="font-semibold mb-3">Date</h3>
-                      <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="email"
+                        className="font-dmSans text-gray-700 font-semibold mb-3"
+                      >
+                        Date
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          // onChange={handleChangeEmail}
+                          required
+                          className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                        />
+                      </div>
                     </div>
-                    <div className="min-[480px]:w-full">
-                      <h3 className="font-semibold mb-3">Time</h3>
-                      <div className="h-14 border rounded-full mb-4 shadow-button"></div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="email"
+                        className="font-dmSans text-gray-700 font-semibold mb-3"
+                      >
+                        Time
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          // onChange={handleChangeEmail}
+                          required
+                          className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                        />
+                      </div>
                     </div>
                   </div>
                   <button

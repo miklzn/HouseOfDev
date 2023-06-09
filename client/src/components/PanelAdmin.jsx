@@ -89,43 +89,83 @@ const PanelAdmin = () => {
         <div className="mt-5 mb-14">
           {info === 0
             ? users.map((user, i) => (
-                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
-                  <img
-                    className="w-20 h-20 rounded-full"
-                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                    alt=""
-                  />
-                  <div className="flex flex-col">
-                    <h3 className=" text-gray-500">Name:</h3>
-                    <p className="">{`${user.name} ${user.lastName}`}</p>
+                <div className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <div className="flex items-center">
+                    <img
+                      className="w-14 h-14 ml-2 rounded-full"
+                      src="https://media.licdn.com/dms/image/D4D03AQEyIW7bFHlRgQ/profile-displayphoto-shrink_100_100/0/1676720943921?e=1691625600&v=beta&t=c4IxNEcL9fhEev8PnJgxF-Yuh-bSBUsfiixKWEizV8o"
+                      alt=""
+                    />
+
+                    <div className="flex flex-col ml-2">
+                      <h3 className=" text-gray-500">Name:</h3>
+                      <p className="">{`${user.name} ${user.lastName}`}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <button className="mr-4 p-2 bg-primary rounded-full">
+                      <img
+                        className="w-5"
+                        src="https://www.svgrepo.com/show/502614/delete.svg"
+                        alt=""
+                      />
+                    </button>
                   </div>
                 </div>
               ))
             : info === 1
             ? properties.map((property, i) => (
-                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
-                  <img
-                    className="w-20 h-20 rounded-full"
-                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                    alt=""
-                  />
-                  <div className="flex flex-col">
-                    <h3 className=" text-gray-500">Title:</h3>
-                    <p className="">{property.title}</p>
+                <div className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <div className="flex items-center">
+                    <img
+                      className="w-16 h-16 ml-6 rounded-2xl"
+                      src={property.image}
+                      alt=""
+                    />
+                    <div className="flex flex-col ml-2">
+                      <h3 className=" text-gray-500">Title:</h3>
+                      <p className="">{property.title}</p>
+                    </div>
                   </div>
-                  <button className="bg-primary rounded-full"> D</button>
+                  <div className="flex space-x-1 mr-4">
+                    <button className="p-2 bg-primary rounded-full">
+                      <img
+                        className="w-5"
+                        src="https://www.svgrepo.com/show/509911/edit.svg"
+                        alt=""
+                      />
+                    </button>
+                    <button className="p-2 bg-primary rounded-full">
+                      <img
+                        className="w-5"
+                        src="https://www.svgrepo.com/show/502614/delete.svg"
+                        alt=""
+                      />
+                    </button>
+                  </div>
                 </div>
               ))
             : appointments.map((appointment, i) => (
-                <div className="flex items-center h-20 border border-gray-200 rounded-full font-dmSans my-3">
-                  <img
-                    className="w-20 h-20 rounded-full"
-                    src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                    alt=""
-                  />
-                  <div className="flex flex-col">
-                    <h3 className=" text-gray-500">Date:</h3>
-                    <p className="">{appointment.date}</p>
+                <div className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-3">
+                  <div className="flex items-center">
+                    <img
+                      className="w-16 h-16 ml-6 rounded-2xl"
+                      src={properties[appointment.propertyId].image}
+                      alt=""
+                    />
+                    <div className="flex flex-col ml-2">
+                      <h3 className=" text-gray-500">Date:</h3>
+                      <p className="">{appointment.date}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <button className="mr-4 p-2 bg-primary rounded-full">
+                      <img
+                        className="w-5"
+                        src="https://www.svgrepo.com/show/502614/delete.svg"
+                        alt=""
+                      />
+                    </button>
                   </div>
                 </div>
               ))}

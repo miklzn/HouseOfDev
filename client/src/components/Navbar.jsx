@@ -104,6 +104,14 @@ function Navbar() {
               </li>
               <li>
                 <a
+                  href="/properties"
+                  class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0 "
+                >
+                  Properties
+                </a>
+              </li>
+              <li>
+                <a
                   href="/sale"
                   class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
                 >
@@ -126,6 +134,16 @@ function Navbar() {
                   Profile
                 </a>
               </li>
+              {user.admin === true ? (
+                <li>
+                  <a
+                    href="/paneladmin"
+                    class="block py-2 pl-3 pr-4 hover:text-primary md:bg-transparent md:p-0"
+                  >
+                    Admin
+                  </a>
+                </li>
+              ) : null}
               <li className="my-2 flex justify-center sm:my-4 md:my-0">
                 {user.id ? (
                   <button
@@ -135,9 +153,12 @@ function Navbar() {
                     Log out
                   </button>
                 ) : (
-                  <button className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
-                    Log in
-                  </button>
+                  <a
+                    className="block bg-primary w-11/12 py-2 pl-3 pr-4 rounded-full text-white text-center font-semibold hover:bg-primaryHover md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                    href="/login"
+                  >
+                    <button>Log in</button>
+                  </a>
                 )}
               </li>
             </div>
