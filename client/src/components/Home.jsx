@@ -125,18 +125,16 @@ const Home = () => {
                 place!
               </p>
               <div className="w-full flex flex-col justify-center px-3 py-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                <button
-                  className="block bg-primary w-full py-[1.0315rem] rounded-full text-base font-dmSans text-white hover:bg-primaryHover sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
-                  href="/"
-                >
-                  Explore properties
-                </button>
-                <button
-                  className="block bg-white w-full py-[1.0315rem] rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8"
-                  href="/"
-                >
-                  About us
-                </button>
+                <a href="/properties">
+                  <button className="block bg-primary w-full py-[1.0315rem] rounded-full text-base font-dmSans text-white hover:bg-primaryHover sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8">
+                    Explore properties
+                  </button>
+                </a>
+                <a href="">
+                  <button className="block bg-white w-full py-[1.0315rem] rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.25rem] md:px-8">
+                    About us
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -147,47 +145,95 @@ const Home = () => {
           <p className="text-2xl font-dmSans font-semibold md:text-3xl lg:text-4xl">
             Explore our properties
           </p>
-          <button
-            className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-auto sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-            href="/"
+          <a
+            className="block shadow-button bg-white border border-gray-200 text-center w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-auto sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+            href="/properties"
           >
-            Browse all
-          </button>
+            <button>Browse all</button>
+          </a>
         </div>
-        <div className="h-full mx-[5vw]">
-          <div className="w-full h-auto border rounded-3xl shadow-card min-[480px]:w-[24.375rem]">
-            <img
-              className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
-              src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
-              alt=""
-            />
-            <div className="px-6 pt-8 pb-7 font-dmSans">
-              <h3 className="text-xl font-semibold">Title Property</h3>
-              <div className="text-base text-gray-600 my-2">
-                Lorem ipsum dolor sit amet consectetur.
+        <div className="pt-20 md:pb-20 mx-[5vw]">
+          <div
+            id="content"
+            className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide space-x-[3vw] lg:p-1 lg:scroll-pl-1"
+          >
+            <div className="snap-center lg:snap-start">
+              <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
+                <img
+                  className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
+                  src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
+                  alt=""
+                />
+                <div className="px-6 pt-8 pb-7 font-dmSans">
+                  <h3 className="text-xl font-semibold">Title Property</h3>
+                  <div className="text-base text-gray-600 my-2">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </div>
+                  <div className="flex flex-wrap my-5">
+                    <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
+                      <img className="mr-2" src={Environment} alt="" />{" "}
+                      Environments
+                    </div>
+                    <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
+                      <img className="mr-2" src={Room} alt="" /> Rooms
+                    </div>
+                  </div>
+                  <hr className="border-t border-gray-300 mb-6 mt-8" />
+                  <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                    <div className="flex items-center mb-4 min-[480px]:mb-0">
+                      <div className="text-xl font-semibold">$299</div>
+                      <div className="text-sm text-gray-400 ml-1">/month</div>
+                    </div>
+                    <div className="w-full min-[480px]:w-auto">
+                      <button
+                        className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                        href="/home"
+                        variant="outline-light "
+                      >
+                        See more
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-wrap my-5">
-                <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
-                  <img className="mr-2" src={Environment} alt="" /> Environments
-                </div>
-                <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
-                  <img className="mr-2" src={Room} alt="" /> Rooms
-                </div>
-              </div>
-              <hr className="border-t border-gray-300 mb-6 mt-8" />
-              <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
-                <div className="flex items-center mb-4 min-[480px]:mb-0">
-                  <div className="text-xl font-semibold">$299</div>
-                  <div className="text-sm text-gray-400 ml-1">/month</div>
-                </div>
-                <div className="w-full min-[480px]:w-auto">
-                  <button
-                    className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
-                    href="/home"
-                    variant="outline-light "
-                  >
-                    See more
-                  </button>
+            </div>
+            <div className="snap-center lg:snap-start">
+              <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
+                <img
+                  className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
+                  src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
+                  alt=""
+                />
+                <div className="px-6 pt-8 pb-7 font-dmSans">
+                  <h3 className="text-xl font-semibold">Title Property</h3>
+                  <div className="text-base text-gray-600 my-2">
+                    Lorem ipsum dolor sit amet consectetur.
+                  </div>
+                  <div className="flex flex-wrap my-5">
+                    <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
+                      <img className="mr-2" src={Environment} alt="" />{" "}
+                      Environments
+                    </div>
+                    <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
+                      <img className="mr-2" src={Room} alt="" /> Rooms
+                    </div>
+                  </div>
+                  <hr className="border-t border-gray-300 mb-6 mt-8" />
+                  <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                    <div className="flex items-center mb-4 min-[480px]:mb-0">
+                      <div className="text-xl font-semibold">$299</div>
+                      <div className="text-sm text-gray-400 ml-1">/month</div>
+                    </div>
+                    <div className="w-full min-[480px]:w-auto">
+                      <button
+                        className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
+                        href="/home"
+                        variant="outline-light "
+                      >
+                        See more
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -553,109 +599,3 @@ export default Home;
 //         ))}
 //       </Row>
 //     </>
-
-//Carrusel
-
-// <section className="mt-48">
-// <div
-//   id="animation-carousel"
-//   class="relative w-full"
-//   data-carousel="static"
-// >
-//   {/* <!-- Carousel wrapper --> */}
-//   <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-//     {/* <!-- Item 1 --> */}
-//     <div class="hidden duration-200 ease-linear" data-carousel-item>
-//       <img
-//         src="/docs/images/carousel/carousel-1.svg"
-//         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-//         alt="..."
-//       />
-//     </div>
-//     {/* <!-- Item 2 --> */}
-//     <div class="hidden duration-200 ease-linear" data-carousel-item>
-//       <img
-//         src="https://www.construyehogar.com/wp-content/uploads/2016/01/Casa-moderna-un-piso.jpg"
-//         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-//         alt="..."
-//       />
-//     </div>
-//     {/* <!-- Item 3 --> */}
-//     <div
-//       class="hidden duration-200 ease-linear"
-//       data-carousel-item="active"
-//     >
-//       <img
-//         src="/docs/images/carousel/carousel-3.svg"
-//         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-//         alt="..."
-//       />
-//     </div>
-//     {/* <!-- Item 4 --> */}
-//     <div class="hidden duration-200 ease-linear" data-carousel-item>
-//       <img
-//         src="/docs/images/carousel/carousel-4.svg"
-//         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-//         alt="..."
-//       />
-//     </div>
-//     {/* <!-- Item 5 --> */}
-//     <div class="hidden duration-200 ease-linear" data-carousel-item>
-//       <img
-//         src="/docs/images/carousel/carousel-5.svg"
-//         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-//         alt="..."
-//       />
-//     </div>
-//   </div>
-//   {/* <!-- Slider controls --> */}
-//   <button
-//     type="button"
-//     class=" absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-//     data-carousel-prev
-//   >
-//     <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-primary">
-//       <svg
-//         aria-hidden="true"
-//         class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-//         fill="none"
-//         stroke="currentColor"
-//         viewBox="0 0 24 24"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           stroke-linecap="round"
-//           stroke-linejoin="round"
-//           stroke-width="2"
-//           d="M15 19l-7-7 7-7"
-//         ></path>
-//       </svg>
-//       <span class="sr-only">Previous</span>
-//     </span>
-//   </button>
-//   <button
-//     type="button"
-//     class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-//     data-carousel-next
-//   >
-//     <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-primary">
-//       <svg
-//         aria-hidden="true"
-//         class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-//         fill="none"
-//         stroke="currentColor"
-//         viewBox="0 0 24 24"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           stroke-linecap="round"
-//           stroke-linejoin="round"
-//           stroke-width="2"
-//           d="M9 5l7 7-7 7"
-//         ></path>
-//       </svg>
-//       <span class="sr-only">Next</span>
-//     </span>
-//   </button>
-// </div>
-// </section>
