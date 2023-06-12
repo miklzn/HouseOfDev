@@ -13,10 +13,13 @@ import Lamp from "../utils/Lamp.svg";
 // import Appointment from "./Appointment";
 
 const Property = () => {
-  //   const dispatch = useDispatch();
-  //   const user = useSelector((state) => state.user);
+  const fecha = new Date();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const { id } = useParams();
   const [property, setProperty] = useState({});
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   //   //-------->Estados para mostrar Modal<----------
   //   const [show, setShow] = useState(false);
@@ -32,7 +35,32 @@ const Property = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(property);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        `http://localhost:3001/api/appointments/new/${id}`,
+        {
+          date: date,
+          time: time,
+          userId: user.id,
+          //idProperty: property.id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => res.data)
+      .catch((error) => console.log(error));
+  };
+
+  const handleChangeDate = (e) => {
+    setDate(e.target.value);
+  };
+
+  const handleChangeTime = (e) => {
+    setTime(e.target.value);
+  };
+
+  console.log(date, time);
 
   return (
     <section className="h-auto">
@@ -185,17 +213,17 @@ const Property = () => {
                   <div className="min-[480px]:flex min-[480px]:space-x-2">
                     <div className="w-full">
                       <label
-                        htmlFor="email"
+                        htmlFor="date"
                         className="font-dmSans text-gray-700 font-semibold mb-3"
                       >
                         Date
                       </label>
                       <div className="mt-1">
                         <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          // onChange={handleChangeEmail}
+                          id="date"
+                          name="date"
+                          type="date"
+                          onChange={handleChangeDate}
                           required
                           className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
                         />
@@ -203,17 +231,17 @@ const Property = () => {
                     </div>
                     <div className="w-full">
                       <label
-                        htmlFor="email"
+                        htmlFor="time"
                         className="font-dmSans text-gray-700 font-semibold mb-3"
                       >
                         Time
                       </label>
                       <div className="mt-1">
                         <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          // onChange={handleChangeEmail}
+                          id="time"
+                          name="time"
+                          type="time"
+                          onChange={handleChangeTime}
                           required
                           className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
                         />
@@ -222,7 +250,7 @@ const Property = () => {
                   </div>
                   <button
                     className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                    href="/"
+                    onClick={handleSubmit}
                   >
                     Book
                   </button>

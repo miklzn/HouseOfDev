@@ -15,6 +15,9 @@ class User extends S.Model {
 
 User.init(
   {
+    image: {
+      type: S.STRING,
+    },
     name: {
       type: S.STRING,
       allowNull: false,
