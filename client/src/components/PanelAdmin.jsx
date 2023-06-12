@@ -150,7 +150,7 @@ const PanelAdmin = () => {
                   <div className="flex items-center">
                     <img
                       className="w-16 h-16 ml-6 rounded-2xl"
-                      src={properties[appointment.propertyId].image}
+                      src={properties[appointment.propertyId - 1].image}
                       alt=""
                     />
                     <div className="flex flex-col ml-2">

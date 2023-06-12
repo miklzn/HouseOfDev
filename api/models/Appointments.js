@@ -14,6 +14,10 @@ Appointments.init(
       type: S.TEXT,
       allowNull: false,
     },
+    time: {
+      type: S.TEXT,
+      allowNull: false,
+    },
     userId: {
       type: S.INTEGER,
       allowNull: false,

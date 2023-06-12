@@ -9,7 +9,13 @@ router.post("/new/:idProperty", validateAuth, (req, res) => {
   const { id } = req.user;
   const { idProperty } = req.params;
   const { date } = req.body;
-  Appointments.create({ userId: id, propertyId: idProperty, date: date })
+  const { time } = req.body;
+  Appointments.create({
+    userId: id,
+    propertyId: idProperty,
+    date: date,
+    time: time,
+  })
     .then((date) => res.send(date))
     .catch((error) => console.log(error));
 });
