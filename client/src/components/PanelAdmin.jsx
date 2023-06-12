@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -86,7 +87,7 @@ const PanelAdmin = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5 mb-14">
+        <div className="min-h-[50vh] mt-5 mb-14">
           {info === 0
             ? users.map((user, i) => (
                 <div className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-3">
@@ -96,10 +97,35 @@ const PanelAdmin = () => {
                       src="https://media.licdn.com/dms/image/D4D03AQEyIW7bFHlRgQ/profile-displayphoto-shrink_100_100/0/1676720943921?e=1691625600&v=beta&t=c4IxNEcL9fhEev8PnJgxF-Yuh-bSBUsfiixKWEizV8o"
                       alt=""
                     />
-
-                    <div className="flex flex-col ml-2">
-                      <h3 className=" text-gray-500">Name:</h3>
-                      <p className="">{`${user.name} ${user.lastName}`}</p>
+                    <div className="flex xl:grid xl:grid-cols-5 xl:gap-x-3">
+                      <div className="flex flex-col ml-2 md:ml-4">
+                        <h3 className=" text-gray-500">Name:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[165px]">{`${user.name} ${user.lastName}`}</p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden min-[480px]:block md:ml-7">
+                        <h3 className=" text-gray-500">Email:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[165px]">
+                          {user.email}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden md:block md:ml-7">
+                        <h3 className=" text-gray-500">Phone:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
+                          {user.phone}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
+                        <h3 className=" text-gray-500">Country:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[80px]">
+                          {user.country}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
+                        <h3 className=" text-gray-500">City:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
+                          {user.city}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <div>
@@ -122,9 +148,39 @@ const PanelAdmin = () => {
                       src={property.image}
                       alt=""
                     />
-                    <div className="flex flex-col ml-2">
-                      <h3 className=" text-gray-500">Title:</h3>
-                      <p className="">{property.title}</p>
+                    <div className="flex xl:grid xl:grid-cols-5 xl:gap-x-3">
+                      <div className="flex flex-col ml-2 md:ml-4">
+                        <h3 className=" text-gray-500">Title:</h3>
+                        <Link to={`/properties/${property.id}`}>
+                          <p className="w-[25vw] overflow-hidden whitespace-nowrap min-[480px]:w-[18vw] min-[480px]:max-w-[165px] md:max-w-[110px]">
+                            {property.title}
+                          </p>
+                        </Link>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden min-[480px]:block md:ml-7">
+                        <h3 className=" text-gray-500">Operation:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[17vw] min-[480px]:max-w-[90px]">
+                          {property.operation}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden sm:block md:ml-7">
+                        <h3 className=" text-gray-500">Category:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
+                          {property.category}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden md:block md:ml-7">
+                        <h3 className=" text-gray-500">Price:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[12vw] min-[480px]:max-w-[110px]">
+                          ${property.price}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
+                        <h3 className=" text-gray-500">Country:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[150px]">
+                          {`${property.city}, ${property.country}`}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex space-x-1 mr-4">
@@ -150,7 +206,7 @@ const PanelAdmin = () => {
                   <div className="flex items-center">
                     <img
                       className="w-16 h-16 ml-6 rounded-2xl"
-                      src={properties[appointment.propertyId - 1].image}
+                      src="https://latinexclusive.com/sites/default/files/api_file_downloads/603962b90a351c45f427c88f_5.jpg"
                       alt=""
                     />
                     <div className="flex flex-col ml-2">
