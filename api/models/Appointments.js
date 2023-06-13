@@ -22,8 +22,32 @@ Appointments.init(
       type: S.INTEGER,
       allowNull: false,
     },
+    userName: {
+      type: S.TEXT,
+      allowNull: false,
+    },
+    userLastname: {
+      type: S.TEXT,
+      allowNull: false,
+    },
     propertyId: {
       type: S.INTEGER,
+      allowNull: false,
+    },
+    propertyTitle: {
+      type: S.TEXT,
+      allowNull: false,
+    },
+    propertyImage: {
+      type: S.TEXT,
+      allowNull: false,
+    },
+    propertyCountry: {
+      type: S.TEXT,
+      allowNull: false,
+    },
+    propertyCity: {
+      type: S.TEXT,
       allowNull: false,
     },
   },

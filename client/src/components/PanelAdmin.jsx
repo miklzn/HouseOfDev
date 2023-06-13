@@ -38,6 +38,7 @@ const PanelAdmin = () => {
   }, []);
 
   console.log(appointments);
+  console.log(properties);
 
   return (
     <div>
@@ -206,12 +207,40 @@ const PanelAdmin = () => {
                   <div className="flex items-center">
                     <img
                       className="w-16 h-16 ml-6 rounded-2xl"
-                      src="https://latinexclusive.com/sites/default/files/api_file_downloads/603962b90a351c45f427c88f_5.jpg"
+                      src={appointment.propertyImage}
                       alt=""
                     />
-                    <div className="flex flex-col ml-2">
-                      <h3 className=" text-gray-500">Date:</h3>
-                      <p className="">{appointment.date}</p>
+                    <div className="flex xl:grid xl:grid-cols-5 xl:gap-x-3 xl:w-10/12">
+                      <div className="flex flex-col ml-2 md:ml-4">
+                        <h3 className=" text-gray-500">Date:</h3>
+                        <p className="w-[32vw] overflow-hidden whitespace-nowrap min-[480px]:max-w-[105px]">
+                          {appointment.date}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden min-[480px]:block md:ml-7">
+                        <h3 className=" text-gray-500">Time:</h3>
+                        <p className="w-[30vw] overflow-hidden whitespace-nowrap min-[480px]:max-w-[60px]">
+                          {appointment.time}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden min-[530px]:block md:ml-7">
+                        <h3 className=" text-gray-500">Visitor:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[530px]:w-[20vw] sm:w-[165px]">
+                          {`${appointment.userName} ${appointment.userLastname}`}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden md:block md:ml-7">
+                        <h3 className=" text-gray-500">ID Property:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
+                          {appointment.propertyId}
+                        </p>
+                      </div>
+                      <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
+                        <h3 className=" text-gray-500">Location:</h3>
+                        <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[180px] xl:max-w-[160px]">
+                          {`${appointment.propertyCity}, ${appointment.propertyCountry}`}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <div>

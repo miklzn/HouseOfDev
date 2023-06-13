@@ -3,20 +3,33 @@ const { validateAuth, validateAdmin } = require("../middlewares/auth");
 const router = express.Router();
 const Appointments = require("../models/Appointments");
 
-//http://localhost:3001/api/appointments/new/:idProperty
+//http://localhost:3001/api/appointments/new
 
-router.post("/new/:idProperty", validateAuth, (req, res) => {
-  const { id } = req.user;
-  const { idProperty } = req.params;
-  const { date } = req.body;
-  const { time } = req.body;
+router.post("/new", validateAuth, (req, res) => {
+  const { id, name, lastName } = req.user;
+  const {
+    date,
+    time,
+    propertyId,
+    propertyTitle,
+    propertyImage,
+    propertyCountry,
+    propertyCity,
+  } = req.body;
+
   Appointments.create({
     userId: id,
-    propertyId: idProperty,
+    userName: name,
+    userLastname: lastName,
+    propertyId: propertyId,
+    propertyTitle: propertyTitle,
+    propertyImage: propertyImage,
+    propertyCountry: propertyCountry,
+    propertyCity: propertyCity,
     date: date,
     time: time,
   })
-    .then((date) => res.send(date))
+    .then((appointment) => res.send(appointment))
     .catch((error) => console.log(error));
 });
 
