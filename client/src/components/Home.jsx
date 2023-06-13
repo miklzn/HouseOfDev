@@ -400,7 +400,7 @@ const Home = () => {
       <section className="h-auto">
         <div className="mx-[5vw] text-center ">
           <h2 className="text-2xl font-semibold font-dmSans mb-3 sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
-            Explore by city
+            Explore by country
           </h2>
           <p className="text-gray-600 font-dmSans sm:px-[10vw]md:text-lg md:px-[10vw] md:text-lg lg:text-lg lg:px-[22vw]">
             Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
@@ -416,31 +416,31 @@ const Home = () => {
                 />
                 <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
                   <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
-                    Buenos Aires
+                    Argentina
                   </h3>
                 </div>
               </div>
               <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
                 <img
                   className="absolute rounded-3xl h-full w-full object-cover"
-                  src="https://www.infobae.com/new-resizer/sPViUj1DlSMCqxgNRRAXlZeR5-c=/1440x810/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/01/01183927/Verano-2019-Mar-del-Plata-Atardecer-y-amanecer-con-drone-3.jpg"
+                  src="https://www.civitatis.com/blog/wp-content/uploads/2022/10/panoramica-rio-janeiro-brasil.jpg"
                   alt=""
                 />
                 <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
                   <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
-                    Mar del Plata
+                    Brazil
                   </h3>
                 </div>
               </div>
               <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
                 <img
                   className="absolute rounded-3xl h-full w-full object-cover"
-                  src="https://www.carlospazvivo.com/wp-content/uploads//2018/07/capuchinos3.jpg"
+                  src="https://images.pexels.com/photos/14071000/pexels-photo-14071000.jpeg"
                   alt=""
                 />
                 <div className="absolute w-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/70 h-full rounded-3xl">
                   <h3 className="h-full absolute flex px-8 text-white items-end py-12 text-[1.375rem] font-semibold">
-                    Cordoba
+                    Mexico
                   </h3>
                 </div>
               </div>

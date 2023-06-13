@@ -39,12 +39,18 @@ const Property = () => {
     e.preventDefault();
     axios
       .post(
-        `http://localhost:3001/api/appointments/new/${id}`,
+        `http://localhost:3001/api/appointments/new`,
         {
           date: date,
           time: time,
           userId: user.id,
-          //idProperty: property.id,
+          userName: user.name,
+          userLastname: user.lastName,
+          propertyId: property.id,
+          propertyTitle: property.title,
+          propertyImage: property.image,
+          propertyCountry: property.country,
+          propertyCity: property.city,
         },
         { withCredentials: true }
       )
