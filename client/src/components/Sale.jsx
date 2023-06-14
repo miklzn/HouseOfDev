@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Environment from "../utils/Environments.svg";
@@ -10,7 +11,8 @@ function Sale() {
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/properties/all`)
-      .then((res) => setProperties(res.data));
+      .then((res) => setProperties(res.data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (
@@ -37,47 +39,55 @@ function Sale() {
           </div>
           <div className="mx-[5vw] my-24 xl:px-[5vw]">
             <div className="grid grid-cols gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-7">
-              {properties.map((property, i) => (
-                <div className="w-full h-auto border rounded-3xl shadow-card">
-                  <img
-                    className="w-full h-[53.5vw rounded-t-3xl object-cover min-[480px]:h-[48.5vw] sm:h-[55.2vw] md:h-[26.9vw] lg:h-[17.8vw]"
-                    src={property.image}
-                    alt=""
-                  />
-                  <div className="px-6 pt-8 pb-7 font-dmSans">
-                    <h3 className="text-xl font-semibold">{property.title}</h3>
-                    <div className="text-base text-gray-600 my-2">
-                      Lorem ipsum dolor sit amet consectetur.
-                    </div>
-                    <div className="flex flex-wrap my-5">
-                      <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
-                        <img className="mr-2" src={Environment} alt="" />
-                        {property.environments} Environments
+              {properties.map((property, i) =>
+                property.operation === "sale" ? (
+                  <div className="w-full h-auto border rounded-3xl shadow-card">
+                    <img
+                      className="w-full h-[53.5vw rounded-t-3xl object-cover min-[480px]:h-[48.5vw] sm:h-[55.2vw] md:h-[26.9vw] lg:h-[17.8vw]"
+                      src={property.image}
+                      alt=""
+                    />
+                    <div className="px-6 pt-8 pb-7 font-dmSans">
+                      <h3 className="text-xl font-semibold">
+                        {property.title}
+                      </h3>
+                      <div className="flex items-center text-base text-gray-600 my-2">
+                        <img
+                          className="h-4 mr-2"
+                          src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
+                          alt=""
+                        />
+                        {property.city}, {property.country}
                       </div>
-                      <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
-                        <img className="mr-2" src={Room} alt="" />{" "}
-                        {property.rooms} Rooms
-                      </div>
-                    </div>
-                    <hr className="border-t border-gray-300 mb-6 mt-8" />
-                    <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
-                      <div className="flex items-center mb-4 min-[480px]:mb-0">
-                        <div className="text-xl font-semibold">
-                          ${property.price}
+                      <div className="flex flex-wrap my-5">
+                        <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
+                          <img className="mr-2" src={Environment} alt="" />
+                          {property.environments} Environments
                         </div>
-                        <div className="text-sm text-gray-400 ml-1">/month</div>
+                        <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
+                          <img className="mr-2" src={Room} alt="" />{" "}
+                          {property.rooms} Rooms
+                        </div>
                       </div>
-                      <div className="w-full min-[480px]:w-auto">
-                        <Link to={`/properties/${property.id}`}>
-                          <button className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
-                            See more
-                          </button>
-                        </Link>
+                      <hr className="border-t border-gray-300 mb-6 mt-8" />
+                      <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                        <div className="flex items-center mb-4 min-[480px]:mb-0">
+                          <div className="text-xl font-semibold">
+                            ${property.price}
+                          </div>
+                        </div>
+                        <div className="w-full min-[480px]:w-auto">
+                          <Link to={`/properties/${property.id}`}>
+                            <button className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
+                              See more
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ) : null
+              )}
             </div>
           </div>
         </div>

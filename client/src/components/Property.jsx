@@ -10,22 +10,14 @@ import Bathroom from "../utils/Bathroom.svg";
 import Garage from "../utils/Garage.svg";
 import Lamp from "../utils/Lamp.svg";
 
-// import Appointment from "./Appointment";
-
 const Property = () => {
-  const fecha = new Date();
+  //const fecha = new Date();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { id } = useParams();
   const [property, setProperty] = useState({});
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-
-  //   //-------->Estados para mostrar Modal<----------
-  //   const [show, setShow] = useState(false);
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-  //   //----------------------------------------------
 
   useEffect(() => {
     axios
@@ -39,7 +31,7 @@ const Property = () => {
     e.preventDefault();
     axios
       .post(
-        `http://localhost:3001/api/appointments/new`,
+        `http://localhost:3001/api/appointments/create`,
         {
           date: date,
           time: time,
@@ -65,8 +57,6 @@ const Property = () => {
   const handleChangeTime = (e) => {
     setTime(e.target.value);
   };
-
-  console.log(date, time);
 
   return (
     <section className="h-auto">
@@ -327,59 +317,3 @@ const Property = () => {
 };
 
 export default Property;
-
-//     <>
-//       <Card className="centerContainer">
-//         <Card.Img
-//           className="propertyImage"
-//           variant="top"
-//           src={property.image}
-//         />
-//         <Card.Body>
-//           <Card.Title className="centerItem">{property.title}</Card.Title>
-//           <Card.Text>{property.description}</Card.Text>
-//         </Card.Body>
-//         <ListGroup className="list-group-flush">
-//           <ListGroup.Item>
-//             <Form.Text className="text-muted">
-//               {property.category} en {property.operation}
-//             </Form.Text>
-//             <br /> USD {property.price}
-//           </ListGroup.Item>
-//           <ListGroup.Item>
-//             <BsDoorOpen /> {property.environments} Ambientes |
-//             <BiBed /> {property.rooms} Habitaciones |
-//             <BiBath /> {property.bathrooms} Baños |
-//             <BiCar /> {property.garage} Cochera
-//           </ListGroup.Item>
-//           <ListGroup.Item>
-//             {property.adress}, {property.city}, {property.state}
-//           </ListGroup.Item>
-//         </ListGroup>
-//         <Card.Body>
-//           {user.admin ? (
-//             <>
-//               <Button
-//                 className="buttonStyle"
-//                 type="submit"
-//                 onClick={handleShow}
-//               >
-//                 Agendar Visita
-//               </Button>
-
-//               <Link to={`/properties/change/${id}`}>
-//                 <Button className="buttonStyle">Editar Propiedad</Button>
-//               </Link>
-//               <Link to={`/properties/delete/${id}`}>
-//                 <Button className="buttonStyle">Eliminar Propiedad</Button>
-//               </Link>
-//             </>
-//           ) : (
-//             <Button className="buttonStyle" type="submit" onClick={handleShow}>
-//               Agendar Visita
-//             </Button>
-//           )}
-//         </Card.Body>
-//       </Card>
-//       <Appointment show={show} handleClose={handleClose} />
-//     </>
