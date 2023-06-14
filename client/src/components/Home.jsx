@@ -1,11 +1,10 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import { removeFavorite } from "../store/user";
 // import { addFavorites } from "../store/user";
 // import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import HOD_Home from "../utils/HOD-Home.svg";
 import Environment from "../utils/Environments.svg";
 import Room from "../utils/Room.svg";
@@ -13,11 +12,21 @@ import Top_Card from "../utils/TopCard.svg";
 import Bottom_Card from "../utils/BottomCard.svg";
 
 const Home = () => {
-  //   const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState([]);
   //   const [search, setSearch] = useState("");
   //   const [environments, setEnvironments] = useState("");
   //   const [minimo, setMinimo] = useState("");
   //   const [maximo, setMaximo] = useState("");
+
+  const widthPx = window.innerWidth < 1024 ? window.innerWidth - 8 : 728 + 100;
+
+  const scrollLeft = () => {
+    document.getElementById("content").scrollLeft -= widthPx;
+  };
+
+  const scrollRight = () => {
+    document.getElementById("content").scrollLeft += widthPx;
+  };
 
   //   const user = useSelector((state) => state.user);
   //   const dispatch = useDispatch();
@@ -107,6 +116,14 @@ const Home = () => {
   //     setMaximo(e.target.value);
   //   };
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/api/properties/all`)
+      .then((res) => setProperties(res.data));
+  }, []);
+
+  console.log(properties);
+
   return (
     <>
       <section
@@ -152,91 +169,88 @@ const Home = () => {
             <button>Browse all</button>
           </a>
         </div>
-        <div className="pt-20 md:pb-20 mx-[5vw]">
+        <div className="pt-20 md:pb-20 px-[5vw] lg:px-[10.5vw]">
           <div
             id="content"
-            className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide space-x-[3vw] lg:p-1 lg:scroll-pl-1"
+            className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide gap-x-[3vw] lg:p-1 lg:gap-x-[2vw] "
           >
-            <div className="snap-center lg:snap-start">
-              <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
-                <img
-                  className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
-                  src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
-                  alt=""
-                />
-                <div className="px-6 pt-8 pb-7 font-dmSans">
-                  <h3 className="text-xl font-semibold">Title Property</h3>
-                  <div className="text-base text-gray-600 my-2">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </div>
-                  <div className="flex flex-wrap my-5">
-                    <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
-                      <img className="mr-2" src={Environment} alt="" />{" "}
-                      Environments
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[7vw] xl:p-5 xl:left-[8.2vw]"
+            >
+              <img
+                className="h-5"
+                src="https://www.svgrepo.com/show/509302/arrow-left.svg"
+                alt=""
+              />
+            </button>
+            {properties.map((property, i) => (
+              <div className="snap-center lg:snap-start">
+                <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
+                  <img
+                    className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
+                    src={property.image}
+                    alt=""
+                  />
+                  <div className="px-6 pt-8 pb-7 font-dmSans">
+                    <h3 className="text-xl font-semibold">{property.title}</h3>
+                    <div className="flex items-center text-base text-gray-600 my-2">
+                      <img
+                        className="h-4 mr-2"
+                        src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
+                        alt=""
+                      />
+                      {property.city}, {property.country}
                     </div>
-                    <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
-                      <img className="mr-2" src={Room} alt="" /> Rooms
+                    <div className="flex flex-wrap my-5">
+                      <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
+                        <img className="mr-2" src={Environment} alt="" />
+                        {property.environments} Environments
+                      </div>
+                      <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
+                        <img className="mr-2" src={Room} alt="" />
+                        {property.rooms} Rooms
+                      </div>
                     </div>
-                  </div>
-                  <hr className="border-t border-gray-300 mb-6 mt-8" />
-                  <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
-                    <div className="flex items-center mb-4 min-[480px]:mb-0">
-                      <div className="text-xl font-semibold">$299</div>
-                      <div className="text-sm text-gray-400 ml-1">/month</div>
-                    </div>
-                    <div className="w-full min-[480px]:w-auto">
-                      <button
-                        className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
-                        href="/home"
-                        variant="outline-light "
-                      >
-                        See more
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="snap-center lg:snap-start">
-              <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
-                <img
-                  className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
-                  src="https://assets.website-files.com/61f981dc0f719d7071d7826c/620146dffd7b262cc0983291_duplex-rustic-cabin-main-image-rental-webflow-ecommerce-template.jpg"
-                  alt=""
-                />
-                <div className="px-6 pt-8 pb-7 font-dmSans">
-                  <h3 className="text-xl font-semibold">Title Property</h3>
-                  <div className="text-base text-gray-600 my-2">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </div>
-                  <div className="flex flex-wrap my-5">
-                    <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
-                      <img className="mr-2" src={Environment} alt="" />{" "}
-                      Environments
-                    </div>
-                    <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
-                      <img className="mr-2" src={Room} alt="" /> Rooms
-                    </div>
-                  </div>
-                  <hr className="border-t border-gray-300 mb-6 mt-8" />
-                  <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
-                    <div className="flex items-center mb-4 min-[480px]:mb-0">
-                      <div className="text-xl font-semibold">$299</div>
-                      <div className="text-sm text-gray-400 ml-1">/month</div>
-                    </div>
-                    <div className="w-full min-[480px]:w-auto">
-                      <button
-                        className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0"
-                        href="/home"
-                        variant="outline-light "
-                      >
-                        See more
-                      </button>
+                    <hr className="border-t border-gray-300 mb-6 mt-8" />
+                    <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                      <div className="flex items-center mb-4 min-[480px]:mb-0">
+                        <div className="text-xl font-semibold">
+                          ${property.price}
+                        </div>
+                        <div
+                          className={
+                            property.operation === "Rent"
+                              ? "text-sm text-gray-400 ml-1"
+                              : "hidden"
+                          }
+                        >
+                          /month
+                        </div>
+                      </div>
+                      <div className="w-full min-[480px]:w-auto">
+                        <Link to={`/properties/${property.id}`}>
+                          <button className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
+                            See more
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
+
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[7vw] xl:p-5 xl:right-[8.2vw]"
+            >
+              <img
+                className="h-5"
+                src="https://www.svgrepo.com/show/509304/arrow-right.svg"
+                alt=""
+              />
+            </button>
           </div>
         </div>
       </section>
