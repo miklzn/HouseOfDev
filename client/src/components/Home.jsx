@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { removeFavorite } from "../store/user";
-// import { addFavorites } from "../store/user";
-// import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HOD_Home from "../utils/HOD-Home.svg";
 import Environment from "../utils/Environments.svg";
@@ -13,12 +9,9 @@ import Bottom_Card from "../utils/BottomCard.svg";
 
 const Home = () => {
   const [properties, setProperties] = useState([]);
-  //   const [search, setSearch] = useState("");
-  //   const [environments, setEnvironments] = useState("");
-  //   const [minimo, setMinimo] = useState("");
-  //   const [maximo, setMaximo] = useState("");
 
-  const widthPx = window.innerWidth < 1024 ? window.innerWidth - 8 : 728 + 100;
+  //Scroll properties
+  const widthPx = window.innerWidth < 640 ? window.innerWidth - 8 : 380;
 
   const scrollLeft = () => {
     document.getElementById("content").scrollLeft -= widthPx;
@@ -28,93 +21,16 @@ const Home = () => {
     document.getElementById("content").scrollLeft += widthPx;
   };
 
-  //   const user = useSelector((state) => state.user);
-  //   const dispatch = useDispatch();
+  //Scroll testimonials
+  const widthPx2 = window.innerWidth < 1024 ? window.innerWidth - 8 : 728 + 100;
 
-  //   useEffect(() => {
-  //     if (search === "") {
-  //       axios
-  //         .get(`http://localhost:3001/api/properties/all`)
-  //         .then((res) => setProperties(res.data));
-  //     } else {
-  //       axios
-  //         .get(`http://localhost:3001/api/properties/search/${search}`)
-  //         .then((res) => setProperties(res.data));
-  //     }
-  //   }, [search]);
+  const scrollLeft2 = () => {
+    document.getElementById("content2").scrollLeft -= widthPx2;
+  };
 
-  //   const handleAddFavorites = (id) => {
-  //     axios
-  //       .post(
-  //         "http://localhost:3001/api/properties/addFavorites",
-  //         {
-  //           id: id,
-  //         },
-  //         { withCredentials: true }
-  //       )
-  //       .then((res) => dispatch(addFavorites(res.data)))
-  //       .catch((error) => console.log(error));
-  //   };
-
-  //   const handleRemoveFavorite = (id) => {
-  //     axios
-  //       .post(
-  //         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
-  //         {
-  //           id: id,
-  //         },
-  //         {
-  //           headers: { "Content-Type": "application/json" },
-  //           withCredentials: true,
-  //         }
-  //       )
-  //       .then((res) => dispatch(removeFavorite(res.data)))
-  //       .then(() => window.location.reload(false))
-  //       .catch((error) => console.log(error));
-  //   };
-
-  //   const handleGetEnvironments = (e) => {
-  //     e.preventDefault();
-  //     axios
-  //       .get(
-  //         `http://localhost:3001/api/properties/environments/${environments}`,
-  //         {
-  //           withCredentials: true,
-  //         }
-  //       )
-  //       .then((res) => setProperties(res.data))
-  //       .catch((error) => console.log(error));
-  //   };
-
-  //   const handleGetPrice = (e) => {
-  //     e.preventDefault();
-  //     axios
-  //       .post(
-  //         "http://localhost:3001/api/properties/price",
-  //         { minimo: minimo, maximo: maximo },
-  //         {
-  //           withCredentials: true,
-  //         }
-  //       )
-  //       .then((res) => setProperties(res.data))
-  //       .catch((error) => console.log(error));
-  //   };
-
-  //   const getSearcher = (e) => {
-  //     setSearch(e.target.value);
-  //   };
-
-  //   const getEnvironments = (e) => {
-  //     setEnvironments(e.target.value);
-  //   };
-
-  //   const getMinimo = (e) => {
-  //     setMinimo(e.target.value);
-  //   };
-
-  //   const getMaximo = (e) => {
-  //     setMaximo(e.target.value);
-  //   };
+  const scrollRight2 = () => {
+    document.getElementById("content2").scrollLeft += widthPx2;
+  };
 
   useEffect(() => {
     axios
@@ -158,7 +74,7 @@ const Home = () => {
         </div>
       </section>
       <section className="h-auto mb-[1vh]">
-        <div className="pt-24 mx-[5vw] mb-[4vh] space-y-8 md:flex md:flex-wrap md:items-center md:space-y-0 md:justify-between lg:mx-[10.5vw]">
+        <div className="pt-24 mx-[5vw] mb-[4vh] space-y-8 md:flex md:flex-wrap md:items-center md:space-y-0 md:justify-between xl:mx-[10.5vw]">
           <p className="text-2xl font-dmSans font-semibold md:text-3xl lg:text-4xl">
             Explore our properties
           </p>
@@ -169,14 +85,14 @@ const Home = () => {
             <button>Browse all</button>
           </a>
         </div>
-        <div className="pt-20 md:pb-20 px-[5vw] lg:px-[10.5vw]">
+        <div className="pt-20 md:pb-20 mx-[5vw] xl:mx-[10.5vw]">
           <div
             id="content"
-            className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide gap-x-[3vw] lg:p-1 lg:gap-x-[2vw] "
+            className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide space-x-[10vw] sm:space-x-[3vw] lg:p-1 lg:space-x-[2vw] "
           >
             <button
               onClick={scrollLeft}
-              className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[7vw] xl:p-5 xl:left-[8.2vw]"
+              className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[1vw] xl:p-5 xl:left-[8.2vw]"
             >
               <img
                 className="h-5"
@@ -185,7 +101,7 @@ const Home = () => {
               />
             </button>
             {properties.map((property, i) => (
-              <div className="snap-center lg:snap-start">
+              <div className="snap-center sm:snap-start">
                 <div className="shadow-card w-[87vw] h-auto border rounded-3xl  min-[480px]:w-[24.375rem]">
                   <img
                     className="w-full h-[53.5vw] rounded-t-3xl object-cover min-[480px]:h-[14.5rem]"
@@ -240,10 +156,9 @@ const Home = () => {
                 </div>
               </div>
             ))}
-
             <button
               onClick={scrollRight}
-              className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[7vw] xl:p-5 xl:right-[8.2vw]"
+              className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[1vw] xl:p-5 xl:right-[8.2vw]"
             >
               <img
                 className="h-5"
@@ -422,7 +337,7 @@ const Home = () => {
           </p>
           <div className="xl:mx-[4.5vw]">
             <div className="w-full py-10 grid grid-cols-1 gap-6 md:grid-cols-3 md:py-12 ">
-              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh] hover:-translate-y-2 hover:transition hover:duration-300">
                 <img
                   className="absolute rounded-3xl h-full w-full object-cover"
                   src="https://i.pinimg.com/736x/d8/44/ab/d844abb719712aa085ac03a0ad023f15.jpg"
@@ -434,7 +349,7 @@ const Home = () => {
                   </h3>
                 </div>
               </div>
-              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh] hover:-translate-y-2 hover:transition hover:duration-300">
                 <img
                   className="absolute rounded-3xl h-full w-full object-cover"
                   src="https://www.civitatis.com/blog/wp-content/uploads/2022/10/panoramica-rio-janeiro-brasil.jpg"
@@ -446,7 +361,7 @@ const Home = () => {
                   </h3>
                 </div>
               </div>
-              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh]">
+              <div className="relative h-[121.875vw] md:h-[39.064vw] xl:h-[60vh] hover:-translate-y-2 hover:transition hover:duration-300">
                 <img
                   className="absolute rounded-3xl h-full w-full object-cover"
                   src="https://images.pexels.com/photos/14071000/pexels-photo-14071000.jpeg"
@@ -471,7 +386,7 @@ const Home = () => {
         </div>
       </section>
       <section className="h-auto">
-        <div className="mx-[5vw] pt-16 pb-8 lg:pb-40">
+        <div className="mx-[5vw] pt-16 pb-8 lg:pb-40 xl:mx-[10.5vw]">
           <h2 className="text-2xl font-semibold font-dmSans mb-3 text-center sm:px-[15vw] sm:mb-5 md:text-3xl lg:text-4xl lg:px-[25vw]">
             What our past clients say
           </h2>
@@ -482,25 +397,100 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur adipiscing elitolmi mauris
             convallis mauris ultricies dolor viverra.
           </p>
-          <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[51.875rem]">
-            <img
-              className="rounded-full mb-6 sm:w-[17.625rem] md:mb-0 md:w-[14.63rem] lg:w-[17.6rem]"
-              src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad57ce8f5cdee867ce48b_sophie-moore-testimonial-image-rental-webflow-ecommerce-template.jpg"
-              alt=""
-            />
-            <div className="font-dmSans">
-              <h3 className="text-xl font-semibold md:text-[1.375rem]">
-                “The best experience we ever had”
-              </h3>
-              <p className="text-gray-600 py-4 md:text-lg">
-                Lorem ipsum dolor sit amet conse ctetur adipiscing lectus a nunc
-                mauris scelerisque sed egestas dolor sit amet pharetraol quis
-                pharetra arcu pharetra blandit.
-              </p>
-              <div>
-                <div className="font-semibold">Sophie Moore</div>
-                <div className="text-gray-600">Buenos Aires, CF</div>
+          <div className="pt-20 md:pb-20">
+            <div
+              id="content2"
+              className="snap-x p-1 flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide space-x-[3vw] lg:space-x-[2.5vw] lg:p-1 lg:scroll-pl-1"
+            >
+              <button
+                onClick={scrollLeft2}
+                className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[1vw] xl:p-5 xl:left-[8.2vw]"
+              >
+                <img
+                  className="h-5"
+                  src="https://www.svgrepo.com/show/509302/arrow-left.svg"
+                  alt=""
+                />
+              </button>
+              <div className="snap-center lg:snap-start">
+                <div className="w-[87vw] h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[728px] lg:px-11">
+                  <img
+                    className="rounded-full mb-6 sm:w-[17.625rem] md:mb-0 md:w-[14.63rem] lg:w-[17.6rem]"
+                    src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad57ce8f5cdee867ce48b_sophie-moore-testimonial-image-rental-webflow-ecommerce-template.jpg"
+                    alt=""
+                  />
+                  <div className="font-dmSans">
+                    <h3 className="text-xl font-semibold md:text-[1.375rem]">
+                      “The best experience we ever had”
+                    </h3>
+                    <p className="text-gray-600 py-4 md:text-lg">
+                      Lorem ipsum dolor sit amet conse ctetur adipiscing lectus
+                      a nunc mauris scelerisque sed egestas dolor sit amet
+                      pharetraol quis pharetra arcu pharetra blandit.
+                    </p>
+                    <div>
+                      <div className="font-semibold">Agustina Moore</div>
+                      <div className="text-gray-600">Buenos Aires, ARG</div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div className="snap-center lg:snap-start">
+                <div className="w-[87vw] h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[728px] lg:px-11">
+                  <img
+                    className="rounded-full mb-6 sm:w-[17.625rem] md:mb-0 md:w-[14.63rem] lg:w-[17.6rem]"
+                    src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad57cdc38ea6e50f2628e_karen-cutts-testimonial-image-rental-webflow-ecommerce-template-p-500.jpeg"
+                    alt=""
+                  />
+                  <div className="font-dmSans">
+                    <h3 className="text-xl font-semibold md:text-[1.375rem]">
+                      “I had a great rental experience”
+                    </h3>
+                    <p className="text-gray-600 py-4 md:text-lg">
+                      Lorem ipsum dolor sit amet conse ctetur adipiscing lectus
+                      a nunc mauris scelerisque sed egestas dolor sit amet
+                      pharetraol quis pharetra arcu pharetra blandit.
+                    </p>
+                    <div>
+                      <div className="font-semibold">Lili Smith</div>
+                      <div className="text-gray-600">Los Angeles, USA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="snap-center lg:snap-start">
+                <div className="w-[87vw] h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[728px] lg:px-11">
+                  <img
+                    className="rounded-full mb-6 sm:w-[17.625rem] md:mb-0 md:w-[14.63rem] lg:w-[17.6rem]"
+                    src="https://assets.website-files.com/61f981dc0f719d75a5d78239/61fad57c3ec7085a31991d09_john-carter-testimonial-image-rental-webflow-ecommerce-template-p-500.jpeg"
+                    alt=""
+                  />
+                  <div className="font-dmSans">
+                    <h3 className="text-xl font-semibold md:text-[1.375rem]">
+                      “I found the home of my dreams”
+                    </h3>
+                    <p className="text-gray-600 py-4 md:text-lg">
+                      Lorem ipsum dolor sit amet conse ctetur adipiscing lectus
+                      a nunc mauris scelerisque sed egestas dolor sit amet
+                      pharetraol quis pharetra arcu pharetra blandit.
+                    </p>
+                    <div>
+                      <div className="font-semibold">Jhon Williams</div>
+                      <div className="text-gray-600">Miami, USA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={scrollRight2}
+                className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[1vw] xl:p-5 xl:right-[8.2vw]"
+              >
+                <img
+                  className="h-5"
+                  src="https://www.svgrepo.com/show/509304/arrow-right.svg"
+                  alt=""
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -510,106 +500,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//     <>
-//       <Form className="searchStyle">
-//         <Form.Group className="mb-3">
-//           <Form.Control
-//             value={search}
-//             onChange={getSearcher}
-//             type="text"
-//             placeholder="Buscar"
-//           />
-//         </Form.Group>
-//         <Accordion>
-//           <Accordion.Item eventKey="0">
-//             <Accordion.Header>Filtros</Accordion.Header>
-//             <Accordion.Body>
-//               <Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                   <Form.Label>Ambientes</Form.Label>
-//                   <Form.Control
-//                     onChange={getEnvironments}
-//                     value={environments}
-//                     type="text"
-//                     placeholder="Ambientes"
-//                   />
-//                 </Form.Group>
-//                 <Button variant="primary" onClick={handleGetEnvironments}>
-//                   Filtrar
-//                 </Button>
-//               </Form>
-//               <br />
-//               <Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                   <Form.Label>Precio</Form.Label>
-//                   <Form.Control
-//                     onChange={getMinimo}
-//                     value={minimo}
-//                     type="text"
-//                     placeholder="Minimo"
-//                   />
-//                   <Form.Control
-//                     onChange={getMaximo}
-//                     value={maximo}
-//                     type="text"
-//                     placeholder="Maximo"
-//                   />
-//                 </Form.Group>
-//                 <Button variant="primary" onClick={handleGetPrice}>
-//                   Filtrar
-//                 </Button>
-//               </Form>
-//             </Accordion.Body>
-//           </Accordion.Item>
-//         </Accordion>
-//       </Form>
-
-//       <Row xs={1} md={4} className="g-4">
-//         {properties.map((property, i) => (
-//           <Col>
-//             <Card className="size">
-//               <Card.Img className="img" variant="top" src={property.image} />
-//               <Card.Body>
-//                 <Card.Title>{property.title}</Card.Title>
-//                 {/* <Card.Text>{property.description}</Card.Text> */}
-//               </Card.Body>
-//               <ListGroup className="list-group-flush">
-//                 <ListGroup.Item>
-//                   <Form.Text className="text-muted">
-//                     {property.category} en {property.operation}
-//                   </Form.Text>
-//                   <br /> USD {property.price}
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   <BsDoorOpen /> {property.environments} Ambientes |
-//                   <BiBed /> {property.rooms} Habitaciones |
-//                   <BiBath /> {property.bathrooms} Baños
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   {property.city}, {property.state}
-//                 </ListGroup.Item>
-//               </ListGroup>
-//               <Card.Body>
-//                 <Link to={`/properties/${property.id}`}>
-//                   <Button className="buttonStyle">Ver Mas</Button>
-//                 </Link>
-//                 {user.id ? (
-//                   <Button
-//                     className="buttonStyle"
-//                     onClick={() => handleAddFavorites(property.id)}
-//                     variant="primary"
-//                   >
-//                     Agregar Favoritos
-//                   </Button>
-//                 ) : (
-//                   <Link to={`/login`}>
-//                     <Button className="buttonStyle">Agregar Favoritos</Button>
-//                   </Link>
-//                 )}
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         ))}
-//       </Row>
-//     </>
