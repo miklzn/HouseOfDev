@@ -12,7 +12,7 @@
     "bathrooms": 5,
     "environments": 9,
     "category": "Home",
-    "operation": "Rent",
+    "operation": "rent",
     "price": "12500",
     "image": "https://latinexclusive.com/sites/default/files/api_file_downloads/609d8b9daaa2c31c4bb63ff2_55.jpg"
   },
@@ -29,7 +29,7 @@
     "bathrooms": 4,
     "environments": 7,
     "category": "Home",
-    "operation": "Rent",
+    "operation": "rent",
     "price": "9500",
     "image": "https://latinexclusive.com/sites/default/files/api_file_downloads/619ff67df6dae04d95e3745a_1.jpg"
   },
@@ -46,7 +46,7 @@
     "bathrooms": 12,
     "environments": 22,
     "category": "Home",
-    "operation": "Sale",
+    "operation": "sale",
     "price": "12000000",
     "image": "https://latinexclusive.com/sites/default/files/api_file_downloads/5d5c61a4c38f7d0011cc7ad4_1.jpg"
   },
@@ -63,8 +63,25 @@
     "bathrooms": 5,
     "environments": 9,
     "category": "Home",
-    "operation": "Rent",
+    "operation": "rent",
     "price": "2300",
     "image": "https://latinexclusive.com/sites/default/files/api_file_downloads/620164a11051483a6a4fe434_1.jpg"
+  },
+  {
+    "title": "Property 5",
+    "adress": "Nahuel Huapi 7480",
+    "city": "Bariloche",
+    "country": "Argentina",
+    "state": "Rio Negro",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dicta suscipit incidunt blanditiis laboriosam facere recusandae voluptatum vel veritatis modi?",
+    "available": true,
+    "garage": 8,
+    "rooms": 8,
+    "bathrooms": 10,
+    "environments": 17,
+    "category": "Home",
+    "operation": "sale",
+    "price": "7300000",
+    "image": "https://latinexclusive.com/sites/default/files/api_file_downloads/6170796dfc29dc3e0155b371_1.jpg"
   }
 ]

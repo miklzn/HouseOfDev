@@ -136,7 +136,7 @@ const Home = () => {
                         </div>
                         <div
                           className={
-                            property.operation === "Rent"
+                            property.operation === "rent"
                               ? "text-sm text-gray-400 ml-1"
                               : "hidden"
                           }

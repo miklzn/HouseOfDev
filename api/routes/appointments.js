@@ -3,9 +3,9 @@ const { validateAuth, validateAdmin } = require("../middlewares/auth");
 const router = express.Router();
 const Appointments = require("../models/Appointments");
 
-//http://localhost:3001/api/appointments/new
+//http://localhost:3001/api/appointments/create
 
-router.post("/new", validateAuth, (req, res) => {
+router.post("/create", validateAuth, (req, res) => {
   const { id, name, lastName } = req.user;
   const {
     date,
