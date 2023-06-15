@@ -40,9 +40,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/panelAdmin" element={<PanelAdmin />} />
-        {/*<Route path="/properties/create" element={<NewProperty />} />
-        <Route path="/properties" element={<Properties />} />
+        <Route path="/properties/create" element={<NewProperty />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
+        {/*<Route path="/properties" element={<Properties />} />
         <Route path="/properties/delete/:id" element={<DeleteProperty />} />
         <Route path="/users/delete/:id" element={<DeleteUser />} /> */}
       </Routes>

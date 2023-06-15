@@ -1,4 +1,4 @@
-const DeleteUser = ({ handleDeleteUser, closeModal }) => {
+const DeleteProp = ({ handleDeleteProp, closeModal }) => {
   return (
     <div
       className="min-w-screen h-screen animated fadeIn faster fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
@@ -14,13 +14,13 @@ const DeleteUser = ({ handleDeleteUser, closeModal }) => {
               alt=""
             />
             <h2 className="font-semibold font-dmSans">
-              Are you sure you want to delete this user?
+              Are you sure you want to delete this property?
             </h2>
           </div>
           <div className="flex justify-center space-x-2">
             <button
               className="w-auto rounded-full px-6 py-3 text-base font-dmSans text-center text-white bg-primary hover:bg-primaryHover focus:ring-0"
-              onClick={handleDeleteUser}
+              onClick={handleDeleteProp}
             >
               Delete
             </button>
@@ -37,4 +37,4 @@ const DeleteUser = ({ handleDeleteUser, closeModal }) => {
   );
 };
 
-export default DeleteUser;
+export default DeleteProp;
