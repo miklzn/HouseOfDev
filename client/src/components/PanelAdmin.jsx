@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import DeleteUser from "../commons/DeleteUser";
+import DeleteProp from "../commons/DeleteProp";
 
 const PanelAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -12,6 +13,7 @@ const PanelAdmin = () => {
   const [info, setInfo] = useState(0);
   const [action, setAction] = useState("");
   const [userId, setUserId] = useState("");
+  const [propId, setPropId] = useState("");
 
   useEffect(() => {
     axios
@@ -47,9 +49,29 @@ const PanelAdmin = () => {
   };
 
   //Delete user
-  const handleDelete = () => {
+  const handleDeleteUser = () => {
     axios
-      .delete(`http://localhost:3001/api/users/delete/${userId}`)
+      .delete(`http://localhost:3001/api/users/delete/${userId}`, {
+        withCredentials: true,
+      })
+      .then((res) => console.log(res))
+      .then(() => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
+  //Get propId
+
+  const getPropId = (id) => {
+    setPropId(id);
+    return setAction("deleteProp");
+  };
+
+  //Delete user
+  const handleDeleteProp = () => {
+    axios
+      .delete(`http://localhost:3001/api/properties/${propId}`, {
+        withCredentials: true,
+      })
       .then((res) => console.log(res))
       .then(() => window.location.reload())
       .catch((err) => console.log(err));
@@ -60,7 +82,8 @@ const PanelAdmin = () => {
     return setAction("");
   };
 
-  console.log(userId);
+  console.log(propId);
+  console.log(action);
 
   return (
     <>
@@ -114,14 +137,16 @@ const PanelAdmin = () => {
           <div
             className={info === 1 ? "mt-4 w-full flex justify-end" : "hidden"}
           >
-            <button className="flex items-center bg-primary py-2 px-4 rounded-full text-white font-dmSans">
-              New
-              <img
-                className="h-5 ml-2"
-                src="https://www.svgrepo.com/show/506784/add-square.svg"
-                alt=""
-              />
-            </button>
+            <Link to={`/properties/create`}>
+              <button className="flex items-center bg-primary py-2 px-4 rounded-full text-white font-dmSans">
+                New
+                <img
+                  className="h-5 ml-2"
+                  src="https://www.svgrepo.com/show/506784/add-square.svg"
+                  alt=""
+                />
+              </button>
+            </Link>
           </div>
           <div className="min-h-[50vh] mt-5 mb-14">
             {info === 0
@@ -223,14 +248,19 @@ const PanelAdmin = () => {
                       </div>
                     </div>
                     <div className="flex space-x-1 mr-4">
-                      <button className="p-2 bg-primary rounded-full">
-                        <img
-                          className="w-5"
-                          src="https://www.svgrepo.com/show/509911/edit.svg"
-                          alt=""
-                        />
-                      </button>
-                      <button className="p-2 bg-primary rounded-full">
+                      <Link to={`/properties/change/${property.id}`}>
+                        <button className="p-2 bg-primary rounded-full">
+                          <img
+                            className="w-5"
+                            src="https://www.svgrepo.com/show/509911/edit.svg"
+                            alt=""
+                          />
+                        </button>
+                      </Link>
+                      <button
+                        className="p-2 bg-primary rounded-full"
+                        onClick={() => getPropId(property.id)}
+                      >
                         <img
                           className="w-5"
                           src="https://www.svgrepo.com/show/502614/delete.svg"
@@ -298,7 +328,13 @@ const PanelAdmin = () => {
       {action === "deleteUser" ? (
         <DeleteUser
           // getUserId={getUserId}
-          handleDelete={handleDelete}
+          handleDeleteUser={handleDeleteUser}
+          closeModal={closeModal}
+        />
+      ) : action === "deleteProp" ? (
+        <DeleteProp
+          //getPropId={getPropId}
+          handleDeleteProp={handleDeleteProp}
           closeModal={closeModal}
         />
       ) : null}

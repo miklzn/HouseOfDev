@@ -30,7 +30,7 @@ Properties.init(
       allowNull: false,
     },
     available: {
-      type: S.BOOLEAN,
+      type: S.STRING,
     },
     garage: {
       type: S.INTEGER,
