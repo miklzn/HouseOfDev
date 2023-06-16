@@ -340,7 +340,7 @@ const NewProperty = () => {
                         >
                           <option value=""></option>
                           <option value="house">House</option>
-                          <option value="department">Department</option>
+                          <option value="apartment">Apartment</option>
                         </select>
                       </div>
                     </div>

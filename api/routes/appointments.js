@@ -41,6 +41,26 @@ router.get("/all", validateAdmin, (req, res) => {
   });
 });
 
+//http://localhost:3001/api/appointments/user/:userId/property/:propertyId
+
+router.get("/user/:userId/property/:propertyId", validateAuth, (req, res) => {
+  const { userId, propertyId } = req.params;
+
+  Appointments.findOne({
+    where: { userId: userId, propertyId: propertyId },
+  })
+    .then((appointment) => {
+      if (appointment) {
+        res.status(200).send(appointment);
+      } else {
+        res.status(404).send("Visit not found");
+      }
+    })
+    .catch((error) => {
+      res.status(500).send("Error while searching for the visit");
+    });
+});
+
 //http://localhost:3001/api/appointments/delete/:id
 
 router.delete("/delete/:id", validateAdmin, (req, res) => {

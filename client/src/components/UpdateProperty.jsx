@@ -15,21 +15,36 @@ const UpdateProperty = () => {
   const [garage, setGarage] = useState("");
   const [category, setCategory] = useState("");
   const [operation, setOperation] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(property.price);
   const [available, setAvailable] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-
-  const navigate = useNavigate();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/properties/${id}`)
-      .then((res) => setProperty(res.data))
-      //.then((res) => dispatch(setUser(res.data)))
+      .then((res) => {
+        setProperty(res.data);
+        setTitle(res.data.title);
+        setAdress(res.data.adress);
+        setCity(res.data.city);
+        setState(res.data.state);
+        setCountry(res.data.country);
+        setRooms(res.data.rooms);
+        setBathrooms(res.data.bathrooms);
+        setEnvironments(res.data.environments);
+        setGarage(res.data.garage);
+        setCategory(res.data.category);
+        setOperation(res.data.operation);
+        setPrice(res.data.price);
+        setAvailable(res.data.available);
+        setDescription(res.data.description);
+        setImage(res.data.image);
+      })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,10 +134,6 @@ const UpdateProperty = () => {
   const handleChangeImage = (e) => {
     setImage(e.target.value);
   };
-
-  console.log(category);
-  console.log(price);
-  console.log(property);
 
   return (
     <>
@@ -363,7 +374,7 @@ const UpdateProperty = () => {
                         >
                           <option value=""></option>
                           <option value="house">House</option>
-                          <option value="department">Department</option>
+                          <option value="apartment">Apartment</option>
                         </select>
                       </div>
                     </div>
@@ -480,7 +491,7 @@ const UpdateProperty = () => {
                       className="block shadow-button bg-primary w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
                       type="submit"
                     >
-                      Create
+                      Update
                     </button>
                   </div>
                 </form>

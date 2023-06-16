@@ -12,18 +12,33 @@ import Lamp from "../utils/Lamp.svg";
 
 const Property = () => {
   //const fecha = new Date();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { id } = useParams();
   const [property, setProperty] = useState({});
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [appointment, setAppointment] = useState("");
+  const [editAppointment, setEditAppointment] = useState(false);
 
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/properties/${id}`)
       .then((res) => setProperty(res.data))
       //.then((res) => dispatch(setUser(res.data)))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:3001/api/appointments/user/${user.id}/property/${id}
+      `,
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => setAppointment(res.data))
       .catch((error) => console.log(error));
   }, []);
 
@@ -57,6 +72,13 @@ const Property = () => {
   const handleChangeTime = (e) => {
     setTime(e.target.value);
   };
+
+  const handleEditAppointment = (e) => {
+    setEditAppointment(!editAppointment);
+  };
+
+  console.log(appointment);
+  console.log(editAppointment);
 
   return (
     <section className="h-auto">
@@ -195,75 +217,225 @@ const Property = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:w-5/12">
-              <div className="mb-10 lg:sticky lg:top-5 ">
-                <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl bg-white min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-auto lg:-mt-[21.5625rem]">
-                  <h2 className="text-[1.375rem] font-semibold mb-2">
-                    Schedule a visit
-                  </h2>
-                  <p className="text-gray-600 mb-5 md:text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
-                    cras tellus sit.
-                  </p>
-                  <hr className="border-t mt-8 mb-10 " />
-                  <div className="min-[480px]:flex min-[480px]:space-x-2">
-                    <div className="w-full">
-                      <label
-                        htmlFor="date"
-                        className="font-dmSans text-gray-700 font-semibold mb-3"
-                      >
-                        Date
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          id="date"
-                          name="date"
-                          type="date"
-                          onChange={handleChangeDate}
-                          required
-                          className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
-                        />
+            {!appointment ? (
+              <div className="lg:w-5/12">
+                <div className="mb-10 lg:sticky lg:top-5 ">
+                  <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl bg-white min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-auto lg:-mt-[21.5625rem]">
+                    <h2 className="text-[1.375rem] font-semibold mb-2">
+                      Schedule a visit
+                    </h2>
+                    <p className="text-gray-600 mb-5 md:text-lg">
+                      Lorem ipsum dolor sit amet consectetur adipiscing elit
+                      etiam cras tellus sit.
+                    </p>
+                    <hr className="border-t mt-8 mb-10 " />
+                    <div className="min-[480px]:flex min-[480px]:space-x-2">
+                      <div className="w-full">
+                        <label
+                          htmlFor="date"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Date
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="date"
+                            name="date"
+                            type="date"
+                            onChange={handleChangeDate}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full">
+                        <label
+                          htmlFor="time"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Time
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="time"
+                            name="time"
+                            type="time"
+                            onChange={handleChangeTime}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className="w-full">
-                      <label
-                        htmlFor="time"
-                        className="font-dmSans text-gray-700 font-semibold mb-3"
-                      >
-                        Time
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          id="time"
-                          name="time"
-                          type="time"
-                          onChange={handleChangeTime}
-                          required
-                          className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
-                        />
-                      </div>
+                    <button
+                      className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      onClick={handleSubmit}
+                    >
+                      Book
+                    </button>
+                    <div className="flex w-full items-center justify-center my-5">
+                      <hr className="border border-gray-300 w-1/2" />
+                      <div className="mx-5">OR</div>
+                      <hr className="border border-gray-300 w-1/2" />
                     </div>
+                    <button
+                      className="block shadow-button bg-black w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      href="/"
+                    >
+                      Contact
+                    </button>
                   </div>
-                  <button
-                    className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                    onClick={handleSubmit}
-                  >
-                    Book
-                  </button>
-                  <div className="flex w-full items-center justify-center my-5">
-                    <hr className="border border-gray-300 w-1/2" />
-                    <div className="mx-5">OR</div>
-                    <hr className="border border-gray-300 w-1/2" />
-                  </div>
-                  <button
-                    className="block shadow-button bg-black w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                    href="/"
-                  >
-                    Contact
-                  </button>
                 </div>
               </div>
-            </div>
+            ) : appointment && editAppointment ? (
+              <div className="lg:w-5/12">
+                <div className="mb-10 lg:sticky lg:top-5 ">
+                  <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl bg-white min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-auto lg:-mt-[21.5625rem]">
+                    <h2 className="text-[1.375rem] font-semibold mb-2">
+                      Select new date and time
+                    </h2>
+                    <p className="text-gray-600 mb-5 md:text-lg">
+                      Lorem ipsum dolor sit amet consectetur adipiscing elit
+                      etiam cras tellus sit.
+                    </p>
+                    <hr className="border-t mt-8 mb-10 " />
+                    <div className="min-[480px]:flex min-[480px]:space-x-2">
+                      <div className="w-full">
+                        <label
+                          htmlFor="date"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Date
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="date"
+                            name="date"
+                            type="date"
+                            disabled
+                            defaultValue={appointment.date}
+                            onChange={handleChangeDate}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full">
+                        <label
+                          htmlFor="time"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Time
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="time"
+                            name="time"
+                            type="time"
+                            disabled
+                            defaultValue={appointment.time}
+                            onChange={handleChangeTime}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      onClick={handleSubmit}
+                    >
+                      Edit
+                    </button>
+                    <div className="flex w-full items-center justify-center my-5">
+                      <hr className="border border-gray-300 w-1/2" />
+                      <div className="mx-5">OR</div>
+                      <hr className="border border-gray-300 w-1/2" />
+                    </div>
+                    <button
+                      className="block shadow-button bg-primary w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primaryHover hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      href="/"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="lg:w-5/12">
+                <div className="mb-10 lg:sticky lg:top-5 ">
+                  <div className="w-full h-auto py-10 px-6 border shadow-card rounded-3xl bg-white min-[480px]:py-12 min-[480px]:px-10 sm:py-[3.125rem] sm:px-[2rem] lg:w-auto lg:-mt-[21.5625rem]">
+                    <h2 className="text-[1.375rem] font-semibold mb-2">
+                      You have a pending visit
+                    </h2>
+                    <p className="text-gray-600 mb-5 md:text-lg">
+                      Lorem ipsum dolor sit amet consectetur adipiscing elit
+                      etiam cras tellus sit.
+                    </p>
+                    <hr className="border-t mt-8 mb-10 " />
+                    <div className="min-[480px]:flex min-[480px]:space-x-2">
+                      <div className="w-full">
+                        <label
+                          htmlFor="date"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Date
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="date"
+                            name="date"
+                            type="date"
+                            disabled
+                            defaultValue={appointment.date}
+                            onChange={handleChangeDate}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full">
+                        <label
+                          htmlFor="time"
+                          className="font-dmSans text-gray-700 font-semibold mb-3"
+                        >
+                          Time
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="time"
+                            name="time"
+                            type="time"
+                            disabled
+                            defaultValue={appointment.time}
+                            onChange={handleChangeTime}
+                            required
+                            className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      onClick={handleEditAppointment}
+                    >
+                      Edit
+                    </button>
+                    <div className="flex w-full items-center justify-center my-5">
+                      <hr className="border border-gray-300 w-1/2" />
+                      <div className="mx-5">OR</div>
+                      <hr className="border border-gray-300 w-1/2" />
+                    </div>
+                    <button
+                      className="block shadow-button bg-primary w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primaryHover hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      href="/"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div>
             <div className="pt-20">
