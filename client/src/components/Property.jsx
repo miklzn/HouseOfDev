@@ -8,7 +8,13 @@ import Environment from "../utils/Environments.svg";
 import Room from "../utils/Room.svg";
 import Bathroom from "../utils/Bathroom.svg";
 import Garage from "../utils/Garage.svg";
-import Lamp from "../utils/Lamp.svg";
+import Gym from "../utils/Gym.svg";
+import SPool from "../utils/SPool.svg";
+import Barbeque from "../utils/Barbeque.svg";
+import Jacuzzi from "../utils/Jacuzzi.svg";
+import Bar from "../utils/Bar.svg";
+import GreenArea from "../utils/GreenArea.svg";
+
 import DeleteAppointment from "../commons/DeleteAppointment";
 
 const Property = () => {
@@ -231,40 +237,32 @@ const Property = () => {
                 <hr className="border-t my-2" />
                 <div>
                   <h2 className="text-2xl font-semibold my-8 md:text-[1.875rem] md:my-12">
-                    Services
+                    Areas
                   </h2>
                   <div className="grid grid-cols-2 gap-y-10 gap-x-4 mb-10 min-[480px]:grid-cols-3 md:gap-y-12 md:mb-16">
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={Gym} alt="" />
+                      <p>Gym</p>
                     </div>
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={SPool} alt="" />
+                      <p>Swimming pool</p>
                     </div>
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={Barbeque} alt="" />
+                      <p>Barbeque</p>
                     </div>
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={Jacuzzi} alt="" />
+                      <p>Jacuzzi</p>
                     </div>
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={Bar} alt="" />
+                      <p>Bar</p>
                     </div>
                     <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
-                    </div>
-                    <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
-                    </div>
-                    <div className="flex items-center">
-                      <img className="mr-2" src={Lamp} alt="" />
-                      <p>Service</p>
+                      <img className="h-[30px] mr-2" src={GreenArea} alt="" />
+                      <p>Gardens</p>
                     </div>
                   </div>
                 </div>
