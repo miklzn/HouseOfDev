@@ -85,7 +85,7 @@ router.get("/user/:userId/property/:propertyId", validateAuth, (req, res) => {
 
 //http://localhost:3001/api/appointments/delete/:id
 
-router.delete("/delete/:id", validateAdmin, (req, res) => {
+router.delete("/delete/:id", validateAuth, (req, res) => {
   const id = req.params.id;
   Appointments.destroy({ where: { id } })
     .then(() => res.status(204).send("Deleted appointment"))

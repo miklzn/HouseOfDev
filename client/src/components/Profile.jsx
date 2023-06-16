@@ -43,7 +43,7 @@ const Profile = () => {
           <div className="h-auto shadow-card flex-col justify-center text-center rounded-3xl p-2 font-dmSans md:w-1/3 md:mb-5 md:h-[50vh]">
             <img
               className="w-16 h-16 rounded-full mx-auto mt-6"
-              src="https://media.licdn.com/dms/image/D4D03AQEyIW7bFHlRgQ/profile-displayphoto-shrink_100_100/0/1676720943921?e=1691625600&v=beta&t=c4IxNEcL9fhEev8PnJgxF-Yuh-bSBUsfiixKWEizV8o"
+              src="https://secure.gravatar.com/avatar/2d1f3467f640887f96f42f1b493c9b6d?s=500&d=mm&r=g"
               alt=""
             />
             <p className="mt-2 mb-4">{`${user.name} ${user.lastName}`}</p>

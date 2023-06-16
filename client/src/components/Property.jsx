@@ -74,6 +74,7 @@ const Property = () => {
         { withCredentials: true }
       )
       .then((res) => res.data)
+      .then(() => window.location.reload())
       .catch((error) => console.log(error));
   };
 
@@ -131,6 +132,8 @@ const Property = () => {
   const viewModal = (e) => {
     setDeleteModal(!deleteModal);
   };
+
+  console.log("date:", date, "time:", time);
 
   return (
     <>
@@ -317,12 +320,22 @@ const Property = () => {
                           </div>
                         </div>
                       </div>
-                      <button
-                        className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
-                        onClick={handleSubmit}
-                      >
-                        Book
-                      </button>
+                      {date && time ? (
+                        <button
+                          className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                          onClick={handleSubmit}
+                        >
+                          Book
+                        </button>
+                      ) : (
+                        <button
+                          className="block shadow-button bg-white border border-gray-200 w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                          disabled
+                        >
+                          Book
+                        </button>
+                      )}
+
                       <div className="flex w-full items-center justify-center my-5">
                         <hr className="border border-gray-300 w-1/2" />
                         <div className="mx-5">OR</div>

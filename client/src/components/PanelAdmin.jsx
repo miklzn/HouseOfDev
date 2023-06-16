@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import DeleteUser from "../commons/DeleteUser";
 import DeleteProp from "../commons/DeleteProp";
+import DeleteAppointmentAdm from "../commons/DeleteAppointmentAdm";
 
 const PanelAdmin = () => {
   const [users, setUsers] = useState([]);
@@ -14,6 +15,7 @@ const PanelAdmin = () => {
   const [action, setAction] = useState("");
   const [userId, setUserId] = useState("");
   const [propId, setPropId] = useState("");
+  const [appointId, setAppointId] = useState("");
 
   useEffect(() => {
     axios
@@ -76,12 +78,29 @@ const PanelAdmin = () => {
       .catch((err) => console.log(err));
   };
 
+  //Get appointmentId
+  const getAppointmentId = (id) => {
+    setAppointId(id);
+    return setAction("deleteAppointment");
+  };
+
+  //Delete appointment
+  const handleDeleteAppointment = () => {
+    axios
+      .delete(`http://localhost:3001/api/appointments/delete/${appointId}`, {
+        withCredentials: true,
+      })
+      .then((res) => console.log(res))
+      .then(() => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
   //Close modal
   const closeModal = () => {
     return setAction("");
   };
 
-  console.log(propId);
+  console.log(appointId);
   console.log(action);
 
   return (
@@ -154,7 +173,7 @@ const PanelAdmin = () => {
                     <div className="flex items-center">
                       <img
                         className="w-14 h-14 ml-2 rounded-full"
-                        src="https://media.licdn.com/dms/image/D4D03AQEyIW7bFHlRgQ/profile-displayphoto-shrink_100_100/0/1676720943921?e=1691625600&v=beta&t=c4IxNEcL9fhEev8PnJgxF-Yuh-bSBUsfiixKWEizV8o"
+                        src="https://secure.gravatar.com/avatar/2d1f3467f640887f96f42f1b493c9b6d?s=500&d=mm&r=g"
                         alt=""
                       />
                       <div className="flex xl:grid xl:grid-cols-5 xl:gap-x-3">
@@ -298,9 +317,11 @@ const PanelAdmin = () => {
                         </div>
                         <div className="flex flex-col ml-3 hidden md:block md:ml-7">
                           <h3 className=" text-gray-500">ID Property:</h3>
-                          <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
-                            {appointment.propertyId}
-                          </p>
+                          <Link to={`/properties/${appointment.propertyId}`}>
+                            <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[110px]">
+                              {appointment.propertyId}
+                            </p>
+                          </Link>
                         </div>
                         <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
                           <h3 className=" text-gray-500">Location:</h3>
@@ -311,7 +332,10 @@ const PanelAdmin = () => {
                       </div>
                     </div>
                     <div>
-                      <button className="mr-4 p-2 bg-primary rounded-full">
+                      <button
+                        className="mr-4 p-2 bg-primary rounded-full"
+                        onClick={() => getAppointmentId(appointment.id)}
+                      >
                         <img
                           className="w-5"
                           src="https://www.svgrepo.com/show/502614/delete.svg"
@@ -334,6 +358,12 @@ const PanelAdmin = () => {
         <DeleteProp
           //getPropId={getPropId}
           handleDeleteProp={handleDeleteProp}
+          closeModal={closeModal}
+        />
+      ) : action === "deleteAppointment" ? (
+        <DeleteAppointmentAdm
+          //getPropId={getPropId}
+          handleDeleteAppointment={handleDeleteAppointment}
           closeModal={closeModal}
         />
       ) : null}
