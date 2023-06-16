@@ -33,6 +33,28 @@ router.post("/create", validateAuth, (req, res) => {
     .catch((error) => console.log(error));
 });
 
+router.put("/update/:id", validateAuth, (req, res) => {
+  const { id } = req.params;
+  const { date, time } = req.body;
+  Appointments.findByPk(id)
+    .then((appointment) => {
+      if (appointment) {
+        appointment.date = date;
+        appointment.time = time;
+        return appointment.save();
+      } else {
+        throw new Error("Visit not found");
+      }
+    })
+    .then((updatedAppointment) => {
+      res.send(updatedAppointment);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send("Error while modifying the visit");
+    });
+});
+
 //http://localhost:3001/api/appointments/all
 
 router.get("/all", validateAdmin, (req, res) => {

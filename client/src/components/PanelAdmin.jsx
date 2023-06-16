@@ -60,13 +60,12 @@ const PanelAdmin = () => {
   };
 
   //Get propId
-
   const getPropId = (id) => {
     setPropId(id);
     return setAction("deleteProp");
   };
 
-  //Delete user
+  //Delete prop
   const handleDeleteProp = () => {
     axios
       .delete(`http://localhost:3001/api/properties/${propId}`, {
