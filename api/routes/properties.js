@@ -52,16 +52,18 @@ router.get("/:id", (req, res) => {
 //BUSCADOR
 //http://localhost:3001/api/properties/search/:title
 
-router.get("/search/:title", (req, res) => {
-  const { title } = req.params;
-  const lower = title.toLowerCase();
+router.get("/search/:query", (req, res) => {
+  const { query } = req.params;
+  const search = query.toLowerCase();
   Properties.findAll({
     where: {
-      title: { [Op.iLike]: `%${lower}%` },
+      [Op.or]: [
+        { title: { [Op.iLike]: `%${search}%` } },
+        { city: { [Op.iLike]: `%${search}%` } },
+        { country: { [Op.iLike]: `%${search}%` } },
+      ],
     },
-  }).then((search) => {
-    res.send(search);
-  });
+  }).then((searchResults) => res.send(searchResults));
 });
 
 //FILTRO POR AMBIENTES
@@ -80,10 +82,11 @@ router.get("/environments/:environments", (req, res) => {
 //http://localhost:3001/api/properties/price
 
 router.post("/price", (req, res) => {
-  const { minimo, maximo } = req.body;
-  Properties.findAll({ where: { price: { [Op.between]: [minimo, maximo] } } })
+  const { minPrice, maxPrice } = req.body;
+  Properties.findAll({
+    where: { price: { [Op.between]: [minPrice, maxPrice] } },
+  })
     .then((filter) => {
-      console.log(filter);
       res.send(filter);
     })
     .catch((error) => console.log(error));
