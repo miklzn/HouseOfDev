@@ -3,10 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/user";
+import Visible from "../utils/Eye.svg";
+import NotVisible from "../utils/Eye-off.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPwd, setShowPwd] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,7 +20,7 @@ const Login = () => {
       .post(
         "http://localhost:3001/api/users/login",
         {
-          email: email,
+          email: email.toLowerCase(),
           password: password,
         },
         { withCredentials: true }
@@ -33,6 +36,10 @@ const Login = () => {
 
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleShowPwd = () => {
+    setShowPwd(!showPwd);
   };
 
   return (
@@ -94,12 +101,34 @@ const Login = () => {
                           >
                             Password
                           </label>
-                          <div className="mt-1">
+                          <div className="relative w-full">
+                            <div className="absolute inset-y-0 right-0 flex items-center px-2 h-[56px]">
+                              <input
+                                className="hidden js-password-toggle"
+                                id="toggle"
+                                type="checkbox"
+                              />
+                              <label
+                                className="px-2 py-1 text-gray-600 font-mono cursor-pointer js-password-label"
+                                htmlFor="toggle"
+                                onClick={handleShowPwd}
+                              >
+                                {showPwd ? (
+                                  <img
+                                    className="h-5"
+                                    src={NotVisible}
+                                    alt=""
+                                  />
+                                ) : (
+                                  <img className="h-5" src={Visible} alt="" />
+                                )}
+                              </label>
+                            </div>
                             <input
                               id="password"
                               name="password"
-                              type="password"
                               onChange={handleChangePassword}
+                              type={showPwd ? "text" : "password"}
                               required
                               className="w-full py-[0.95rem] border border-gray-300 rounded-full font-dmSans text-gray-600 mb-4 shadow-button focus:ring-0 focus:border-primary"
                             />
@@ -110,7 +139,7 @@ const Login = () => {
                   </div>
                   <div className="sm:flex sm:space-x-2 sm:mt-4 sm:justify-center md:space-x-4 lg:mt-6">
                     <button
-                      className="block shadow-button bg-primary w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primary hover:text-white min-[480px]:w-full sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
+                      className="block shadow-button bg-primary w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-white hover:bg-primaryHover hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9"
                       type="submit"
                     >
                       Login
@@ -120,13 +149,13 @@ const Login = () => {
                       <div className="mx-5">OR</div>
                       <hr className="border border-gray-300 w-1/2" />
                     </div>
-                    <a href="/register">
-                      <button className="block shadow-button bg-white w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 border border-gray-200 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-auto sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9">
-                        Register
-                      </button>
-                    </a>
                   </div>
                 </form>
+                <a href="/register">
+                  <button className="block mt-2 shadow-button bg-white w-full py-[1rem] px-6 rounded-full text-base font-dmSans text-gray-900 border border-gray-200 hover:bg-primary hover:text-white min-[480px]:w-full sm:w-full sm:px-6 sm:py-[1.127rem] md:text-lg md:py-[1.375rem] md:px-9">
+                    Create account
+                  </button>
+                </a>
               </div>
             </div>
           </div>
