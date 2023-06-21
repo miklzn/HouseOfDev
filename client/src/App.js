@@ -7,16 +7,15 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Property from "./components/Property";
+import Properties from "./components/Properties";
 import Sale from "./components/Sale";
 import Rent from "./components/Rent";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import NewProperty from "./components/NewProperty";
 import UpdateProperty from "./components/UpdateProperty";
-import DeleteProperty from "./components/DeleteProperty";
 import PanelAdmin from "./components/PanelAdmin";
 import Profile from "./components/Profile";
-import DeleteUser from "./components/DeleteUser";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,9 +41,7 @@ const App = () => {
         <Route path="/panelAdmin" element={<PanelAdmin />} />
         <Route path="/properties/create" element={<NewProperty />} />
         <Route path="/properties/change/:id" element={<UpdateProperty />} />
-        {/*<Route path="/properties" element={<Properties />} />
-        <Route path="/properties/delete/:id" element={<DeleteProperty />} />
-        <Route path="/users/delete/:id" element={<DeleteUser />} /> */}
+        <Route path="/properties" element={<Properties />} />
       </Routes>
       <Footer />
     </>
