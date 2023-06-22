@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../store/user";
 import Visible from "../utils/icons/Eye.svg";
 import NotVisible from "../utils/icons/Eye-off.svg";
+import WallpaperImage from "../utils/images/wallpaperLogin.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ const Login = () => {
           <div className="relative h-[73vh] min-[480px]:h-[80vh] md:h-[82vh] lg:h-[110vh]">
             <img
               className="absolute rounded-b-3xl h-full w-full object-cover"
-              src="https://latinexclusive.com/sites/default/files/api_file_downloads/5c7a20ff202ccf055be696ff_21.jpg"
+              src={WallpaperImage}
               alt=""
             />
             <div className="absolute flex w-full h-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/90 h-full rounded-b-3xl items-center text-center lg:items-start">

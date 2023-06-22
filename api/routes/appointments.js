@@ -63,6 +63,26 @@ router.get("/all", validateAdmin, (req, res) => {
   });
 });
 
+//http://localhost:3001/api/appointments/user/:userId
+
+router.get("/user/:userId", validateAuth, (req, res) => {
+  const { userId } = req.params;
+
+  Appointments.findAll({
+    where: { userId: userId },
+  })
+    .then((appointments) => {
+      if (appointments.length > 0) {
+        res.status(200).send(appointments);
+      } else {
+        res.status(404).send("No appointments found for the user");
+      }
+    })
+    .catch((error) => {
+      res.status(500).send("Error while searching for appointments");
+    });
+});
+
 //http://localhost:3001/api/appointments/user/:userId/property/:propertyId
 
 router.get("/user/:userId/property/:propertyId", validateAuth, (req, res) => {

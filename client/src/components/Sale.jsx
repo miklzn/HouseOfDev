@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Environment from "../utils/icons/Environments.svg";
 import Room from "../utils/icons/Room.svg";
+import WallpaperImage from "../utils/images/wallpaperSale.jpg";
 
 function Sale() {
   const [properties, setProperties] = useState([]);
@@ -22,7 +23,7 @@ function Sale() {
           <div className="relative h-[73vh] md:h-[82vh] lg:h-[76vh]">
             <img
               className="absolute rounded-b-3xl h-full w-full object-cover"
-              src="https://latinexclusive.com/sites/default/files/api_file_downloads/5d5c6c648dc6d200102e7034_6.jpg"
+              src={WallpaperImage}
               alt=""
             />
             <div className="absolute flex w-full h-full backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black/90 h-full rounded-b-3xl items-center text-center">

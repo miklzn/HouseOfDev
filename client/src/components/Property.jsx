@@ -14,7 +14,6 @@ import Barbeque from "../utils/icons/Barbeque.svg";
 import Jacuzzi from "../utils/icons/Jacuzzi.svg";
 import Bar from "../utils/icons/Bar.svg";
 import GreenArea from "../utils/icons/GreenArea.svg";
-
 import DeleteAppointment from "../commons/DeleteAppointment";
 
 const Property = () => {
