@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Environment from "../utils/Environments.svg";
@@ -27,6 +26,12 @@ function Properties() {
         .then((res) => setProperties(res.data));
     }
   }, [search]);
+
+  const handleGetAllProperties = () => {
+    axios
+      .get(`http://localhost:3001/api/properties/all`)
+      .then((res) => setProperties(res.data));
+  };
 
   const handleGetByPrice = (e) => {
     e.preventDefault();
@@ -78,8 +83,12 @@ function Properties() {
   };
 
   const clearFilters = () => {
-    window.location.reload();
+    setSearch("");
+    setMinPrice("");
+    setMaxPrice("");
+    setEnvironments("");
     handleShowFilters();
+    handleGetAllProperties();
   };
 
   return (
