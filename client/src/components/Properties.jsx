@@ -265,6 +265,15 @@ function Properties() {
                         <div className="text-xl font-semibold">
                           ${property.price}
                         </div>
+                        <div
+                          className={
+                            property.operation === "rent"
+                              ? "text-sm text-gray-400 ml-1"
+                              : "hidden"
+                          }
+                        >
+                          /month
+                        </div>
                       </div>
                       <div className="w-full min-[480px]:w-auto">
                         <Link to={`/properties/${property.id}`}>

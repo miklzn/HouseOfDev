@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import Delete from "../utils/icons/Delete.svg";
+import Edit from "../utils/icons/Edit.svg";
+import Add from "../utils/icons/Add.svg";
 import DeleteUser from "../commons/DeleteUser";
 import DeleteProp from "../commons/DeleteProp";
 import DeleteAppointmentAdm from "../commons/DeleteAppointmentAdm";
@@ -100,9 +103,6 @@ const PanelAdmin = () => {
     return setAction("");
   };
 
-  console.log(appointId);
-  console.log(action);
-
   return (
     <>
       <div>
@@ -156,13 +156,9 @@ const PanelAdmin = () => {
             className={info === 1 ? "mt-4 w-full flex justify-end" : "hidden"}
           >
             <Link to={`/properties/create`}>
-              <button className="flex items-center bg-primary py-2 px-4 rounded-full text-white font-dmSans">
+              <button className="flex items-center bg-primary py-2 px-4 rounded-full text-white font-dmSans hover:bg-primaryHover">
                 New
-                <img
-                  className="h-5 ml-2"
-                  src="https://www.svgrepo.com/show/506784/add-square.svg"
-                  alt=""
-                />
+                <img className="h-5 ml-2" src={Add} alt="" />
               </button>
             </Link>
           </div>
@@ -209,14 +205,10 @@ const PanelAdmin = () => {
                     </div>
                     <div>
                       <button
-                        className="mr-4 p-2 bg-primary rounded-full"
+                        className="mr-4 p-2 bg-primary rounded-full hover:bg-primaryHover"
                         onClick={() => getUserId(user.id)}
                       >
-                        <img
-                          className="w-5"
-                          src="https://www.svgrepo.com/show/502614/delete.svg"
-                          alt=""
-                        />
+                        <img className="w-5" src={Delete} alt="" />
                       </button>
                     </div>
                   </div>
@@ -267,23 +259,15 @@ const PanelAdmin = () => {
                     </div>
                     <div className="flex space-x-1 mr-4">
                       <Link to={`/properties/change/${property.id}`}>
-                        <button className="p-2 bg-primary rounded-full">
-                          <img
-                            className="w-5"
-                            src="https://www.svgrepo.com/show/509911/edit.svg"
-                            alt=""
-                          />
+                        <button className="p-2 bg-primary rounded-full hover:bg-primaryHover">
+                          <img className="w-5" src={Edit} alt="" />
                         </button>
                       </Link>
                       <button
-                        className="p-2 bg-primary rounded-full"
+                        className="p-2 bg-primary rounded-full hover:bg-primaryHover"
                         onClick={() => getPropId(property.id)}
                       >
-                        <img
-                          className="w-5"
-                          src="https://www.svgrepo.com/show/502614/delete.svg"
-                          alt=""
-                        />
+                        <img className="w-5" src={Delete} alt="" />
                       </button>
                     </div>
                   </div>
@@ -333,14 +317,10 @@ const PanelAdmin = () => {
                     </div>
                     <div>
                       <button
-                        className="mr-4 p-2 bg-primary rounded-full"
+                        className="mr-4 p-2 bg-primary rounded-full hover:bg-primaryHover"
                         onClick={() => getAppointmentId(appointment.id)}
                       >
-                        <img
-                          className="w-5"
-                          src="https://www.svgrepo.com/show/502614/delete.svg"
-                          alt=""
-                        />
+                        <img className="w-5" src={Delete} alt="" />
                       </button>
                     </div>
                   </div>
@@ -350,19 +330,16 @@ const PanelAdmin = () => {
       </div>
       {action === "deleteUser" ? (
         <DeleteUser
-          // getUserId={getUserId}
           handleDeleteUser={handleDeleteUser}
           closeModal={closeModal}
         />
       ) : action === "deleteProp" ? (
         <DeleteProp
-          //getPropId={getPropId}
           handleDeleteProp={handleDeleteProp}
           closeModal={closeModal}
         />
       ) : action === "deleteAppointment" ? (
         <DeleteAppointmentAdm
-          //getPropId={getPropId}
           handleDeleteAppointment={handleDeleteAppointment}
           closeModal={closeModal}
         />
