@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Environment from "../utils/Environments.svg";
-import Room from "../utils/Room.svg";
+import Environment from "../utils/icons/Environments.svg";
+import Room from "../utils/icons/Room.svg";
 
 function Rent() {
   const [properties, setProperties] = useState([]);

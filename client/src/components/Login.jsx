@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/user";
-import Visible from "../utils/Eye.svg";
-import NotVisible from "../utils/Eye-off.svg";
+import Visible from "../utils/icons/Eye.svg";
+import NotVisible from "../utils/icons/Eye-off.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import HOD from "../utils/HOD.svg";
-import Facebook from "../utils/Facebook.svg";
-import Twitter from "../utils/Twitter.svg";
-import Instagram from "../utils/Instagram.svg";
-import Youtube from "../utils/Youtube.svg";
+import HOD from "../utils/icons/HOD.svg";
+import Facebook from "../utils/icons/Facebook.svg";
+import Twitter from "../utils/icons/Twitter.svg";
+import Instagram from "../utils/icons/Instagram.svg";
+import Youtube from "../utils/icons/Youtube.svg";
 
 const Footer = () => {
   const year = new Date().getFullYear();
