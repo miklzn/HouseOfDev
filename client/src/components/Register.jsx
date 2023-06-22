@@ -2,8 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Visible from "../utils/Eye.svg";
-import NotVisible from "../utils/Eye-off.svg";
+import Visible from "../utils/icons/Eye.svg";
+import NotVisible from "../utils/icons/Eye-off.svg";
 
 const Register = () => {
   const [name, setName] = useState("");

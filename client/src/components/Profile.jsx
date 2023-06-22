@@ -3,8 +3,8 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFavorite } from "../store/user";
 
-import Environment from "../utils/Environments.svg";
-import Room from "../utils/Room.svg";
+import Environment from "../utils/icons/Environments.svg";
+import Room from "../utils/icons/Room.svg";
 
 const Profile = () => {
   const [properties, setProperties] = useState([]);

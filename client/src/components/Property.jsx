@@ -4,16 +4,16 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../store/user";
-import Environment from "../utils/Environments.svg";
-import Room from "../utils/Room.svg";
-import Bathroom from "../utils/Bathroom.svg";
-import Garage from "../utils/Garage.svg";
-import Gym from "../utils/Gym.svg";
-import SPool from "../utils/SPool.svg";
-import Barbeque from "../utils/Barbeque.svg";
-import Jacuzzi from "../utils/Jacuzzi.svg";
-import Bar from "../utils/Bar.svg";
-import GreenArea from "../utils/GreenArea.svg";
+import Environment from "../utils/icons/Environments.svg";
+import Room from "../utils/icons/Room.svg";
+import Bathroom from "../utils/icons/Bathroom.svg";
+import Garage from "../utils/icons/Garage.svg";
+import Gym from "../utils/icons/Gym.svg";
+import SPool from "../utils/icons/SPool.svg";
+import Barbeque from "../utils/icons/Barbeque.svg";
+import Jacuzzi from "../utils/icons/Jacuzzi.svg";
+import Bar from "../utils/icons/Bar.svg";
+import GreenArea from "../utils/icons/GreenArea.svg";
 
 import DeleteAppointment from "../commons/DeleteAppointment";
 

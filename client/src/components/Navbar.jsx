@@ -5,7 +5,7 @@ import { userLogout } from "../store/user";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import HOD from "../utils/HOD.svg";
+import HOD from "../utils/icons/HOD.svg";
 
 function Navbar() {
   const dispatch = useDispatch();

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import HOD_Home from "../utils/HOD-Home.svg";
-import Environment from "../utils/Environments.svg";
-import Room from "../utils/Room.svg";
-import Top_Card from "../utils/TopCard.svg";
-import Bottom_Card from "../utils/BottomCard.svg";
+import HOD_Home from "../utils/icons/HOD-Home.svg";
+import Environment from "../utils/icons/Environments.svg";
+import Room from "../utils/icons/Room.svg";
+import Top_Card from "../utils/icons/TopCard.svg";
+import Bottom_Card from "../utils/icons/BottomCard.svg";
+import ArrowLeft from "../utils/icons/ArrowLeft.svg";
+import ArrowRight from "../utils/icons/ArrowRight.svg";
+import wallpaperImage from "../utils/images/wallpaperHome.jpg";
 
 const Home = () => {
   const [properties, setProperties] = useState([]);
@@ -38,14 +41,12 @@ const Home = () => {
       .then((res) => setProperties(res.data));
   }, []);
 
-  console.log(properties);
-
   return (
     <>
       <section
         className="h-screen w-full bg-cover bg-center bg-fixed sm:h-screen md:h-[110vh] "
         style={{
-          backgroundImage: `url(https://wallpapercave.com/wp/wp1853406.jpg)`,
+          backgroundImage: `url(${wallpaperImage})`,
         }}
       >
         <div className="h-screen w-screen backdrop-opacity-10 backdrop-invert bg-transparent bg-gradient-to-b from-transparent to-black sm:h-screen md:h-[110vh]">
@@ -94,11 +95,7 @@ const Home = () => {
               onClick={scrollLeft}
               className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[1vw] xl:p-5 xl:left-[8.2vw]"
             >
-              <img
-                className="h-5"
-                src="https://www.svgrepo.com/show/509302/arrow-left.svg"
-                alt=""
-              />
+              <img className="h-5" src={ArrowLeft} alt="" />
             </button>
             {properties.map((property, i) => (
               <div className="snap-center sm:snap-start">
@@ -160,11 +157,7 @@ const Home = () => {
               onClick={scrollRight}
               className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[1vw] xl:p-5 xl:right-[8.2vw]"
             >
-              <img
-                className="h-5"
-                src="https://www.svgrepo.com/show/509304/arrow-right.svg"
-                alt=""
-              />
+              <img className="h-5" src={ArrowRight} alt="" />
             </button>
           </div>
         </div>
@@ -406,11 +399,7 @@ const Home = () => {
                 onClick={scrollLeft2}
                 className="absolute left-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:left-1 lg:left-[1vw] xl:p-5 xl:left-[8.2vw]"
               >
-                <img
-                  className="h-5"
-                  src="https://www.svgrepo.com/show/509302/arrow-left.svg"
-                  alt=""
-                />
+                <img className="h-5" src={ArrowLeft} alt="" />
               </button>
               <div className="snap-center lg:snap-start">
                 <div className="w-[87vw] h-auto py-10 px-6 border shadow-card rounded-3xl sm:py-[3.125rem] sm:px-[2rem] md:flex md:items-center md:space-x-8 md:px-[4.375rem] lg:w-[728px] lg:px-11">
@@ -485,11 +474,7 @@ const Home = () => {
                 onClick={scrollRight2}
                 className="absolute right-0 bg-primary rounded-full p-3 min-[480px]:p-[1.1rem] md:right-1 lg:right-[1vw] xl:p-5 xl:right-[8.2vw]"
               >
-                <img
-                  className="h-5"
-                  src="https://www.svgrepo.com/show/509304/arrow-right.svg"
-                  alt=""
-                />
+                <img className="h-5" src={ArrowRight} alt="" />
               </button>
             </div>
           </div>
