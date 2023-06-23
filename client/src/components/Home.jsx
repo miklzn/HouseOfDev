@@ -8,6 +8,7 @@ import Top_Card from "../utils/icons/TopCard.svg";
 import Bottom_Card from "../utils/icons/BottomCard.svg";
 import ArrowLeft from "../utils/icons/ArrowLeft.svg";
 import ArrowRight from "../utils/icons/ArrowRight.svg";
+import Heart from "../utils/icons/Heart.svg";
 import wallpaperImage from "../utils/images/wallpaperHome.jpg";
 
 const Home = () => {
@@ -106,14 +107,29 @@ const Home = () => {
                     alt=""
                   />
                   <div className="px-6 pt-8 pb-7 font-dmSans">
-                    <h3 className="text-xl font-semibold">{property.title}</h3>
-                    <div className="flex items-center text-base text-gray-600 my-2">
-                      <img
-                        className="h-4 mr-2"
-                        src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
-                        alt=""
-                      />
-                      {property.city}, {property.country}
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="text-xl font-semibold">
+                          {property.title}
+                        </h3>
+                        <div className="flex items-center text-base text-gray-600 my-2">
+                          <img
+                            className="h-4 mr-2"
+                            src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
+                            alt=""
+                          />
+                          {property.city}, {property.country}
+                        </div>
+                      </div>
+                      <div>
+                        <button className="border rounded-full p-2 shadow-button">
+                          <img
+                            className="h-6 hover:scale-110"
+                            src={Heart}
+                            alt=""
+                          />
+                        </button>
+                      </div>
                     </div>
                     <div className="flex flex-wrap my-5">
                       <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">

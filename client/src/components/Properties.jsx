@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+//-----Redux
+import { removeFavorite } from "../store/user";
+import { addFavorites } from "../store/user";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+//-----Icons & images
 import Environment from "../utils/icons/Environments.svg";
 import Room from "../utils/icons/Room.svg";
 import Search from "../utils/icons/Search.svg";
 import Cancel from "../utils/icons/Cancel.svg";
 import Filters from "../utils/icons/Filters.svg";
+import Heart from "../utils/icons/Heart.svg";
 import WallpaperImage from "../utils/images/wallpaperProperties.jpg";
 
 function Properties() {
@@ -15,6 +24,10 @@ function Properties() {
   const [maxPrice, setMaxPrice] = useState("");
   const [environments, setEnvironments] = useState("");
   const [search, setSearch] = useState("");
+
+  //-----Redux
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (search === "") {
@@ -90,6 +103,21 @@ function Properties() {
     setEnvironments("");
     handleShowFilters();
     handleGetAllProperties();
+  };
+
+  //Add favorites
+
+  const handleAddFavorites = (id) => {
+    axios
+      .post(
+        "http://localhost:3001/api/properties/addFavorites",
+        {
+          id: id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(addFavorites(res.data)))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -240,14 +268,32 @@ function Properties() {
                     alt=""
                   />
                   <div className="px-6 pt-8 pb-7 font-dmSans">
-                    <h3 className="text-xl font-semibold">{property.title}</h3>
-                    <div className="flex items-center text-base text-gray-600 my-2">
-                      <img
-                        className="h-4 mr-2"
-                        src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
-                        alt=""
-                      />
-                      {property.city}, {property.country}
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="text-xl font-semibold">
+                          {property.title}
+                        </h3>
+                        <div className="flex items-center text-base text-gray-600 my-2">
+                          <img
+                            className="h-4 mr-2"
+                            src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
+                            alt=""
+                          />
+                          {property.city}, {property.country}
+                        </div>
+                      </div>
+                      <div>
+                        <button
+                          className="border rounded-full p-2 shadow-button"
+                          onClick={() => handleAddFavorites(property.id)}
+                        >
+                          <img
+                            className="h-6 hover:scale-110"
+                            src={Heart}
+                            alt=""
+                          />
+                        </button>
+                      </div>
                     </div>
                     <div className="flex flex-wrap my-5">
                       <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
