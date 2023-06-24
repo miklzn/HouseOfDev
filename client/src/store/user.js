@@ -18,7 +18,7 @@ const userReducer = createReducer(initialState, {
   [setUser]: (state, action) => action.payload,
   [userLogout]: (state, action) => ({}),
   [addFavorites]: (state, action) => {
-    return state.properties.push(action.payload);
+    return state.properties.concat(action.payload);
   },
   [removeFavorite]: (state, action) => {
     return {
