@@ -14,6 +14,7 @@ import Barbeque from "../utils/icons/Barbeque.svg";
 import Jacuzzi from "../utils/icons/Jacuzzi.svg";
 import Bar from "../utils/icons/Bar.svg";
 import GreenArea from "../utils/icons/GreenArea.svg";
+import PinWhite from "../utils/icons/PinWhite.svg";
 import DeleteAppointment from "../commons/DeleteAppointment";
 
 const Property = () => {
@@ -149,11 +150,24 @@ const Property = () => {
                 <h3 className="text-[2rem] font-semibold mb-4 leading-10 min-[480px]:text-[2.375rem] md:text-5xl">
                   {property.title}
                 </h3>
-                <p className="text-gray-100 md:text-lg lg:w-[57vw] xl:w-[40vw]">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit etiam
-                  cras tellus sit tempor amet, nascetur quam ornare proin platea
-                  diam amet
+                <p className="flex items-center text-gray-100 md:text-lg lg:w-[57vw] xl:w-[40vw]">
+                  <img className="h-5 mr-2" src={PinWhite} alt="" />
+                  {`${property.city}, ${property.country}`}
                 </p>
+                <div className="flex items-center mt-2 min-[480px]:mb-0">
+                  <div className="text-2xl font-semibold pl-1">
+                    $ {property.price}
+                  </div>
+                  <div
+                    className={
+                      property.operation === "rent"
+                        ? "text-sm text-gray-400 ml-1"
+                        : "hidden"
+                    }
+                  >
+                    /month
+                  </div>
+                </div>
               </div>
             </div>
           </div>

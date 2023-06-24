@@ -1,19 +1,71 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+//-----Redux
+import { removeFavorite } from "../store/user";
+import { addFavorites } from "../store/user";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+//-----Icons & images
 import Environment from "../utils/icons/Environments.svg";
 import Room from "../utils/icons/Room.svg";
 import Heart from "../utils/icons/Heart.svg";
+import HeartRed from "../utils/icons/HeartRed.svg";
 import WallpaperImage from "../utils/images/wallpaperRent.jpg";
 
 function Rent() {
   const [properties, setProperties] = useState([]);
+
+  //-----Redux
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  //-----IdFavorites
+  const ids =
+    user && user.properties
+      ? user.properties.map((property) => property.id)
+      : [];
 
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/properties/all`)
       .then((res) => setProperties(res.data));
   }, []);
+
+  //Add favorites
+  const handleAddFavorites = (id) => {
+    axios
+      .post(
+        "http://localhost:3001/api/properties/addFavorites",
+        {
+          id: id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(addFavorites(res.data)))
+      .then(() => window.location.reload(false))
+      .catch((error) => console.log(error));
+  };
+
+  //Remove favorites
+  const handleRemoveFavorite = (id) => {
+    axios
+      .post(
+        `http://localhost:3001/api/properties/deleteFavorites/${id}`,
+        {
+          id: id,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+      .then((res) => dispatch(removeFavorite(res.data)))
+      .then(() => window.location.reload(false))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -63,13 +115,29 @@ function Rent() {
                           </div>
                         </div>
                         <div>
-                          <button className="border rounded-full p-2 shadow-button">
-                            <img
-                              className="h-6 hover:scale-110"
-                              src={Heart}
-                              alt=""
-                            />
-                          </button>
+                          {ids.includes(property.id) ? (
+                            <button
+                              className="w-[41.6px] border rounded-full p-2 shadow-button"
+                              onClick={() => handleRemoveFavorite(property.id)}
+                            >
+                              <img
+                                className="h-6 hover:scale-110"
+                                src={HeartRed}
+                                alt=""
+                              />
+                            </button>
+                          ) : (
+                            <button
+                              className="border rounded-full p-2 shadow-button"
+                              onClick={() => handleAddFavorites(property.id)}
+                            >
+                              <img
+                                className="h-6 hover:scale-110"
+                                src={Heart}
+                                alt=""
+                              />
+                            </button>
+                          )}
                         </div>
                       </div>
                       <div className="flex flex-wrap my-5">

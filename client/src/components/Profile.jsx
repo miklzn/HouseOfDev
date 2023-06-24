@@ -10,6 +10,8 @@ import Email from "../utils/icons/Email.svg";
 import Smartphone from "../utils/icons/Smartphone.svg";
 import Delete from "../utils/icons/Delete.svg";
 import HeartRed from "../utils/icons/HeartRed.svg";
+import HeartOff from "../utils/icons/HeartOff.svg";
+import Calendar from "../utils/icons/Calendar.svg";
 import DeleteAppointmentProfile from "../commons/DeleteAppointmentProfile";
 
 const Profile = () => {
@@ -81,8 +83,6 @@ const Profile = () => {
       .catch((error) => console.log(error));
   };
 
-  console.log(appointments);
-
   return (
     <>
       <div>
@@ -108,7 +108,7 @@ const Profile = () => {
                 {user.phone}
               </p>
             </div>
-            <div className="h-auto min-h-[90vh] rounded-3xl p-4 my-5 font-dmSans md:w-2/3 md:mt-0">
+            <div className="h-auto min-h-[50vh] rounded-3xl p-4 my-5 font-dmSans md:w-2/3 md:mb-[33vh] md:mt-0">
               <div className="flex flex-col justify-center">
                 <div className="w-full flex justify-center mb-4 space-x-1">
                   <button
@@ -137,85 +137,98 @@ const Profile = () => {
                   </button>
                 </div>
                 {info === 0 ? (
-                  <div className="grid grid-cols gap-10 md:grid-cols-2 md:gap-5 lg:gap-x-3 xl:grid-cols-3">
-                    {user.properties.map((property, i) => (
-                      <div className="w-full h-auto border rounded-3xl shadow-card">
-                        <img
-                          className="w-full h-[53.5vw rounded-t-3xl object-cover min-[480px]:h-[48.5vw] sm:h-[55.2vw] md:h-[26.9vw] lg:h-[17.8vw]"
-                          src={property.image}
-                          alt=""
-                        />
-                        <div className="px-6 pt-8 pb-7 font-dmSans">
-                          <div className="flex justify-between items-center">
-                            <div className="md:h-[115.66px] lg:h-auto lg:min-h-[100px]">
-                              <h3 className="text-xl font-semibold">
-                                {property.title}
-                              </h3>
-                              <div className="flex items-center text-base text-gray-600 my-2">
-                                <img
-                                  className="h-4 mr-2"
-                                  src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
-                                  alt=""
-                                />
-                                {property.city}, {property.country}
+                  user.properties.length > 0 ? (
+                    <div className="grid grid-cols gap-10 md:grid-cols-2 md:gap-5 lg:gap-x-3">
+                      {user.properties.map((property, i) => (
+                        <div className="w-full h-auto border rounded-3xl shadow-card">
+                          <img
+                            className="w-full h-[53.5vw rounded-t-3xl object-cover min-[480px]:h-[48.5vw] sm:h-[55.2vw] md:h-[26.9vw] lg:h-[17.8vw]"
+                            src={property.image}
+                            alt=""
+                          />
+                          <div className="px-6 pt-8 pb-7 font-dmSans">
+                            <div className="flex justify-between items-center">
+                              <div className="md:h-[115.66px] lg:h-auto lg:min-h-[100px]">
+                                <h3 className="text-xl font-semibold">
+                                  {property.title}
+                                </h3>
+                                <div className="flex items-center text-base text-gray-600 my-2">
+                                  <img
+                                    className="h-4 mr-2"
+                                    src="https://www.svgrepo.com/show/512655/pin-rounded-circle-620.svg"
+                                    alt=""
+                                  />
+                                  {property.city}, {property.country}
+                                </div>
                               </div>
-                            </div>
-                            <div>
-                              <button
-                                className="w-[41.6px] border rounded-full p-2 shadow-button"
-                                onClick={() =>
-                                  handleRemoveFavorite(property.id)
-                                }
-                              >
-                                <img
-                                  className="h-6 hover:scale-110"
-                                  src={HeartRed}
-                                  alt=""
-                                />
-                              </button>
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap my-5">
-                            <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
-                              <img className="mr-2" src={Environment} alt="" />
-                              {property.environments} Environments
-                            </div>
-                            <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
-                              <img className="mr-2" src={Room} alt="" />{" "}
-                              {property.rooms} Rooms
-                            </div>
-                          </div>
-                          <hr className="border-t border-gray-300 mb-6 mt-8" />
-                          <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
-                            <div className="flex items-center mb-4 min-[480px]:mb-0">
-                              <div className="text-xl font-semibold">
-                                ${property.price}
-                              </div>
-                              <div
-                                className={
-                                  property.operation === "rent"
-                                    ? "text-sm text-gray-400 ml-1"
-                                    : "hidden"
-                                }
-                              >
-                                /month
-                              </div>
-                            </div>
-                            <div className="w-full min-[480px]:w-auto">
-                              <Link to={`/properties/${property.id}`}>
-                                <button className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
-                                  See more
+                              <div>
+                                <button
+                                  className="w-[41.6px] border rounded-full p-2 shadow-button"
+                                  onClick={() =>
+                                    handleRemoveFavorite(property.id)
+                                  }
+                                >
+                                  <img
+                                    className="h-6 hover:scale-110"
+                                    src={HeartRed}
+                                    alt=""
+                                  />
                                 </button>
-                              </Link>
+                              </div>
+                            </div>
+                            <div className="flex flex-wrap my-5">
+                              <div className="w-auto flex items-center border rounded-full py-[0.625rem] px-4 text-sm mr-3">
+                                <img
+                                  className="mr-2"
+                                  src={Environment}
+                                  alt=""
+                                />
+                                {property.environments} Environments
+                              </div>
+                              <div className="w-auto flex items-center border border-gray-200 rounded-full py-[0.625rem] px-4 text-sm">
+                                <img className="mr-2" src={Room} alt="" />{" "}
+                                {property.rooms} Rooms
+                              </div>
+                            </div>
+                            <hr className="border-t border-gray-300 mb-6 mt-8" />
+                            <div className="min-[480px]:w-full min-[480px]:flex min-[480px]:flex-wrap min-[480px]:items-center min-[480px]:justify-between">
+                              <div className="flex items-center mb-4 min-[480px]:mb-0">
+                                <div className="text-xl font-semibold">
+                                  ${property.price}
+                                </div>
+                                <div
+                                  className={
+                                    property.operation === "rent"
+                                      ? "text-sm text-gray-400 ml-1"
+                                      : "hidden"
+                                  }
+                                >
+                                  /month
+                                </div>
+                              </div>
+                              <div className="w-full min-[480px]:w-auto">
+                                <Link to={`/properties/${property.id}`}>
+                                  <button className="block bg-primary w-full py-[0.81rem] pl-3 pr-4 rounded-full text-white font-semibold hover:bg-primaryHover min-[480px]:w-auto min-[480px]:px-[1.63rem] md:py-4 md:px-6 md:bg-primary md:w-full md:p-0">
+                                    See more
+                                  </button>
+                                </Link>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex justify-center">
+                      <img className="h-28 my-14" src={HeartOff} alt="" />
+                    </div>
+                  )
+                ) : appointments.length > 0 ? (
                   appointments.map((appointment, i) => (
-                    <div className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-1">
+                    <div
+                      key={i}
+                      className="flex items-center justify-between h-20 border border-gray-200 rounded-full font-dmSans my-1"
+                    >
                       <div className="flex items-center">
                         <Link to={`/properties/${appointment.propertyId}`}>
                           <img
@@ -226,19 +239,19 @@ const Profile = () => {
                         </Link>
                         <div className="flex xl:grid xl:grid-cols-3 xl:gap-x-2 xl:w-9/12">
                           <div className="flex flex-col ml-4 md:ml-4">
-                            <h3 className=" text-gray-500">Date:</h3>
+                            <h3 className="text-gray-500">Date:</h3>
                             <p className="w-[32vw] overflow-hidden whitespace-nowrap min-[480px]:max-w-[105px]">
                               {appointment.date}
                             </p>
                           </div>
                           <div className="flex flex-col ml-3 hidden min-[480px]:block md:ml-7">
-                            <h3 className=" text-gray-500">Time:</h3>
+                            <h3 className="text-gray-500">Time:</h3>
                             <p className="w-[30vw] overflow-hidden whitespace-nowrap min-[480px]:max-w-[60px]">
                               {appointment.time}
                             </p>
                           </div>
                           <div className="flex flex-col ml-3 hidden lg:block md:ml-7">
-                            <h3 className=" text-gray-500">Location:</h3>
+                            <h3 className="text-gray-500">Location:</h3>
                             <p className="w-[39.065vw] overflow-hidden whitespace-nowrap min-[480px]:w-[26.044vw] min-[480px]:max-w-[180px] xl:max-w-[160px]">
                               {`${appointment.propertyCity}, ${appointment.propertyCountry}`}
                             </p>
@@ -255,6 +268,10 @@ const Profile = () => {
                       </div>
                     </div>
                   ))
+                ) : (
+                  <div className="flex justify-center">
+                    <img className="h-28 my-14" src={Calendar} alt="" />
+                  </div>
                 )}
               </div>
             </div>
@@ -272,66 +289,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-//<Container>
-//       <h1 className="centerItem">Mi Perfil</h1>
-//       <ListGroup className="centerList">
-//         <ListGroup.Item>
-//           <Form.Text className="text-muted">Nombre</Form.Text> <br />{" "}
-//           {user.name}
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <Form.Text className="text-muted">Apellido</Form.Text> <br />{" "}
-//           {user.lastName}
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <Form.Text className="text-muted">Email</Form.Text> <br />{" "}
-//           {user.email}
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <Form.Text className="text-muted">Telefono</Form.Text> <br />{" "}
-//           {user.phone}
-//         </ListGroup.Item>
-//       </ListGroup>
-//       <h2 className="centerItem">Mis Favoritos ({user.properties.length})</h2>
-//       <Row xs={1} md={4} className="g-4">
-//         {user.properties.map((property, i) => (
-//           <Col>
-//             <Card className="size">
-//               <Card.Img className="img" variant="top" src={property.image} />
-//               <Card.Body>
-//                 <Card.Title>{property.title}</Card.Title>
-//                 {/* <Card.Text>{property.description}</Card.Text> */}
-//               </Card.Body>
-//               <ListGroup className="list-group-flush">
-//                 <ListGroup.Item>
-//                   <Form.Text className="text-muted">
-//                     {property.category} en {property.operation}
-//                   </Form.Text>
-//                   <br /> USD {property.price}
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   <BsDoorOpen /> {property.environments} Ambientes |
-//                   <BiBed /> {property.rooms} Habitaciones |
-//                   <BiBath /> {property.bathrooms} Baños
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   {property.city}, {property.state}
-//                 </ListGroup.Item>
-//               </ListGroup>
-//               <Card.Body>
-//                 <Link to={`/properties/${property.id}`}>
-//                   <Button className="buttonStyle">Ver Mas</Button>
-//                 </Link>
-//                 <Button
-//                   onClick={() => handleRemoveFavorite(property.id)}
-//                   variant="primary"
-//                 >
-//                   Eliminar de Favoritos
-//                 </Button>
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         ))}
-//       </Row>
-//     </Container>

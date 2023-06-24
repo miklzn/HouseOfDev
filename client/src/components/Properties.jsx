@@ -15,6 +15,7 @@ import Search from "../utils/icons/Search.svg";
 import Cancel from "../utils/icons/Cancel.svg";
 import Filters from "../utils/icons/Filters.svg";
 import Heart from "../utils/icons/Heart.svg";
+import HeartRed from "../utils/icons/HeartRed.svg";
 import WallpaperImage from "../utils/images/wallpaperProperties.jpg";
 
 function Properties() {
@@ -28,6 +29,12 @@ function Properties() {
   //-----Redux
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  //-----IdFavorites
+  const ids =
+    user && user.properties
+      ? user.properties.map((property) => property.id)
+      : [];
 
   useEffect(() => {
     if (search === "") {
@@ -106,7 +113,6 @@ function Properties() {
   };
 
   //Add favorites
-
   const handleAddFavorites = (id) => {
     axios
       .post(
@@ -117,6 +123,25 @@ function Properties() {
         { withCredentials: true }
       )
       .then((res) => dispatch(addFavorites(res.data)))
+      .then(() => window.location.reload(false))
+      .catch((error) => console.log(error));
+  };
+
+  //Remove favorites
+  const handleRemoveFavorite = (id) => {
+    axios
+      .post(
+        `http://localhost:3001/api/properties/deleteFavorites/${id}`,
+        {
+          id: id,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+      .then((res) => dispatch(removeFavorite(res.data)))
+      .then(() => window.location.reload(false))
       .catch((error) => console.log(error));
   };
 
@@ -261,7 +286,10 @@ function Properties() {
           <div className="my-10 mx-[5vw] md:my-24 xl:px-[5vw]">
             <div className="grid grid-cols gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-7">
               {properties.map((property, i) => (
-                <div className="w-full h-auto border rounded-3xl shadow-card">
+                <div
+                  className="w-full h-auto border rounded-3xl shadow-card"
+                  key={i}
+                >
                   <img
                     className="w-full h-[53.5vw rounded-t-3xl object-cover min-[480px]:h-[48.5vw] sm:h-[55.2vw] md:h-[26.9vw] lg:h-[17.8vw]"
                     src={property.image}
@@ -283,16 +311,29 @@ function Properties() {
                         </div>
                       </div>
                       <div>
-                        <button
-                          className="border rounded-full p-2 shadow-button"
-                          onClick={() => handleAddFavorites(property.id)}
-                        >
-                          <img
-                            className="h-6 hover:scale-110"
-                            src={Heart}
-                            alt=""
-                          />
-                        </button>
+                        {ids.includes(property.id) ? (
+                          <button
+                            className="w-[41.6px] border rounded-full p-2 shadow-button"
+                            onClick={() => handleRemoveFavorite(property.id)}
+                          >
+                            <img
+                              className="h-6 hover:scale-110"
+                              src={HeartRed}
+                              alt=""
+                            />
+                          </button>
+                        ) : (
+                          <button
+                            className="border rounded-full p-2 shadow-button"
+                            onClick={() => handleAddFavorites(property.id)}
+                          >
+                            <img
+                              className="h-6 hover:scale-110"
+                              src={Heart}
+                              alt=""
+                            />
+                          </button>
+                        )}
                       </div>
                     </div>
                     <div className="flex flex-wrap my-5">
@@ -340,224 +381,3 @@ function Properties() {
   );
 }
 export default Properties;
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import { removeFavorite } from "../store/user";
-// import { addFavorites } from "../store/user";
-// import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-// import HOD_Home from "../utils/HOD-Home.svg";
-// import Environment from "../utils/Environments.svg";
-// import Room from "../utils/Room.svg";
-// import Top_Card from "../utils/TopCard.svg";
-// import Bottom_Card from "../utils/BottomCard.svg";
-
-// const Properties = () => {
-//   const [properties, setProperties] = useState([]);
-//   const [search, setSearch] = useState("");
-//   const [environments, setEnvironments] = useState("");
-//   const [minimo, setMinimo] = useState("");
-//   const [maximo, setMaximo] = useState("");
-
-//   const user = useSelector((state) => state.user);
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     if (search === "") {
-//       axios
-//         .get(`http://localhost:3001/api/properties/all`)
-//         .then((res) => setProperties(res.data));
-//     } else {
-//       axios
-//         .get(`http://localhost:3001/api/properties/search/${search}`)
-//         .then((res) => setProperties(res.data));
-//     }
-//   }, [search]);
-
-//   const handleAddFavorites = (id) => {
-//     axios
-//       .post(
-//         "http://localhost:3001/api/properties/addFavorites",
-//         {
-//           id: id,
-//         },
-//         { withCredentials: true }
-//       )
-//       .then((res) => dispatch(addFavorites(res.data)))
-//       .catch((error) => console.log(error));
-//   };
-
-//   const handleRemoveFavorite = (id) => {
-//     axios
-//       .post(
-//         `http://localhost:3001/api/properties/deleteFavorites/${id}`,
-//         {
-//           id: id,
-//         },
-//         {
-//           headers: { "Content-Type": "application/json" },
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => dispatch(removeFavorite(res.data)))
-//       .then(() => window.location.reload(false))
-//       .catch((error) => console.log(error));
-//   };
-
-//   const handleGetEnvironments = (e) => {
-//     e.preventDefault();
-//     axios
-//       .get(
-//         `http://localhost:3001/api/properties/environments/${environments}`,
-//         {
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => setProperties(res.data))
-//       .catch((error) => console.log(error));
-//   };
-
-//   const handleGetPrice = (e) => {
-//     e.preventDefault();
-//     axios
-//       .post(
-//         "http://localhost:3001/api/properties/price",
-//         { minimo: minimo, maximo: maximo },
-//         {
-//           withCredentials: true,
-//         }
-//       )
-//       .then((res) => setProperties(res.data))
-//       .catch((error) => console.log(error));
-//   };
-
-//   const getSearcher = (e) => {
-//     setSearch(e.target.value);
-//   };
-
-//   const getEnvironments = (e) => {
-//     setEnvironments(e.target.value);
-//   };
-
-//   const getMinimo = (e) => {
-//     setMinimo(e.target.value);
-//   };
-
-//   const getMaximo = (e) => {
-//     setMaximo(e.target.value);
-//   };
-
-//   useEffect(() => {
-//     axios
-//       .get(`http://localhost:3001/api/properties/all`)
-//       .then((res) => setProperties(res.data));
-//   }, []);
-
-//   console.log(properties);
-
-//   return (
-
-//     <>
-//       <Form className="searchStyle">
-//         <Form.Group className="mb-3">
-//           <Form.Control
-//             value={search}
-//             onChange={getSearcher}
-//             type="text"
-//             placeholder="Buscar"
-//           />
-//         </Form.Group>
-//         <Accordion>
-//           <Accordion.Item eventKey="0">
-//             <Accordion.Header>Filtros</Accordion.Header>
-//             <Accordion.Body>
-//               <Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                   <Form.Label>Ambientes</Form.Label>
-//                   <Form.Control
-//                     onChange={getEnvironments}
-//                     value={environments}
-//                     type="text"
-//                     placeholder="Ambientes"
-//                   />
-//                 </Form.Group>
-//                 <Button variant="primary" onClick={handleGetEnvironments}>
-//                   Filtrar
-//                 </Button>
-//               </Form>
-//               <br />
-//               <Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                   <Form.Label>Precio</Form.Label>
-//                   <Form.Control
-//                     onChange={getMinimo}
-//                     value={minimo}
-//                     type="text"
-//                     placeholder="Minimo"
-//                   />
-//                   <Form.Control
-//                     onChange={getMaximo}
-//                     value={maximo}
-//                     type="text"
-//                     placeholder="Maximo"
-//                   />
-//                 </Form.Group>
-//                 <Button variant="primary" onClick={handleGetPrice}>
-//                   Filtrar
-//                 </Button>
-//               </Form>
-//             </Accordion.Body>
-//           </Accordion.Item>
-//         </Accordion>
-//       </Form>
-
-//       <Row xs={1} md={4} className="g-4">
-//         {properties.map((property, i) => (
-//           <Col>
-//             <Card className="size">
-//               <Card.Img className="img" variant="top" src={property.image} />
-//               <Card.Body>
-//                 <Card.Title>{property.title}</Card.Title>
-//                 {/* <Card.Text>{property.description}</Card.Text> */}
-//               </Card.Body>
-//               <ListGroup className="list-group-flush">
-//                 <ListGroup.Item>
-//                   <Form.Text className="text-muted">
-//                     {property.category} en {property.operation}
-//                   </Form.Text>
-//                   <br /> USD {property.price}
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   <BsDoorOpen /> {property.environments} Ambientes |
-//                   <BiBed /> {property.rooms} Habitaciones |
-//                   <BiBath /> {property.bathrooms} Baños
-//                 </ListGroup.Item>
-//                 <ListGroup.Item>
-//                   {property.city}, {property.state}
-//                 </ListGroup.Item>
-//               </ListGroup>
-//               <Card.Body>
-//                 <Link to={`/properties/${property.id}`}>
-//                   <Button className="buttonStyle">Ver Mas</Button>
-//                 </Link>
-//                 {user.id ? (
-//                   <Button
-//                     className="buttonStyle"
-//                     onClick={() => handleAddFavorites(property.id)}
-//                     variant="primary"
-//                   >
-//                     Agregar Favoritos
-//                   </Button>
-//                 ) : (
-//                   <Link to={`/login`}>
-//                     <Button className="buttonStyle">Agregar Favoritos</Button>
-//                   </Link>
-//                 )}
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         ))}
-//       </Row>
-//     </>
