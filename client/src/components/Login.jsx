@@ -6,6 +6,7 @@ import { setUser } from "../store/user";
 import Visible from "../utils/icons/Eye.svg";
 import NotVisible from "../utils/icons/Eye-off.svg";
 import WallpaperImage from "../utils/images/wallpaperLogin.jpg";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,9 +27,15 @@ const Login = () => {
         },
         { withCredentials: true }
       )
-      .then((res) => dispatch(setUser(res.data)))
-      .then(() => navigate("/"))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        dispatch(setUser(res.data));
+        toast.success("Logged in successfully.");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Invalid credentials, please try again.");
+      });
   };
 
   const handleChangeEmail = (e) => {
@@ -162,6 +169,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 };
