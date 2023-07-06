@@ -378,7 +378,7 @@ const Home = () => {
             />
             <div className="py-14 px-8 font-dmSans md:py-[4.5rem] md:px-[3.375rem] lg:py-[5.875rem] lg:px-[5.375rem]">
               <h2 className="text-2xl font-semibold text-white mb-3 min-[480px]:text-[1.625rem] md:text-3xl md:w-[36.5rem] lg:text-[2.75rem] lg:leading-tight">
-                Recharge your energies in one of our forest cabins
+                Discover your perfect home with our online agency.
               </h2>
               <p className="text-base text-white md:text-lg md:w-[36.5rem]">
                 Non consectetur a erat nam at lectus urna duis convallis
