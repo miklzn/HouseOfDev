@@ -61,25 +61,12 @@ Property
 
 ## Images Mobile devices
 
-Login
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/e18d2dae-1ada-4537-adaf-d10d92720eda)
-
-Home/Navbar
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/45f2474e-c403-44d6-814c-3b2c10e4e583)
-
-Administrator panel
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/408e1f76-0f38-4967-b67e-c5e2b197a1b6)
-
-Profile
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/9053f71d-5c83-4ebb-ac33-d630c02a46db)
-
-Filters
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/3efd1299-4f42-4592-9222-6af46e6e0df8)
-
-Add Favorite
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/e96e5a00-6704-4a71-807a-76c2e3f643a5)
-
-Favorites
 ![image](https://github.com/miklzn/HouseOfDev/assets/110488033/01f8ad06-13b4-4ab2-856e-44b7ad5f602d)
 
 
